@@ -1,0 +1,40 @@
+<div class="top">
+    <div class="main-header">Document</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<form class="student_center">
+
+    <div class="error_message body-text" *ngIf="show_format_message">
+        upload .pdf , .docx fomarts only
+    </div>
+
+    <div class="error_message body-text" *ngIf="max_size_reached">
+        maximum size is 7MB
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <ngx-mat-file-input placeholder="Select Document *" [errorStateMatcher]="matcher" name="document_name"
+                    (change)="handleFileInput($event)">
+                </ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="login__form_action_container login__form_action_container--multiple-actions">
+        <button class="btn__primary--large from__button--floating button-text" type="submit" aria-label="Sign in"
+            (click)="EditDocument()" [disabled]="loading"><span *ngIf="!loading">Update</span>
+            <mat-icon *ngIf="loading">
+                <mat-spinner diameter="20"> </mat-spinner>
+            </mat-icon>
+        </button>
+    </div>
+</form>

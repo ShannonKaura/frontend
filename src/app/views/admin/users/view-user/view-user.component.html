@@ -1,0 +1,38 @@
+<!-- <mat-dialog-content> -->
+<div class="top">
+    <span class="main-header">User Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Name
+    </div>
+    <div class="col-md-6 body-text">
+        {{user.main_user_info.first_name}} {{user.main_user_info.middle_name}} {{user.main_user_info.last_name}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Email
+    </div>
+    <div class="col-md-6 body-text">
+        {{user.contact_info.email_address}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Status
+    </div>
+    <div class="col-md-6 body-text">
+        {{user.status}}
+    </div>
+</div>

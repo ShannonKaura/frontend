@@ -1,0 +1,65 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    // color: #EAECEE!important;
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.main-profile-card {
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 20px;
+    max-width: 75%;
+}
+
+.bottom-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.audio-label {
+    margin-bottom: 20px;
+}
+
+.btn_primary_large {
+    background-color: #27AE60;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+button:disabled {
+    background-color: #EAECEE;
+}
+
+.select-audio {
+    color: #E74C3C;
+    font-weight: 600;
+}

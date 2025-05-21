@@ -1,0 +1,326 @@
+<div class="top">
+    <span class="main-header" *ngIf="new_candidate">Basic Candidate</span>
+    <span class="main-header" *ngIf="education_view">Education Details</span>
+    <span class="main-header" *ngIf="experience_view">Recent Employment Details (optional)</span>
+    <span class="main-header" *ngIf="availability_view">Job Title Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<!-- Basic Information -->
+<form class="" #f1="ngForm" *ngIf="new_candidate">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Firstname</mat-label>
+                <input class="body-text" matInput placeholder="Firstname" [(ngModel)]="candidate.first_name" name="first_name" required #first_name="ngModel">
+                <mat-error *ngIf="!first_name.valid || (!first_name.pristine)">{{getFirstnameMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Middlename</mat-label>
+                <input class="body-text" matInput placeholder="Middlename" [(ngModel)]="candidate.middle_name" name="middle_name">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Lastname</mat-label>
+                <input class="body-text" matInput placeholder="Lastname" [(ngModel)]="candidate.last_name" name="last_name" required #last_name="ngModel">
+                <mat-error *ngIf="!last_name.valid || (!last_name.pristine)">{{getLastnameMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Country</mat-label>
+                <mat-select class="body-text" matInput placeholder="Country" [(ngModel)]="candidate.country" name="country" #country="ngModel" (selectionChange)="getCountryCode($event)" required>
+                    <mat-option class="body-text" *ngFor="let c of countries" value="{{c.country_name}}">
+                        {{c.country_name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!country.valid || (!country.pristine)">{{getCountryMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>City</mat-label>
+                <input class="body-text" matInput placeholder="City" [(ngModel)]="candidate.city" name="city" required #city="ngModel">
+                <mat-error *ngIf="!city.valid || (!city.pristine)">{{getCityMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input class="body-text" matInput placeholder="Email" name="email" [(ngModel)]="candidate.email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" (ngModelChange)="checkEmailExist()">
+                <mat-error *ngIf="!email.valid || (!email.pristine)">{{getEmailErrorMessage()}}</mat-error>
+                <small *ngIf="email_exists" class="text-danger"> this email already exists </small>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input class="body-text" matInput placeholder="Phone Number" [(ngModel)]="candidate.phone" name="phone" required #phone="ngModel">
+                <span matPrefix>{{candidate.country_code}}&nbsp;</span>
+                <mat-error *ngIf="!phone.valid || (!phone.pristine)">{{getPhoneMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input class="body-text" matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="candidate.password" required validateEqual="confirm_password" reverse="true" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="!password.valid || (!password.pristine)">Must contain at least one Number and one Uppercase and lowercase letter, and at least 8 Characters</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input class="body-text" matInput [type]="hide ? 'password' : 'text'" name="confirm_password" [(ngModel)]="confirm.confirm_password" required validateEqual="password" reverse="false" #confirm_password="ngModel">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="!confirm_password.valid || (!confirm_password.pristine)">Password mismatch
+                </mat-error>
+
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="nav-arrow-holder">
+        <button mat-flat-button class="icon-btn" (click)="Education()" [disabled]="!f1.valid">
+            <mat-icon>navigate_next</mat-icon>
+        </button>
+    </div>
+</form>
+
+<!-- Education Information -->
+<form class="" #f5="ngForm" *ngIf="education_view">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>School Name</mat-label>
+                <input class="body-text" matInput placeholder="School Name" [(ngModel)]="education.school" name="school" required #school="ngModel">
+                <mat-error *ngIf="!school.valid || (!school.pristine)">{{getShcoolMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Field Of Study</mat-label>
+                <input class="body-text" matInput placeholder="Field Of Study" [(ngModel)]="education.field_of_study" name="field_of_study">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input class="body-text" matInput [matDatepicker]="school_start_date" placeholder="Event Date (format) dd/MM/YYYY" name="school_start_date" [(ngModel)]="education.start_date" (dateChange)="onChangeStartDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="school_start_date"></mat-datepicker-toggle>
+                <mat-datepicker #school_start_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input class="body-text" matInput [matDatepicker]="school_end_date" placeholder="Event Date (format) dd/MM/YYYY" name="school_end_date" [(ngModel)]="education.end_date" (dateChange)="onChangeEndDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="school_end_date"></mat-datepicker-toggle>
+                <mat-datepicker #school_end_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Grade</mat-label>
+                <input class="body-text" matInput placeholder="Grade" [(ngModel)]="education.grade" name="grade">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Activities</mat-label>
+                <textarea matInput placeholder="Activities ..." [(ngModel)]="education.activities" name="activities"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description ..." [(ngModel)]="education.description" name="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="nav-arrow-holder">
+        <button mat-flat-button class="icon-btn" (click)="PreviousToBasicDetails()">
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+
+        <button mat-flat-button class="icon-btn" (click)="NextToExperience()" [disabled]="!f5.valid">
+            <mat-icon>navigate_next</mat-icon>
+        </button>
+    </div>
+</form>
+
+<form class="" #f4="ngForm" *ngIf="experience_view">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Job Title</mat-label>
+                <input class="body-text" matInput placeholder="Job Title" [(ngModel)]="experience.title" name="title" required #title="ngModel">
+                <mat-error *ngIf="!title.valid || (!title.pristine)">{{getTitleMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Employment Type</mat-label>
+                <mat-select class="body-text" [(ngModel)]="experience.employment_type" name="employment_type">
+                    <mat-option class="body-text" *ngFor="let employment_type of employment_types" [value]="employment_type.value">
+                        {{employment_type.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Company</mat-label>
+                <input class="body-text" matInput placeholder="Company" [(ngModel)]="experience.company" name="company" required #company="ngModel">
+                <mat-error *ngIf="!company.valid || (!company.pristine)">{{getCompanyMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Country</mat-label>
+                <mat-select class="body-text" matInput placeholder="Country" [(ngModel)]="experience.location.country" name="experience_country" #country="ngModel" required>
+                    <mat-option class="body-text" *ngFor="let c of countries" value="{{c.country_name}}">
+                        {{c.country_name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!country.valid || (!country.pristine)">{{getCountryMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>City</mat-label>
+                <input class="body-text" matInput placeholder="City" [(ngModel)]="experience.location.city" name="experience_city" required #experience_city="ngModel">
+                <mat-error *ngIf="!experience_city.valid || (!experience_city.pristine)">
+                    {{getExperienceLocationCityMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="current-employment">
+                <mat-checkbox name="currently_working" [(ngModel)]="experience.currently_working" (change)="CurrentWorkStatus($event)">
+                </mat-checkbox> &nbsp;&nbsp;&nbsp;
+
+                <mat-label class="sub-header">candidate currently working</mat-label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input class="body-text" matInput [matDatepicker]="experience_start_date" placeholder="Event Date (format) dd/MM/YYYY" name="experience_start_date" [(ngModel)]="experience.start_date" (dateChange)="onChangeStartDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="experience_start_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #experience_start_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6" *ngIf="!experience.currently_working">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input class="body-text" matInput [matDatepicker]="experience_end_date" placeholder="Event Date (format) dd/MM/YYYY" name="experience_end_date" [(ngModel)]="experience.end_date" (dateChange)="onChangeEndDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="experience_end_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #experience_end_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description ..." [(ngModel)]="experience.description" name="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="nav-arrow-holder">
+        <button mat-flat-button class="icon-btn" (click)="PreviousToEducation()">
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+
+        <button mat-flat-button class="icon-btn" (click)="NextToAvailability()">
+            <mat-icon>navigate_next</mat-icon>
+        </button>
+    </div>
+</form>
+
+<form class="" #f7="ngForm" *ngIf="availability_view">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Professional Summary</mat-label>
+                <textarea matInput placeholder="Professional Summary ..." [(ngModel)]="candidate.summary" name="summary" required #summary="ngModel"></textarea>
+                <mat-error *ngIf="!summary.valid || (!summary.pristine)">{{getSummaryMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="nav-arrow-holder">
+        <button mat-flat-button class="icon-btn" (click)="PreviousToExperience()">
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+
+        <button mat-flat-button class="icon-btn" (click)="Save()" [disabled]="!f7.valid">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+</form>

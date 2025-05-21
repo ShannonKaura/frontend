@@ -1,0 +1,33 @@
+<div class="top">
+    <!-- <div class="profile-pic"></div> -->
+    <div class="holder">
+        <div class="title-header">
+            {{user.main_user_info.first_name}} {{user.main_user_info.middle_name}} {{user.main_user_info.last_name}}
+        </div>
+
+        <div class="body-text">
+            {{user.email}}
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="links">
+    <div (click)="UpdatePassword()" class="user-link">
+        <span class="material-icons">
+            password
+        </span> &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <span class="body-text">Update Password</span>
+    </div>
+
+    <div (click)="Logout()" class="user-link">
+        <span class="material-icons">
+            logout
+        </span> &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <span class="body-text">Sign Out</span>
+    </div>
+
+</div>

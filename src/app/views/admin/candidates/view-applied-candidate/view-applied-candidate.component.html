@@ -1,0 +1,477 @@
+<div class="top">
+    <span class="main-header">Candidate Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<div class="candidate-wrapper">
+    <div class="left">
+        <div class="row">
+            <div class="col-md-6 section-header">
+                Basic Details
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 topic-header">
+                Name
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.first_name}} {{candidate.middle_name}} {{candidate.last_name}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 topic-header">
+                Location
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.city}}, {{candidate.country}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 topic-header">
+                Phone
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.phone}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 topic-header">
+                Email
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.email}}
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="row">
+            <div class="col-md-6 section-header">
+                Professional Summary
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-text">
+                {{candidate.summary}}
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="row" *ngIf="candidate.experience.length > 0">
+            <div class="col-md-6 section-header">
+                Experience
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-text">
+                <div class="experience-info" *ngFor="let item of candidate.experience; index as i">
+                    <div class="holder">
+                        <span class="sub-title">
+                                {{item.title}}
+                            </span> <br />
+                    </div>
+
+
+                    <span>
+                            {{item.company}} . {{item.employment_type}}
+                        </span> <br />
+
+                    <span>
+                            {{item.start_date | date}}
+                        </span> -
+
+                    <span *ngIf="item.end_date && item.currently_working !== true">
+                            {{item.end_date | date}}
+                        </span>
+
+                    <span *ngIf="item.currently_working === true">
+                            Current
+                        </span> <br />
+
+                    <span>
+                            {{item.location.city}}, {{item.location.country}}
+                        </span>
+
+                    <div class="inside-devider" *ngIf="candidate.experience.length - i !== 1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="row">
+            <div class="col-md-6 section-header">
+                Education
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-text">
+                <div class="education-info" *ngFor="let item of candidate.education; index as i">
+
+                    <div class="holder">
+                        <span class="sub-title">
+                                {{item.school}}
+                            </span> <br />
+                    </div>
+
+                    <span>
+                            {{item.degree}} . {{item.field_of_study}}
+                        </span> <br />
+
+                    <span>
+                            {{item.start_date | date}} - {{item.end_date | date}}
+                        </span>
+
+                    <div class="inside-devider" *ngIf="candidate.education.length - i !== 1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="row">
+            <div class="col-md-6 section-header">
+                Skills
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table>
+                    <tr>
+                        <td class="skill-set">
+                            <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                <mat-chip selected *ngFor="let item of candidate.skills; index as i">{{item.skill_name}}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="section-devider" *ngIf="!empty_audio"></div>
+
+        <div class="row" *ngIf="!empty_audio">
+            <div class="col-md-6 section-header">
+                Audio
+            </div>
+        </div>
+
+        <div class="">
+            <div class="audio-player" *ngIf="!empty_audio">
+                <ngx-audio-player [playlist]="audiopPlaylist" [displayTitle]="audiopDisplayTitle" [autoPlay]="false" muted="muted" [displayPlaylist]="audiopDisplayPlayList" (trackEnded)="onEnded($event)" [displayVolumeControls]="audiopDisplayVolumeControls" [displayRepeatControls]="audiopDisplayRepeatControls"
+                    [disablePositionSlider]="audiopDisablePositionSlider" [displayArtist]="audiopDisplayArtist" [displayDuration]="audiopDisplayDuration" [expanded]="true"></ngx-audio-player>
+            </div>
+
+        </div>
+
+
+        <div class="section-devider" *ngIf="!empty_document"></div>
+
+        <div class="row" *ngIf="!empty_document">
+            <div class="col-md-6 section-header">
+                Document
+            </div>
+        </div>
+
+        <div class="">
+            <div class="document" *ngIf="!empty_document">
+                <div class="document-btn">
+                    <a class="btn_primary button-text" [href]="documetSelectedFileBLOB" target="_blank" rel="noopener noreferrer">
+                            View Resume
+                        </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-devider" *ngIf="!option_selected"></div>
+
+        <div class="row" *ngIf="!option_selected">
+            <div class="col-md-6 section-header">
+                Select Option
+            </div>
+        </div>
+
+        <br />
+        <div class="divider"></div>
+
+        <div class="row">
+            <div class="col-md-12 section-header">
+                Decision Before Interview
+            </div>
+        </div>
+
+        <div class="row" *ngIf="!option_selected">
+            <div class="options">
+                <div class="col-md-12">
+                    <button class="button-text" mat-button matTooltip="" (click)="ConfirmDetails()" *ngIf="!selected_option">Shortlist</button>
+
+                    <button class="button-text" mat-button matTooltip="" (click)="RejectCandidate()" *ngIf="!selected_option">Reject</button>
+
+                    <button class="button-text" mat-button matTooltip="" (click)="PutCandidateUnderReview()" *ngIf="!selected_option">Under Review</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="option_selected">
+            <div class="options">
+                <div class="col-md-12">
+                    <button class="button-text" mat-button matTooltip="" (click)="ConfirmDetails()" *ngIf="!selected_option">Shortlist Candidate</button>
+
+                    <button class="button-text" mat-button matTooltip="" (click)="RejectCandidate()" *ngIf="!selected_option">Reject</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="interview-details-holder" *ngIf="show_interview_details">
+            <div class="row">
+                <div class="col-md-6 section-header">
+                    Interview Details
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Interview Date</mat-label>
+                        <input matInput [matDatepicker]="interview_date" placeholder="Start Date (format) dd/MM/YYYY" name="interview_date" (dateChange)="onChangeInterviewDate($event)" required>
+                        <mat-datepicker-toggle matSuffix [for]="interview_date">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #interview_date></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Interview Time</mat-label>
+                        <mat-select class="body-text" matInput placeholder="Job Type" name="interview_time" [(ngModel)]="interview_time">
+                            <mat-option class="body-text" value="">Select Time</mat-option>
+                            <mat-option class="body-text" value="08:00 HRS">08:00 HRS</mat-option>
+                            <mat-option class="body-text" value="08:15 HRS">08:15 HRS</mat-option>
+                            <mat-option class="body-text" value="08:30 HRS">08:30 HRS</mat-option>
+                            <mat-option class="body-text" value="08:45 HRS">08:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="09:00 HRS">09:00 HRS</mat-option>
+                            <mat-option class="body-text" value="09:15 HRS">09:15 HRS</mat-option>
+                            <mat-option class="body-text" value="09:30 HRS">09:30 HRS</mat-option>
+                            <mat-option class="body-text" value="09:45 HRS">09:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="10:00 HRS">10:00 HRS</mat-option>
+                            <mat-option class="body-text" value="10:15 HRS">10:15 HRS</mat-option>
+                            <mat-option class="body-text" value="10:30 HRS">10:30 HRS</mat-option>
+                            <mat-option class="body-text" value="10:45 HRS">10:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="11:00 HRS">11:00 HRS</mat-option>
+                            <mat-option class="body-text" value="11:15 HRS">11:15 HRS</mat-option>
+                            <mat-option class="body-text" value="11:30 HRS">11:30 HRS</mat-option>
+                            <mat-option class="body-text" value="11:45 HRS">11:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="12:00 HRS">12:00 HRS</mat-option>
+                            <mat-option class="body-text" value="12:15 HRS">12:15 HRS</mat-option>
+                            <mat-option class="body-text" value="12:30 HRS">12:30 HRS</mat-option>
+                            <mat-option class="body-text" value="12:45 HRS">12:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="13:00 HRS">13:00 HRS</mat-option>
+                            <mat-option class="body-text" value="13:15 HRS">13:15 HRS</mat-option>
+                            <mat-option class="body-text" value="13:30 HRS">13:30 HRS</mat-option>
+                            <mat-option class="body-text" value="13:45 HRS">13:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="14:00 HRS">14:00 HRS</mat-option>
+                            <mat-option class="body-text" value="14:15 HRS">14:15 HRS</mat-option>
+                            <mat-option class="body-text" value="14:30 HRS">14:30 HRS</mat-option>
+                            <mat-option class="body-text" value="14:45 HRS">14:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="15:00 HRS">15:00 HRS</mat-option>
+                            <mat-option class="body-text" value="15:15 HRS">15:15 HRS</mat-option>
+                            <mat-option class="body-text" value="15:30 HRS">15:30 HRS</mat-option>
+                            <mat-option class="body-text" value="15:45 HRS">15:45 HRS</mat-option>
+
+                            <mat-option class="body-text" value="16:00 HRS">16:00 HRS</mat-option>
+                            <mat-option class="body-text" value="16:15 HRS">16:15 HRS</mat-option>
+                            <mat-option class="body-text" value="16:30 HRS">16:30 HRS</mat-option>
+                            <mat-option class="body-text" value="16:45 HRS">16:45 HRS</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="options">
+                    <div class="col-md-12">
+                        <button class="button-text" mat-button matTooltip="" (click)="shortlistCandidate()" *ngIf="selected_option">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="right" *ngIf="option_selected">
+        <div class="interview-notes">
+
+            <div class="row">
+                <div class="col-md-12 section-header">
+                    Interview Information
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Notes</mat-label>
+                        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="35" placeholder="" name="interview_notes" [(ngModel)]="interview_notes"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Score (out of 5)</mat-label>
+                        <input matInput placeholder="e.g 3.8" type="number" name="interview_score" max="5" min="1" [(ngModel)]="interview_score" #score="ngModel">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="bottom-btn">
+                <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="UpdateInterview(candidate)">Update Notes</button> &nbsp; &nbsp;
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+
+        <div class="row">
+            <div class="col-md-12 section-header">
+                Decision After Interview
+            </div>
+        </div>
+
+        <div class="row" *ngIf="decision_made === ''">
+            <div class="options">
+                <div class="col-md-12">
+                    <button class="button-text" mat-button matTooltip="" (click)="AcceptCandidateAfterInterview(candidate)">Accept</button>
+
+                    <button class="button-text" mat-button matTooltip="" (click)="TrainTheCandidateAfterInterview(candidate)">Send to Training</button>
+
+                    <button class="button-text" mat-button matTooltip="" (click)="RejectCandidateAfterInterview(candidate)">Reject</button>
+
+                    <button class="button-text" mat-button matTooltip="" (click)="PutCandidateUnderReviewAfterInterview(candidate)">Under Review</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" *ngIf="starting_details">
+            <div class="col-md-12 section-header">
+                Candidate Starting Day Details
+            </div>
+        </div>
+
+        <div class="row" *ngIf="starting_details">
+            <div class="col-md-4">
+                <mat-form-field class="full-width body-text" appearance="outline">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="start_date" placeholder="Start Date (format) dd/MM/YYYY" name="start_date" (dateChange)="onChangeStartDate($event)" required>
+                    <mat-datepicker-toggle matSuffix [for]="start_date">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #start_date></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field class="full-width body-text" appearance="outline">
+                    <mat-label>Start Time</mat-label>
+                    <mat-select class="body-text" matInput placeholder="Job Type" name="start_time" [(ngModel)]="start_time">
+                        <mat-option class="body-text" value="">Select Time</mat-option>
+                        <mat-option class="body-text" value="08:00 HRS">08:00 HRS</mat-option>
+                        <mat-option class="body-text" value="08:15 HRS">08:15 HRS</mat-option>
+                        <mat-option class="body-text" value="08:30 HRS">08:30 HRS</mat-option>
+                        <mat-option class="body-text" value="08:45 HRS">08:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="09:00 HRS">09:00 HRS</mat-option>
+                        <mat-option class="body-text" value="09:15 HRS">09:15 HRS</mat-option>
+                        <mat-option class="body-text" value="09:30 HRS">09:30 HRS</mat-option>
+                        <mat-option class="body-text" value="09:45 HRS">09:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="10:00 HRS">10:00 HRS</mat-option>
+                        <mat-option class="body-text" value="10:15 HRS">10:15 HRS</mat-option>
+                        <mat-option class="body-text" value="10:30 HRS">10:30 HRS</mat-option>
+                        <mat-option class="body-text" value="10:45 HRS">10:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="11:00 HRS">11:00 HRS</mat-option>
+                        <mat-option class="body-text" value="11:15 HRS">11:15 HRS</mat-option>
+                        <mat-option class="body-text" value="11:30 HRS">11:30 HRS</mat-option>
+                        <mat-option class="body-text" value="11:45 HRS">11:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="12:00 HRS">12:00 HRS</mat-option>
+                        <mat-option class="body-text" value="12:15 HRS">12:15 HRS</mat-option>
+                        <mat-option class="body-text" value="12:30 HRS">12:30 HRS</mat-option>
+                        <mat-option class="body-text" value="12:45 HRS">12:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="13:00 HRS">13:00 HRS</mat-option>
+                        <mat-option class="body-text" value="13:15 HRS">13:15 HRS</mat-option>
+                        <mat-option class="body-text" value="13:30 HRS">13:30 HRS</mat-option>
+                        <mat-option class="body-text" value="13:45 HRS">13:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="14:00 HRS">14:00 HRS</mat-option>
+                        <mat-option class="body-text" value="14:15 HRS">14:15 HRS</mat-option>
+                        <mat-option class="body-text" value="14:30 HRS">14:30 HRS</mat-option>
+                        <mat-option class="body-text" value="14:45 HRS">14:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="15:00 HRS">15:00 HRS</mat-option>
+                        <mat-option class="body-text" value="15:15 HRS">15:15 HRS</mat-option>
+                        <mat-option class="body-text" value="15:30 HRS">15:30 HRS</mat-option>
+                        <mat-option class="body-text" value="15:45 HRS">15:45 HRS</mat-option>
+
+                        <mat-option class="body-text" value="16:00 HRS">16:00 HRS</mat-option>
+                        <mat-option class="body-text" value="16:15 HRS">16:15 HRS</mat-option>
+                        <mat-option class="body-text" value="16:30 HRS">16:30 HRS</mat-option>
+                        <mat-option class="body-text" value="16:45 HRS">16:45 HRS</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4" *ngIf="datainfo.vacancy.category === 'Administrator'">
+                <mat-form-field appearance="outline" class="full-width body-text">
+                    <mat-label>Remuneration</mat-label>
+                    <input matInput type="text" class="right-align" placeholder="0" [(ngModel)]="salary" name="salary">
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row options" *ngIf="starting_details">
+            <div class="col-md-12">
+                <button class="button-text" mat-button matTooltip="" (click)="AcceptCandidateAfterInterview(candidate)">Confirm</button>
+            </div>
+        </div>
+
+        <div class="body-text">
+            <span *ngIf="decision_made === 'Accepted'">Candidate has been Accepted</span>
+            <span *ngIf="decision_made === 'Training'">Candidate has been sent to training</span>
+            <span *ngIf="decision_made === 'Rejected'">Candidate has been Rejected</span>
+            <span *ngIf="decision_made === 'Under Review'">Candidate has been put Under Review</span>
+        </div>
+
+    </div>
+</div>

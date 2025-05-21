@@ -1,0 +1,147 @@
+.container {
+    max-width: 65%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.container mat-card {
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+}
+
+.main-profile-card {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.save-btn {
+    border-radius: 0;
+    border: none;
+    background-color: #3395d0;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.save-btn:disabled {
+    background-color: #D5D8DC;
+}
+
+.web-btn {
+    border-radius: 0;
+    border: none;
+    background-color: #3395d0;
+    color: #ffffff;
+    padding: 8px 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+}
+
+.vacancy-checkbox {
+    margin-bottom: 10px;
+}
+
+.info-container {
+    border: #D5D8DC 1px solid;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+.add-form {
+    border-radius: 0;
+    border: none;
+    background-color: #2ECC71;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.remove-form {
+    border-radius: 0;
+    border: none;
+    background-color: #E74C3C;
+    color: #ffffff;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.img-holder {
+    height: 250px;
+}
+
+.img-holder img {
+    height: 100%;
+    max-width: 100%;
+}
+
+.title-header {
+    color: #3395d0;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.title-paragraph {
+    color: #2E86C1;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.top-left-holder>div {
+    margin-bottom: 15px;
+}
+
+// for quill editors
+::ng-deep ul {
+    margin-top: 10px !important;
+    list-style-type: square !important;
+}
+
+::ng-deep ul li {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 15px
+}
+
+::ng-deep p {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 15px;
+}
+
+.top-strip {
+    background-color: #3395d0;
+    height: 6px;
+}
+
+.bottom-strip {
+    background-color: #3395d0;
+    height: 6px;
+}
+
+.messgae-holder {
+    margin-top: 20%;
+    padding: 50px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container .img-holder {
+        display: none;
+    }
+    .title-header {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .title-paragraph {
+        color: #2E86C1;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

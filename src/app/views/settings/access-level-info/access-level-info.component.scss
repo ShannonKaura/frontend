@@ -1,0 +1,20 @@
+th,
+td {
+    width: 100%;
+}
+
+mat-paginator {
+    color: #3395d0;
+}
+
+td.mat-cell {
+    border-bottom-style: none;
+}
+
+th.mat-header-cell {
+    border-bottom-style: none;
+}
+
+.top {
+    justify-content: flex-end;
+}

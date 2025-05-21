@@ -1,0 +1,44 @@
+th,
+td {
+    width: 100%;
+}
+
+mat-paginator {
+    color: #3395d0;
+}
+
+.filter-holder {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.filter-holder mat-form-field {
+    width: 500px;
+}
+
+.mat-spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-spinner-holder mat-spinner {
+    margin-top: 100px;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #3395d0!important;
+}
+
+td.mat-cell {
+    border-bottom-style: none;
+}
+
+th.mat-header-cell {
+    border-bottom-style: none;
+}
+
+.top-button .button-text {
+    color: #ffffff;
+}

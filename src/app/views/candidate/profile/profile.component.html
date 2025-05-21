@@ -1,0 +1,443 @@
+<div class="profile-holder" *ngIf="candidate">
+    <mat-card class="main-profile-card" *ngIf="candidate?.profile_completion < 100">
+
+        <div class="task section-header icon-sign" *ngIf="!application_in_progress">
+            <mat-icon>warning</mat-icon><span>Fill the required information below.</span>
+        </div>
+
+        <div class="task section-header  icon-sign" *ngIf="application_in_progress">
+            <mat-icon>warning</mat-icon><span>Fill the required information below.</span>
+        </div>
+
+
+        <div class="devider"></div>
+
+        <div class="chart-info-holder">
+            <div class="complete-list">
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="basic_details">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="!basic_details">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Fill Basic Details form.
+                    </div>
+
+                </div>
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="professinal_summary">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="!professinal_summary">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Fill Professional Summary form.
+                    </div>
+
+                </div>
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="contact_details">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="!contact_details">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Fill Contact Details form.
+                    </div>
+
+                </div>
+
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="education">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="!education">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Fill Education Details form.
+                    </div>
+
+                </div>
+
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="skills">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="!skills">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Update Skills
+                    </div>
+
+                </div>
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="!empty_document">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="empty_document">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Upload your Resume / CV
+                    </div>
+                </div>
+
+                <div class="task-holder">
+                    <div class="status">
+                        <span class="success" *ngIf="!empty_audio">
+                            <mat-icon aria-hidden="false">check_circle_outline</mat-icon>
+                        </span>
+
+                        <span class="inprogress" *ngIf="empty_audio">
+                            <mat-icon aria-hidden="false">remove_circle</mat-icon>
+                        </span>
+                    </div>
+
+                    <div class="task section-header">
+                        Upload Audio ( a brief about youself in less than a minute )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+
+<!-- main profile Start-->
+<div class="profile-holder">
+    <!-- progress bar start -->
+    <mat-card class="main-profile-card spinner-holder" *ngIf="!candidate">
+        <app-progress-spinner></app-progress-spinner>
+    </mat-card>
+    <!-- progress bar end -->
+
+    <mat-card class="main-profile-card" *ngIf="candidate">
+        <div class="holder">
+            <span class="section-header">
+                Basic Details
+            </span>
+            <div class="edit">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditCandidateBio(candidate)">edit</mat-icon>
+            </div>
+        </div>
+
+        <div class="header-context">
+            <div class="holder">
+                <div class="candidate-name title-header">
+                    {{candidate?.first_name}} {{candidate?.middle_name}} {{candidate?.last_name}}
+                </div>
+            </div>
+
+            <div class="job-title title-header">
+                {{candidate?.job_title}}
+            </div>
+
+            <div class="holder">
+                <div class="body-text">
+                    {{candidate?.city}} {{candidate?.country}}
+                </div>
+            </div>
+
+            <div class="body-text" *ngIf="candidate.dob">
+                {{age}} Years of age
+            </div>
+        </div>
+    </mat-card>
+</div>
+<!-- main profile End-->
+
+
+<div class="profile-holder">
+    <div class="card-holder">
+        <!-- side profile start -->
+
+        <!-- progress bar start -->
+        <mat-card class="side-profile-card spinner-holder" *ngIf="!candidate">
+            <app-progress-spinner></app-progress-spinner>
+        </mat-card>
+        <!-- progress bar end -->
+
+        <div class="side-mat-card-holder">
+            <mat-card class="side-profile-card" *ngIf="candidate">
+
+                <div class="holder">
+                    <span class="section-header">
+                    Professional Summary
+                </span>
+
+                    <div class="edit">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditProfessionalSummary(candidate)">edit
+                        </mat-icon>
+                    </div>
+                </div>
+
+                <div class="body-text">
+                    <br />
+                    <div class="prof-summary">
+                        <textarea matInput cdkTextareaAutosize placeholder="" [(ngModel)]="candidate.summary" name="summary" required #summary="ngModel"></textarea>
+                    </div>
+                </div>
+            </mat-card>
+
+            <mat-card class="side-profile-card" *ngIf="candidate">
+                <div class="holder">
+                    <span class="section-header">
+                    Contact info
+                </span>
+
+                    <div class="edit">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openUpdateContactInfo(candidate)">edit
+                        </mat-icon>
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="body-text" *ngIf="candidate.phone && candidate.email">
+                    {{candidate?.phone}}
+                </div>
+
+                <br />
+                <div class="body-text" *ngIf="candidate.phone && candidate.email">
+                    {{candidate?.email}}
+                </div>
+
+            </mat-card>
+        </div>
+
+        <div class="splitter"></div>
+        <!-- side profile end -->
+
+        <!-- progress bar start -->
+        <mat-card class="content-profile-card spinner-holder" *ngIf="!candidate">
+            <app-progress-spinner></app-progress-spinner>
+        </mat-card>
+        <!-- progress bar end -->
+
+        <!-- main content start -->
+        <div class="main-mat-card-holder">
+            <mat-card class="content-profile-card" *ngIf="candidate">
+                <div class="holder">
+                    <span class="section-header">
+                    Experience
+                </span>
+
+                    <div class="edit">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openAddExperience(candidate)">
+                            add</mat-icon>
+                    </div>
+                </div>
+
+                <div class="experience-info" *ngFor="let item of candidate?.experience; index as i">
+                    <div class="holder">
+                        <span class="title-header">
+                        {{item.title}}
+                    </span> <br />
+
+                        <div class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditExperience(candidate, i)">edit</mat-icon>
+                        </div>
+                    </div>
+
+
+                    <span class="body-text">
+                    {{item.company}} . {{item.employment_type}}
+                </span> <br />
+
+                    <span class="body-text">
+                    {{item.start_date | date}}
+                </span> -
+
+                    <span class="body-text" *ngIf="item.end_date">
+                    {{item.end_date | date}}
+                </span>
+
+                    <span class="body-text" *ngIf="item.currently_working === true">
+                    Current
+                </span> <br />
+
+                    <span class="body-text">
+                    {{item.location.city}}, {{item.location.country}}
+                </span>
+
+                    <div class="inside-devider" *ngIf="candidate?.experience.length - i !== 1"></div>
+                </div>
+            </mat-card>
+
+            <mat-card class="content-profile-card" *ngIf="candidate">
+
+                <div class="holder">
+                    <span class="section-header">
+                    Education
+                </span>
+
+                    <div class="edit">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openAddEducation(candidate)">
+                            add</mat-icon>
+                    </div>
+                </div>
+
+                <div class="education-info" *ngFor="let item of candidate?.education; index as i">
+
+                    <div class="holder">
+                        <span class="title-header">
+                        {{item.school}}
+                    </span> <br />
+
+                        <div class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditEducation(candidate, i)">edit</mat-icon>
+                        </div>
+                    </div>
+
+                    <span class="body-text">
+                    {{item.degree}}
+                </span> <br />
+
+                    <span class="body-text">
+                    {{item.start_date | date}} - {{item.end_date | date}}
+                </span>
+
+                    <div class="inside-devider" *ngIf="candidate?.education.length - i !== 1"></div>
+                </div>
+            </mat-card>
+
+            <mat-card class="content-profile-card" *ngIf="candidate">
+
+                <div class="holder">
+                    <div class="section-header">
+                        Skills
+                    </div>
+
+                    <div class="edit">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openAddSkill(candidate)">add
+                        </mat-icon>
+                    </div>
+                </div>
+
+                <div class="message body-text" *ngIf="candidate?.skills.length > 0">
+                    click on skill to update
+                </div>
+
+                <table *ngIf="candidate?.skills">
+                    <tr>
+                        <td class="skill-set" class="body-text" *ngIf="!candidate?.skills">
+                            Update your skills
+                        </td>
+
+                        <td class="skill-set" class="body-text" *ngIf="candidate?.skills">
+                            <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                <mat-chip selected *ngFor="let item of candidate?.skills; index as i" (click)="openEditSkill(candidate, i)">{{item.skill_name}}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </td>
+                    </tr>
+                </table>
+
+            </mat-card>
+
+            <mat-card class="content-profile-card" *ngIf="candidate">
+                <div class="">
+                    <div class="holder">
+                        <div class="section-header" *ngIf="empty_audio">
+                            Media <span class="sub-header">(Upload Audio) ( a brief about youself in less than a minute )</span>
+                        </div>
+
+                        <div class="section-header" *ngIf="!empty_audio">
+                            Audio
+                        </div>
+
+                        <div class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openMedia(candidate)" *ngIf="empty_audio">add
+                            </mat-icon>
+
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditMedia(candidate)" *ngIf="!empty_audio">edit
+                            </mat-icon>
+                        </div>
+                    </div>
+
+                    <div class="audio-player" *ngIf="!empty_audio">
+                        <br />
+                        <ngx-audio-player class="audio" [playlist]="audiopPlaylist" [displayTitle]="audiopDisplayTitle" [autoPlay]="false" muted="muted" [displayPlaylist]="audiopDisplayPlayList" (trackEnded)="onEnded($event)" [displayVolumeControls]="audiopDisplayVolumeControls"
+                            [displayRepeatControls]="audiopDisplayRepeatControls" [disablePositionSlider]="audiopDisablePositionSlider" [displayArtist]="audiopDisplayArtist" [displayDuration]="audiopDisplayDuration" [expanded]="true"></ngx-audio-player>
+                    </div>
+
+                </div>
+            </mat-card>
+
+            <mat-card class="content-profile-card" *ngIf="candidate">
+                <div class="">
+                    <div class="holder">
+                        <div class="section-header">
+                            Document <span class="sub-header" *ngIf="empty_document">(Upload Resume)</span>
+                        </div>
+
+                        <div class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDocument(candidate)" *ngIf="empty_document">
+                                add
+                            </mat-icon>
+
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditDocument(candidate)" *ngIf="!empty_document">
+                                edit
+                            </mat-icon>
+                        </div>
+                    </div>
+
+                    <div class="document" *ngIf="!empty_document">
+                        <div class="document-btn">
+                            <a class="btn_primary button-text" [href]="documetSelectedFileBLOB" target="_blank" rel="noopener noreferrer">
+                            View Resume
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+
+            <mat-card class="content-profile-card" *ngIf="application_in_progress">
+                <div class="">
+                    <div class="holder">
+                        <button class="send-applicarion-btn button-text" type="submit" (click)="SendApplication()"> <span>Send Application</span> &nbsp;&nbsp;<mat-icon>send</mat-icon></button>
+                    </div>
+                    <br />
+                    <span class="error-message button-text" *ngIf="complete_info_warning && application_in_progress"> Fill required information above to complete your Vacancy Appliacation.</span>
+                </div>
+            </mat-card>
+        </div>
+        <!-- main content end -->
+    </div>
+</div>

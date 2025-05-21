@@ -1,0 +1,97 @@
+.nav-links .icon-text {
+    font-family: 'Raleway-Regular';
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.nav-links mat-icon {
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.navbar-brand img {
+    width: 70px;
+}
+
+mat-nav-list {
+    width: 15vw;
+}
+
+mat-nav-list a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #566573;
+    font-family: 'Raleway-Medium';
+}
+
+mat-nav-list a:hover {
+    color: #ffffff;
+    background-color: #83b4d2;
+}
+
+mat-nav-list a .material-icons {
+    font-size: 19px;
+}
+
+mat-toolbar {
+    background-color: #2496ed;
+}
+
+mat-toolbar img {
+    width: 80px;
+}
+
+mat-toolbar mat-toolbar-row {
+    font-size: 14px;
+    font-weight: 400;
+    color: #D5D8DC;
+}
+
+mat-sidenav-content .body {
+    overflow-y: scroll;
+    // height: calc(100vh - 100px);
+}
+
+mat-sidenav-content .body .body-content {
+    padding: 10px;
+    // height: 200vh;
+    background-color: #ffffff;
+}
+
+mat-sidenav {
+    height: 100vh;
+    background-color: #f9fafc;
+    border-right: 0px;
+}
+
+.inside {
+    display: flex;
+    justify-items: center;
+    margin-top: 12px;
+}
+
+.inside>div {
+    display: flex;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.nav-links .icon {
+    padding-top: 4px;
+    margin-left: 5px;
+}
+
+.footer {
+    font-size: 14px;
+    font-weight: 400;
+    color: #D5D8DC;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #2496ed;
+}

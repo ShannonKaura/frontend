@@ -1,0 +1,34 @@
+th,
+td {
+    width: 100%;
+}
+
+mat-paginator {
+    color: #3395d0;
+}
+
+td.mat-cell {
+    border-bottom-style: none;
+}
+
+th.mat-header-cell {
+    border-bottom-style: none;
+}
+
+.top {
+    justify-content: flex-end;
+}
+
+.mat-spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-spinner-holder mat-spinner {
+    margin-top: 100px;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #3395d0!important;
+}

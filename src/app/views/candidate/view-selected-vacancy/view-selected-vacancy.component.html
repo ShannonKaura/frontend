@@ -1,0 +1,105 @@
+<div class="vacancy-container-holder">
+    <!-- loader start -->
+    <mat-card class="vacancy-container" *ngIf="loading">
+        <div class="spinner-holder">
+            <app-progress-spinner></app-progress-spinner>
+        </div>
+    </mat-card>
+    <!-- loader end -->
+
+    <mat-card class="vacancy-container" *ngIf="!loading">
+
+        <div class="right-job-title">
+            {{selected_vacancy.name}}
+        </div>
+
+        <div class="text">
+            <div class="material-icons">
+                location_on
+            </div> &nbsp;
+            <div class="text-inside body-text">
+                {{selected_vacancy.city}} . {{selected_vacancy.country}}
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="material-icons">
+                work
+            </div> &nbsp;
+            <div class="text-inside body-text">{{selected_vacancy.vacancy_type}}</div>
+        </div>
+
+        <div class="text">
+            <div class="material-icons">
+                article
+            </div> &nbsp;
+            <div class="text-inside body-text">{{selected_vacancy.category}}</div>
+        </div>
+
+        <div class="text">
+            <div class="material-icons active">
+                wifi_tethering
+
+            </div> &nbsp;
+            <div class="text-inside body-text">Recruitment in Progress</div>
+        </div>
+
+        <div class="apply-btn">
+            <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="Apply()" *ngIf="!applied">
+                Apply
+            </button>
+
+            <button class="btn_primary_large button-text" aria-label="Sign in" *ngIf="applied">
+                You Have Applied for this Vacancy Post
+            </button>
+        </div>
+
+        <div class="text" *ngIf="application_status">
+            <div class="material-icons">
+                info
+            </div> &nbsp;
+            <div class="text-inside body-text"> Vacancy Status : <span class="application-status">{{application_status}}</span></div>
+        </div>
+
+        <div class="text" *ngIf="application_status === 'Application Shortlisted' || application_status === 'Application Rejected' || application_status === 'Interview Successful' || application_status === 'Interview Unsuccessful'">
+            <div class="material-icons">
+                email
+            </div> &nbsp;
+            <div class="text-inside body-text"> <span class="application-status">Check your Email for Details</span> &nbsp; <span>(If you can not find any email , even in the spam folder ,please contact us)</span></div>
+        </div>
+
+        <div class="divider-grey"></div>
+
+
+        <div class="vacancy-sub-header section-header d-flex align-items-center" *ngIf="selected_vacancy.summary">
+            <div class="material-icons">
+                description
+            </div> &nbsp;&nbsp; <span>General description</span></div>
+        <div class="row" *ngIf="selected_vacancy.summary">
+            <div class="col-md-12">
+                <quill-view [content]="selected_vacancy.summary"></quill-view>
+            </div>
+        </div>
+
+        <div class="vacancy-sub-header section-header d-flex align-items-cente" *ngIf="selected_vacancy.qualifications">
+            <div class="material-icons">
+                hive
+            </div> &nbsp;&nbsp; Qualifications</div>
+        <div class="row" *ngIf="selected_vacancy.qualifications">
+            <div class="col-md-12">
+                <quill-view [content]="selected_vacancy.qualifications"></quill-view>
+            </div>
+        </div>
+
+        <br>
+        <div class="vacancy-sub-header section-header d-flex align-items-cente" *ngIf="selected_vacancy.responsibilities">
+            <div class="material-icons">
+                article
+            </div> &nbsp;&nbsp;Responsibilities</div>
+        <div class="row" *ngIf="selected_vacancy.responsibilities">
+            <div class="col-md-12">
+                <quill-view [content]="selected_vacancy.responsibilities"></quill-view>
+            </div>
+        </div>
+    </mat-card>
+</div>

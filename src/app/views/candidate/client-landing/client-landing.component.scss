@@ -1,0 +1,1250 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #707070!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+html,
+body {
+    height: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.full-width {
+    width: 100%;
+}
+
+p {
+    font-family: "Montserrat-Regular";
+    font-size: 20px;
+    color: #616160;
+}
+
+
+/**************************************
+Shared start
+**************************************/
+
+.text-text {
+    margin-bottom: 40px;
+    font-family: 'Raleway-Regular';
+    font-size: 18px;
+    color: #707070;
+    line-height: 21px;
+}
+
+.text-text .text-hire {
+    font-weight: 500;
+    color: #2492D1;
+    font-family: 'Montserrat-Medium';
+}
+
+.section-header {
+    font-family: 'Montserrat-SemiBold';
+    font-size: 30px;
+    padding-left: 8%;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    color: #304973;
+}
+
+mat-icon {
+    font-size: 20px;
+}
+
+html,
+body {
+    height: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 768px) {
+    .section-header {
+        font-size: 20px;
+    }
+}
+
+
+/**************************************
+Shared end
+**************************************/
+
+
+/**************************************
+Main header start
+**************************************/
+
+
+/* Navbar */
+
+.main-header nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    background: transparent;
+    z-index: 99;
+}
+
+.main-header nav .navbar {
+    height: 100%;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.main-header .navbar .logo {
+    display: block;
+    width: 160px;
+}
+
+.main-header .navbar .logo img {
+    width: 160px;
+}
+
+.main-header .navbar .buttons {
+    display: flex;
+}
+
+.main-header .navbar .buttons a {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Montserrat-Medium';
+    padding: 12px 44px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s;
+    border: none;
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-button a {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Montserrat-Medium';
+    padding: 12px 44px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-header .navbar .buttons a.candidate-btn {
+    background-color: #2492D1;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .main-header .navbar .logo {
+        display: block;
+        width: 100px;
+    }
+    .main-header .navbar .logo img {
+        width: 100px;
+    }
+    .main-header .navbar .buttons a {
+        font-size: 12px;
+        padding: 8px 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-header nav .navbar {
+        height: 50%;
+        width: 85%;
+    }
+    .main-header .navbar .logo {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    .main-header .navbar .logo img {
+        width: 100px;
+    }
+    .main-header .navbar .buttons {
+        display: none;
+    }
+    .main-header .navbar .buttons a {
+        font-size: 12px;
+        padding: 8px 28px;
+    }
+}
+
+
+/**************************************
+Main header end
+**************************************/
+
+
+/**************************************
+Slider start
+**************************************/
+
+// banner
+.Modern-Slider-Baggage .item .img-fill {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../../../assets/landing-pages/candidate/header_background.svg);
+}
+
+.Modern-Slider-Baggage .item .img-fill img {
+    height: 100%;
+    width: 100%;
+}
+
+.Modern-Slider-Baggage .holder {
+    display: flex;
+    justify-content: center;
+}
+
+.Modern-Slider-Baggage .text-content {
+    display: flex;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+    top: 59vh;
+    left: 50%;
+    height: 82vh;
+    transform: translate(-50%, -50%);
+}
+
+.Modern-Slider-Baggage .text-content .left {
+    width: 65%;
+    padding: 100px 50px 0 40px;
+}
+
+.Modern-Slider-Baggage .item .text-content .right {
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../../../assets/landing-pages/candidate/header_hero.svg);
+}
+
+.Modern-Slider-Baggage .text-content .right img {
+    width: 100%;
+    height: 100%;
+}
+
+.Modern-Slider-Baggage .text-content .left .text-holder {
+    margin-left: 15%;
+}
+
+.Modern-Slider-Baggage .text-content .left .text-button a {
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px 44px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s;
+    border: none;
+    margin: 5px;
+    text-decoration: none;
+    font-family: 'Montserrat-Medium';
+    cursor: pointer;
+}
+
+.Modern-Slider-Baggage .text-content .left a.candidate-btn {
+    background-color: #2492D1;
+}
+
+.Modern-Slider-Baggage .text-content .left .text-holder .text-header h2 {
+    font-size: 50px;
+    font-family: 'Montserrat-Medium';
+    margin-bottom: 40px;
+    color: #2492D1;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.Modern-Slider-Baggage .text-content .left .text-holder .text-button {
+    margin-bottom: 40px;
+}
+
+.Modern-Slider-Baggage .text-content .left .text-holder .text-text {
+    margin-bottom: 40px;
+}
+
+.Modern-Slider-Baggage {
+    background: #000;
+}
+
+.Modern-Slider-Baggage .main-header input {
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #304973;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.client-btn {
+    background-color: #304973;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Montserrat-SemiBold';
+    padding: 8.5px 20px;
+    border: none;
+    border-radius: 0 10px 10px 0;
+}
+
+.email-input {
+    border: 1px solid #2492D1;
+    padding: 8px 20px;
+    outline: 0;
+    border-radius: 10px 0 0 10px;
+    border-right: 0;
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1025px) {
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-header h2 {
+        font-size: 24px;
+        line-height: 26px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-header h2 {
+        font-size: 28px;
+        font-family: 'Montserrat-Medium';
+        line-height: 30px;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-text p {
+        font-size: 13px;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-button {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .Modern-Slider-Baggage .text-content .left {
+        padding: 30px 0px 0 0px;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-header h2 {
+        font-size: 22px;
+        font-family: 'Montserrat-Medium';
+        line-height: 24px;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-text {
+        font-family: 'Raleway-Regular';
+        font-size: 13px;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-button a {
+        font-size: 10px;
+        padding: 8px 30px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Modern-Slider-Baggage {
+        height: 80vh;
+    }
+    .Modern-Slider-Baggage .item .img-fill {
+        height: 80vh;
+    }
+    .Modern-Slider-Baggage .text-content .left {
+        margin-top: 60px;
+        padding: 10px;
+        width: 100%;
+    }
+    .Modern-Slider-Baggage .item .text-content .right {
+        display: none;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder {
+        margin-left: 0;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-header h2 {
+        font-size: 25px;
+        line-height: 28px;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-text {
+        margin-bottom: 40px;
+        font-size: 17px;
+        font-family: 'Montserrat-Regular';
+    }
+    .Modern-Slider-Baggage .text-content .left .text-holder .text-button a {
+        font-size: 12px;
+        padding: 8px 30px;
+        margin-bottom: 0;
+    }
+    .main-header nav .navbar {
+        width: 100%;
+        text-align: center;
+    }
+    .main-header nav .navbar .buttons {
+        justify-content: space-between;
+    }
+    .main-header nav .navbar .buttons a {
+        width: 49%;
+        margin: 0;
+        text-align: center;
+    }
+    .Modern-Slider-Baggage .text-content .left .text-button .email-input {
+        width: calc(100% - 160px);
+    }
+    .Modern-Slider-Baggage .text-content .left .text-button button {
+        width: 160px;
+    }
+    .Modern-Slider-Baggage .text-content {
+        top: 47vh;
+    }
+}
+
+
+/**************************************
+Slider end
+**************************************/
+
+
+/**************************************
+Outsourcing start
+**************************************/
+
+.header-holder {
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    width: 55%;
+    justify-content: space-between;
+}
+
+.header-holder .title-header {
+    font-family: "Montserrat-Bold";
+    font-size: 24px;
+    color: #2492D1;
+}
+
+.outsourcing-text-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.outsourcing-text-holder .outsourcing-text {
+    width: 80%;
+}
+
+.outsourcing-text-holder .outsourcing-text p {
+    font-family: "Montserrat-Regular";
+    font-size: 20px;
+    color: #616160;
+}
+
+.outsourcing-text-holder .outsourcing-points {
+    margin-top: 40px;
+}
+
+.outsourcing-text-holder .outsourcing-points .point {
+    display: flex;
+}
+
+.right-section-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1300px) {
+    .header-holder {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1025px) {
+    .header-holder .img-bar img {
+        width: 350px;
+    }
+    .header-holder {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .header-holder .img-bar img {
+        width: 250px;
+    }
+    .header-holder {
+        width: 70%;
+    }
+    .header-holder .title-header {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .header-holder .img-bar img {
+        width: 180px;
+    }
+    .header-holder {
+        width: 100%;
+    }
+    .header-holder .title-header {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-holder .img-bar img {
+        width: 80px;
+    }
+    .header-holder {
+        width: 100%;
+    }
+    .header-holder .title-header {
+        font-size: 18px;
+        width: calc(100% - 80px);
+        text-align: center;
+    }
+    .outsourcing-text-holder .outsourcing-text p {
+        font-size: 17px;
+        font-family: 'Montserrat-Regular';
+    }
+}
+
+
+/*************************************
+Outsourcing end
+**************************************/
+
+
+/**************************************
+Why youpro contact start
+***************************************/
+
+.why-youpro-contact-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.why-youpro-contact-holder img {
+    width: 80%;
+}
+
+.getting-started-steps-holder .topic {
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .getting-started-steps-holder p {
+        font-size: 17px;
+    }
+}
+
+
+/**************************************
+Why youpro contact end
+***************************************/
+
+
+/**************************************
+Getting started start
+***************************************/
+
+.steps-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.steps {
+    display: grid;
+    width: 80%;
+}
+
+.steps .step-holder {
+    margin-top: 80px;
+}
+
+.steps .step-holder .step-img {
+    text-align: center;
+}
+
+.steps .step-holder .title {
+    font-family: "Montserrat-Bold";
+    font-size: 13px;
+    color: #2492D1;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.steps .step-holder .text {
+    text-align: center;
+    font-family: "Montserrat-Regular";
+    font-size: 14px;
+}
+
+.space img {
+    margin-top: 11px;
+}
+
+.steps-combined-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.steps-combined {
+    margin-top: 40px;
+    width: 80%;
+    text-align: center;
+}
+
+.steps-combined-holder .steps-combined img {
+    width: 100%;
+}
+
+.steps-combined .titles-holder {
+    display: flex;
+    justify-content: space-between;
+    // margin: 0 3% 0 3%;
+}
+
+.titles-holder .titles {
+    width: calc(100% / 6);
+    padding: 5px;
+}
+
+.titles-holder .titles .title {
+    font-family: "Montserrat-Bold";
+    font-size: 13px;
+    color: #2492D1;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+.titles-holder .titles .text {
+    text-align: center;
+    font-family: "Montserrat-Regular";
+    font-size: 14px;
+}
+
+.titles-holder .titles .text p {
+    font-family: "Montserrat-Regular";
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .steps .step-holder .title {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .steps-combined-holder {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .steps-holder {
+        display: none;
+    }
+}
+
+
+/**************************************
+Getting started end
+***************************************/
+
+
+/**************************************
+Collaboration start
+***************************************/
+
+.collaboration-holder .text-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.collaboration-holder .topic {
+    width: 80%;
+}
+
+.collaboration-holder .topic p {
+    text-align: center;
+}
+
+.collaboration-img-holder {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.collaboration-img-holder .collaboration-img {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.collaboration-img-holder .collaboration-img img {
+    width: 100%;
+}
+
+.collaboration-img-holder .collaboration-img-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .collaboration-img-holder .collaboration-img {
+        display: none;
+    }
+    .collaboration-img-holder .collaboration-img-mobile {
+        display: block;
+        margin-right: 5%;
+    }
+    .collaboration-img-holder .collaboration-img-mobile img {
+        width: 100%;
+    }
+    .collaboration-holder p {
+        text-align: center;
+        font-size: 17px;
+    }
+}
+
+
+/**************************************
+Collaboration end
+***************************************/
+
+
+/**************************************
+Skillsets start
+***************************************/
+
+.skillset-holder .text-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.skillset-holder .topic {
+    width: 80%;
+}
+
+.skillset-holder .topic p {
+    text-align: center;
+}
+
+.skillset-img-holder {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.skillset-img-holder .skillsets {
+    width: 80%;
+}
+
+.skillset-img-holder .skillset-img {
+    display: flex;
+    justify-content: center;
+}
+
+.skillset-img-holder .skillset-img img {
+    width: 100%;
+}
+
+.skillset-holder .titles-holder {
+    display: flex;
+}
+
+.skillset-holder .titles-holder .title {
+    width: calc(100% / 4);
+    font-family: "Montserrat-Bold";
+    font-size: 17px;
+    color: #2492D1;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.skill-holder {
+    margin-top: 40px;
+    display: none;
+}
+
+.skill-holder .skill-pack .skill-img {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.skill-holder .skill-pack .skill-title {
+    font-family: "Montserrat-Bold";
+    font-size: 17px;
+    color: #2492D1;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 950px) {
+    .skillset-img-holder {
+        display: none;
+    }
+    .skill-holder {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skillset-holder p {
+        font-size: 17px;
+    }
+}
+
+
+/**************************************
+Skillsets end
+***************************************/
+
+
+/**************************************
+Industries start
+***************************************/
+
+.industries-holder .text-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.industries-holder .topic {
+    width: 80%;
+}
+
+.industries-holder .topic p {
+    text-align: center;
+}
+
+.industries-img-holder {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.industries-img-holder .industries-img {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.industries-img-holder .industries-img img {
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .industries-holder p {
+        font-size: 17px;
+    }
+}
+
+
+/**************************************
+Industries end
+***************************************/
+
+
+/**************************************
+Talent Pool Start
+***************************************/
+
+.talentpool-holder .text-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.talentpool-holder .topic {
+    width: 80%;
+}
+
+.talentpool-holder .topic p {
+    text-align: center;
+}
+
+.talentpool-holder .talents-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.talentpool-holder .talents {
+    margin-top: 40px;
+    width: 80%;
+}
+
+.talentpool-holder .talents .talent-row {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.talentpool-holder .talents .talent-row mat-icon {
+    color: #05eb11;
+    size: 60px;
+}
+
+.talentpool-holder .talents .talent-btn {
+    background-color: #2492D1;
+    font-family: "Montserrat-SemiBold";
+    font-size: 20px;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    width: 48%;
+    margin-bottom: 30px;
+    box-shadow: 6px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 6px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 6px 0px 25px 0px rgba(0, 0, 0, 0.15);
+}
+
+.talentpool-holder .talents .talent-btn:hover {
+    background-color: #304973;
+}
+
+.talent-selected {
+    border: #2492D1 2px solid !important;
+    background-color: #ffffff !important;
+    color: #2492D1 !important;
+}
+
+.inputs-holder {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.inputs-holder .inputs {
+    width: 80%;
+}
+
+.inputs-holder .inputs mat-label {
+    font-family: "Montserrat-Regular";
+    font-size: 20px;
+    color: #616160;
+}
+
+.inputs-holder .inputs input {
+    font-family: "Montserrat-Regular";
+    font-size: 20px;
+    color: #616160;
+}
+
+.inputs-holder .inputs .btn-row {
+    text-align: center;
+}
+
+.continue-btn:disabled {
+    background-color: #EAECEE !important;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15) !important;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15) !important;
+}
+
+.inputs-holder .inputs .btn-row .continue-btn {
+    background-color: #2492D1;
+    font-family: "Montserrat-SemiBold";
+    font-size: 20px;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    box-shadow: 6px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 6px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 6px 0px 25px 0px rgba(0, 0, 0, 0.15);
+}
+
+.select-msg {
+    font-family: "Montserrat-SemiBold";
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .talentpool-holder .talents .talent-btn {
+        font-size: 16px;
+    }
+    .inputs-holder .inputs mat-label {
+        font-size: 16px;
+    }
+    .inputs-holder .inputs input {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .talents-holder .talents .talent-row {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+    }
+    .talents .talent-row .talent-btn {
+        font-size: 16px;
+        width: 100%;
+    }
+    .inputs-holder .inputs mat-label {
+        font-size: 16px;
+    }
+    .inputs-holder .inputs input {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .talents-holder .talents .talent-row {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+    }
+    .inputs-holder .inputs mat-label {
+        font-size: 16px;
+    }
+    .inputs-holder .inputs input {
+        font-size: 16px;
+    }
+    .talentpool-holder p {
+        font-size: 17px;
+    }
+    .select-msg {
+        font-size: 16px;
+    }
+    .talentpool-holder .talents .talent-row button {
+        font-size: 16px;
+        width: calc(100vw - 60px);
+    }
+}
+
+
+/**************************************
+Talent Pool End
+***************************************/
+
+
+/**************************************
+Footer start
+**************************************/
+
+
+/* Footer Style */
+
+footer {
+    background-color: #304973;
+    padding: 80px 0px;
+    color: #fff;
+}
+
+footer h4 {
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Montserrat-SemiBold';
+    letter-spacing: 0.25px;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #fff;
+}
+
+footer ul {}
+
+footer ul.social-icons {
+    margin-top: 25px;
+    padding: 0;
+}
+
+footer ul.social-icons li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+footer ul.social-icons li:last-child {
+    margin-right: 0px;
+}
+
+footer ul.social-icons li a {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    line-height: 34px;
+    text-align: center;
+    color: #232323;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+footer ul.social-icons li a:hover {
+    background-color: #304973;
+}
+
+footer ul.menu-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul.menu-list li {
+    margin-bottom: 13px;
+    font-size: 16px;
+    font-family: 'Montserrat-Medium';
+}
+
+footer ul.menu-list li:last-child {
+    margin-bottom: 0px;
+}
+
+footer ul.menu-list li a {
+    color: #fff;
+    transition: all 0.3s;
+    line-height: 25px;
+    text-decoration: none;
+}
+
+footer ul.menu-list li a:hover {
+    color: #ffffff;
+}
+
+footer .contact-form input {
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    padding: 0px 15px;
+    color: #aaa!important;
+    background-color: #343434;
+    font-size: 13px;
+    text-transform: none;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 15px;
+}
+
+footer .contact-form input:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: #343434;
+}
+
+footer .contact-form textarea {
+    border-radius: 20px;
+    height: 120px;
+    max-height: 200px;
+    min-height: 120px;
+    display: inline-block;
+    padding: 15px;
+    color: #aaa!important;
+    background-color: #343434;
+    font-size: 13px;
+    text-transform: none;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 15px;
+}
+
+footer .contact-form textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: #343434;
+}
+
+footer .contact-form ::-webkit-input-placeholder {
+    /* Edge */
+    color: #aaa;
+}
+
+footer .contact-form :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #aaa;
+}
+
+footer .contact-form ::placeholder {
+    color: #aaa;
+}
+
+footer .contact-form button.filled-button {
+    background-color: transparent;
+    color: #fff;
+    background-color: #304973;
+    border: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: all 0.3s;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+footer .contact-form button.filled-button:hover {
+    background-color: #fff;
+    color: #304973;
+}
+
+footer .alt-number {
+    padding-left: 55px;
+}
+
+footer .add-ext {
+    padding-left: 55px;
+}
+
+footer .container-footer .logo {
+    margin-bottom: 50px;
+}
+
+footer .container-footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer .container-footer .row {
+    width: 90%;
+}
+
+footer .container-footer .footer-item h4 {
+    margin-bottom: 40px;
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Raleway-Regular';
+    font-size: 18px;
+}
+
+
+/**************************************
+Footer end
+**************************************/

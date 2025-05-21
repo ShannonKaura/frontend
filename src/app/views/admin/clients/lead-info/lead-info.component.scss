@@ -1,0 +1,57 @@
+table {
+    width: 100%;
+}
+
+table mat-checkbox {
+    transform: scale(0.8);
+}
+
+table mat-icon {
+    font-size: 18px;
+    color: #404040;
+    cursor: pointer;
+}
+
+th,
+td {
+    width: 25%;
+}
+
+mat-paginator {
+    color: #3395d0;
+}
+
+.empty_leads_msg {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 16px 0 6px 5px;
+    background-image: linear-gradient(to right, #3395d0, #a8d1eb);
+}
+
+.talent-pool-info mat-chip {
+    background-color: #3395d0 !important;
+    display: flex;
+}
+
+.mat-spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-spinner-holder mat-spinner {
+    margin-top: 100px;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #3395d0!important;
+}
+
+td.mat-cell {
+    border-bottom-style: none;
+}
+
+th.mat-header-cell {
+    border-bottom-style: none;
+}

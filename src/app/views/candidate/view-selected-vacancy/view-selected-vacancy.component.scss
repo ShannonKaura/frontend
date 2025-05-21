@@ -1,0 +1,199 @@
+::ng-deep ul {
+    margin-top: 10px !important;
+    list-style-type: square !important;
+}
+
+::ng-deep ul li {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 15px
+}
+
+::ng-deep p {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 15px;
+}
+
+.card-holder-inside {
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.align-justify {
+    text-align: justify;
+}
+
+.vacancies-holder {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+}
+
+.vacancy-sub-header .material-icons {
+    color: rgb(237, 235, 235);
+    font-size: 18px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #3395d0;
+    margin-bottom: 20px;
+}
+
+.divider-grey {
+    height: 1px;
+    background-color: #D5D8DC;
+    margin: 40px 0 40px 5px;
+}
+
+.divider-top-grey {
+    height: 1px;
+    background-color: #D5D8DC;
+    margin-bottom: 20px;
+}
+
+.back {
+    padding: 20px 30px 20px 0px;
+    cursor: pointer;
+}
+
+.card-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.vacancy-container-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.vacancy-container-holder mat-card {
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+}
+
+.vacancy-container {
+    width: 70%;
+    border-left: 0px;
+    border-top: 0px;
+    margin-top: 20px;
+}
+
+.details-holder {
+    cursor: pointer;
+    padding: 15px;
+    border: #EAECEE 1px solid;
+}
+
+.details-holder:hover {
+    background-color: #dce0e2;
+}
+
+.left-job-title {
+    color: #3395d0;
+}
+
+.right-job-title {
+    font-family: 'Raleway-SemiBold';
+    padding: 10px;
+    font-size: 25px;
+}
+
+.vacancy-container .text {
+    padding: 10px;
+    display: flex;
+    justify-items: center;
+}
+
+.material-icons {
+    color: #566573;
+    font-size: 20px;
+}
+
+.header {
+    margin: 15px;
+}
+
+.vacancy-sub-header {
+    margin: 15px 0 0 10px;
+    background-color: #3395d0;
+    padding: 8px;
+    color: #fff;
+}
+
+.highlight {
+    background-color: #b4bbc0
+}
+
+.btn_primary_large {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    color: #27AE60;
+}
+
+.application-status {
+    font-family: 'Raleway-SemiBold';
+}
+
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ffffff !important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #ffffff !important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6) !important;
+    // color: $mainColor!important;
+}
+
+@media screen and (max-width: 600px) {
+    .vacancy-container {
+        width: 100%;
+    }
+    .details-holder {
+        padding-bottom: 15px;
+    }
+}
+
+// custom scrollbar
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 15px 0 15px 15px;
+}

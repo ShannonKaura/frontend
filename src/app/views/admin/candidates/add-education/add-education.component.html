@@ -1,0 +1,97 @@
+<div class="top">
+    <div class="main-header">Education</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<form class="student_center" #f6="ngForm">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>School Name</mat-label>
+                <input matInput placeholder="School Name" [(ngModel)]="education.school" name="school" required
+                    #school="ngModel">
+                <mat-error *ngIf="!school.valid || (!school.pristine)">{{getShcoolMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Degree</mat-label>
+                <input matInput placeholder="Degree" [(ngModel)]="education.degree" name="degree">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Field Of Study</mat-label>
+                <input matInput placeholder="Field Of Study" [(ngModel)]="education.field_of_study"
+                    name="field_of_study">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="school_start_date" placeholder="Event Date (format) dd/MM/YYYY"
+                    name="school_start_date" [(ngModel)]="education.start_date" (dateChange)="onChangeStartDate($event)"
+                    required>
+                <mat-datepicker-toggle matSuffix [for]="school_start_date"></mat-datepicker-toggle>
+                <mat-datepicker #school_start_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>End Date (Expected End Date)</mat-label>
+                <input matInput [matDatepicker]="school_end_date" placeholder="Event Date (format) dd/MM/YYYY"
+                    name="school_end_date" [(ngModel)]="education.end_date" (dateChange)="onChangeEndDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="school_end_date"></mat-datepicker-toggle>
+                <mat-datepicker #school_end_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Grade</mat-label>
+                <input matInput placeholder="Grade" [(ngModel)]="education.grade" name="grade">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Activities</mat-label>
+                <textarea matInput placeholder="Activities ..." [(ngModel)]="education.activities"
+                    name="activities"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description ..." [(ngModel)]="education.description"
+                    name="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="login_form_action_container login_form_action_container_multiple-actions">
+        <button class="btn_primary_large from_button_floating button-text" type="submit" aria-label="Sign in"
+            (click)="AddEducation(education)">Save</button>
+    </div>
+</form>

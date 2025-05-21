@@ -1,0 +1,289 @@
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('./assets/fonts/montserrat/Montserrat-Bold.otf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('./assets/fonts/montserrat/Montserrat-SemiBold.otf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('./assets/fonts/montserrat/Montserrat-Regular.otf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('./assets/fonts/montserrat/Montserrat-Medium.otf');
+    font-display: swap;
+}
+
+//   Raleway Font Start
+@font-face {
+    font-family: 'Raleway-Bold';
+    src: url('./assets/fonts/raleway/static/Raleway-Bold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway-SemiBold';
+    src: url('./assets/fonts/raleway/static/Raleway-SemiBold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway-Regular';
+    src: url('./assets/fonts/raleway/static/Raleway-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway-Medium';
+    src: url('./assets/fonts/raleway/static/Raleway-Medium.ttf');
+    font-display: swap;
+}
+
+//no padding
+body {
+    height: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-button button {
+    border-radius: 0;
+    background-color: #3395d0;
+    color: #ffffff;
+}
+
+// universal classes
+.notification-success {
+    background: #2CAF49 !important;
+    color: #ffffff;
+}
+
+.mat-warn {
+    background: #FFC125 !important;
+    color: #ffffff;
+}
+
+.mat-tab-header {
+    font-family: 'Raleway-Medium';
+    font-size: 16px;
+}
+
+.body-text {
+    font-family: 'Raleway-Regular';
+    font-size: 15px;
+}
+
+.client-header {
+    font-family: 'Raleway-Medium';
+    font-size: 15px;
+}
+
+.topic-header {
+    font-family: 'Raleway-Medium';
+    font-size: 15px;
+}
+
+.title-header {
+    font-family: 'Raleway-Medium';
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.section-header {
+    font-family: 'Raleway-SemiBold';
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.table-header-text {
+    font-family: 'Raleway-SemiBold';
+    font-size: 15px;
+    color: #3395d0;
+}
+
+.button-text {
+    font-family: 'Raleway-Medium';
+    font-size: 15px;
+}
+
+.action-icons mat-icon {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.paginator {
+    color: #3395d0;
+}
+
+.datatable-container {
+    border-top: #EAECEE 1px solid;
+    border-bottom: #EAECEE 1px solid;
+}
+
+.main-header {
+    font-family: 'Raleway-Bold';
+    font-size: 20px;
+    color: #000;
+}
+
+.sub-header {
+    font-family: 'Raleway-Medium';
+    font-size: 15px;
+}
+
+// custom scrollbar
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+// admin search
+.filter-holder {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.filter-holder mat-form-field {
+    width: 500px;
+    font-family: 'Montserrat-Regular';
+    font-size: 16px;
+}
+
+.filter-holder .search-container {
+    border: 1px solid #D5D8DC;
+}
+
+.filter-holder .search-container input[type=text] {
+    font-family: 'Montserrat-Regular';
+    background: transparent;
+    font-size: 16px;
+    color: #566573;
+    outline: none;
+    width: 350px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: none;
+}
+
+.filter-holder .search-container button {
+    background: transparent;
+    color: #566573;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: none;
+}
+
+.filter-holder .search-container .mat-icon {
+    border: 0px;
+    vertical-align: middle;
+    padding: 0px !important;
+    transform: scale(1);
+}
+
+.body-holder .searched-data {
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #D5D8DC;
+    display: flex;
+    justify-items: center;
+}
+
+.body-holder .searched-data .img-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.body-holder .searched-data mat-label {
+    font-family: 'Montserrat-Regular';
+    font-size: 14px;
+}
+
+// table
+table {
+    width: 100%;
+}
+
+table mat-checkbox {
+    transform: scale(0.7);
+}
+
+table mat-icon {
+    font-size: 22px !important;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+table .view-icon {
+    color: #579292;
+}
+
+table .edit-icon {
+    color: #2ECC71;
+}
+
+table .delete-icon {
+    color: #E74C3C;
+}
+
+table .actions {
+    width: 100%;
+}
+
+// Spinner
+.mat-spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-spinner-holder mat-spinner {
+    margin-top: 100px;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #3395d0!important;
+}

@@ -1,0 +1,325 @@
+<div class="container">
+    <form class="" #f="ngForm">
+        <!-- Basic Details -->
+        <mat-card class="main-profile-card">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Name of Business</mat-label>
+                        <input class="body-text" matInput placeholder="" [(ngModel)]="client.company_name" name="company_name" required #company_name="ngModel">
+                        <mat-error *ngIf="!company_name.valid || (!company_name.pristine)">{{getCompanyNameMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Contact Person</mat-label>
+                        <input class="body-text" matInput placeholder="" [(ngModel)]="client.name" name="name" required #name="ngModel">
+                        <mat-error *ngIf="!name.valid || (!name.pristine)">{{getContactPersonMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Email Address</mat-label>
+                        <input class="body-text" type="email" matInput placeholder="" [(ngModel)]="client.email_address" name="email_address" required #email_address="ngModel">
+                        <mat-error *ngIf="!email_address.valid || (!email_address.pristine)">{{getEmailMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Phone Number</mat-label>
+                        <input class="body-text" matInput placeholder="" [(ngModel)]="client.phone_number" name="phone_number" required #phone_number="ngModel">
+                        <mat-error *ngIf="!phone_number.valid || (!phone_number.pristine)">{{getPhoneNumberMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Website</mat-label>
+                        <input class="body-text" matInput placeholder="" [(ngModel)]="client.website" name="website" #website="ngModel">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Country</mat-label>
+                        <input class="body-text" matInput placeholder="" [(ngModel)]="client.country" name="country" #country="ngModel">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card>
+
+        <!-- Company Details -->
+        <mat-card class="main-profile-card">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Industry Category</mat-label>
+                        <input class="body-text" matInput placeholder="" [(ngModel)]="client.industry_category" name="industry_category" #industry_category="ngModel">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill">
+                        <mat-label>Business Entity</mat-label>
+                        <mat-select class="body-text" matInput placeholder="" [(ngModel)]="client.business_entity" name="business_entity" #business_entity="ngModel">
+                            <mat-option class="body-text" *ngFor="let c of businessEntities" value="{{c.value}}">
+                                {{c.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <mat-form-field appearance="fill" class="full-width body-text">
+                        <mat-label>Physical Address</mat-label>
+                        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="" [(ngModel)]="client.contact_physical_address" name="contact_physical_address" #contact_physical_address="ngModel"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12 col-md-12">
+                    <mat-form-field appearance="fill" class="full-width body-text">
+                        <mat-label>Please give an overview of your business.</mat-label>
+                        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="" [(ngModel)]="client.business_overview" name="business_overview" required #business_overview="ngModel"></textarea>
+                        <mat-error *ngIf="!business_overview.valid || (!business_overview.pristine)">{{getBusinessOverviewMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card>
+
+        <!-- Vacancy Details -->
+        <mat-card class="main-profile-card">
+            <div class="section-header">
+                Vacancy Categories
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div *ngFor="let category of vacancyCategory">
+                    <mat-checkbox class="vacancy-checkbox body-text" [checked]="category.checked" (change)="checkVacancyCategory($event.checked , category.value)"> {{category.viewValue}}</mat-checkbox>
+                </div>
+            </div>
+
+            <br /><br />
+            <div class="col-lg-12 col-md-12">
+                <mat-form-field class="full-width body-text" appearance="fill">
+                    <mat-label>Other Category</mat-label>
+                    <input class="body-text" matInput placeholder="" [(ngModel)]="other_category" name="other_category">
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+        <mat-card class="main-profile-card">
+            <div class="section-header">
+                Required Job Details
+            </div>
+
+            <div class="info-container" *ngFor="let vacancy_detail of vacancy_details, index as i">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <mat-form-field class="full-width body-text" appearance="fill">
+                            <mat-label>Job Title</mat-label>
+                            <input class="body-text" matInput placeholder="" name="job_title" value="{{vacancy_detail.job_title}}">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <mat-form-field class="full-width body-text" appearance="fill">
+                            <mat-label>How many candidates do you need for this position?</mat-label>
+                            <input class="body-text" type="number" matInput placeholder="" name="phone_number" value="{{vacancy_detail.candidates_no}}">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="quill-editor-row">
+                            <br />
+                            <mat-label class="sub-header">Required Skills</mat-label><br /><br />
+                            <quill-editor [(ngModel)]="vacancy_detail.skills" name="job_detail_skill{{i}}" [modules]="modules"></quill-editor>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <button *ngIf="showButton" mat-flat-button class="btn add-form button-text" (click)="addMoreJobDetails()">Add More Job Details  &nbsp; <mat-icon>add_circle</mat-icon></button>
+                </div>
+            </div>
+        </mat-card>
+
+
+
+
+
+        <mat-card class="main-profile-card" *ngIf="addJobDetails">
+
+            <form class="example-form" [formGroup]="userForm">
+
+                <div class="info-container" *ngFor="let group of vacancyDetailsArray.controls; let i = index;" formArrayName="vacancyDetail">
+                    <div class="form-group jumbotron" [formGroupName]='i'>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <mat-form-field class="full-width body-text" appearance="fill">
+                                    <mat-label>Job Title</mat-label>
+                                    <input class="body-text" matInput placeholder="" value="" formControlName="job_title">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <mat-form-field class="full-width body-text" appearance="fill">
+                                    <mat-label>How many candidates do you need for this position?</mat-label>
+                                    <input class="body-text" type="number" matInput placeholder="" value="" formControlName="candidates_no">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="quill-editor-row">
+                                    <br />
+                                    <mat-label class="sub-header">Required Skills</mat-label><br /><br />
+                                    <quill-editor [placeholder]="'Enter required skills'" [modules]="modules" formControlName="skills"></quill-editor>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-lg-12 col-md-12">
+                                <button mat-flat-button *ngIf="i>0" class="btn button-text remove-form float-end" (click)="removeAddress(i)">Remove Job Details block  &nbsp; <mat-icon>delete</mat-icon></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <button mat-flat-button class="btn add-form button-text" (click)="addVacancyDetails()">Add More Job Details  &nbsp; <mat-icon>add_circle</mat-icon></button>
+                    </div>
+                </div>
+            </form>
+        </mat-card>
+
+
+        <mat-card class="main-profile-card">
+            <div class="section-header">
+                Required Candidate Qualifications
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div *ngFor="let qualification of qualifications">
+                    <mat-checkbox class="vacancy-checkbox body-text" [checked]="qualification.checked" (change)="checkQualification($event.checked , qualification.value)"> {{qualification.viewValue}}</mat-checkbox>
+                </div>
+            </div>
+
+            <br /><br />
+            <div class="col-lg-12 col-md-12">
+                <mat-form-field class="full-width body-text" appearance="fill">
+                    <mat-label>Other Qualification</mat-label>
+                    <input class="body-text" matInput placeholder="" [(ngModel)]="other_qualification" name="other_qualification">
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+
+        <mat-card class="main-profile-card">
+            <div class="section-header">
+                Required Job Types
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div *ngFor="let job_type of jobTypes">
+                    <mat-checkbox class="vacancy-checkbox body-text" [checked]="job_type.checked" (change)="checkJobTypes($event.checked , job_type.value)"> {{job_type.viewValue}}</mat-checkbox>
+                </div>
+            </div>
+
+            <br /><br />
+            <div class="col-lg-12 col-md-12">
+                <mat-form-field class="full-width body-text" appearance="fill">
+                    <mat-label>Other job type</mat-label>
+                    <input class="body-text" matInput placeholder="" [(ngModel)]="other_job_type" name="other_job_type">
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+
+        <mat-card class="main-profile-card">
+            <div class="section-header">
+                Required Experience
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div *ngFor="let exp of experience">
+                    <mat-checkbox class="vacancy-checkbox body-text" [checked]="exp.checked" (change)="checkExperience($event.checked , exp.value)"> {{exp.viewValue}}</mat-checkbox>
+                </div>
+            </div>
+
+            <br /><br />
+            <div class="col-lg-12 col-md-12">
+                <mat-form-field class="full-width body-text" appearance="fill">
+                    <mat-label>Other experience</mat-label>
+                    <input class="body-text" matInput placeholder="" [(ngModel)]="other_experience" name="other_experience">
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+
+        <mat-card class="main-profile-card">
+            <div class="section-header">
+                Required Age Preferences
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div *ngFor="let age_preference of agePreferences">
+                    <mat-checkbox class="vacancy-checkbox body-text" [checked]="age_preference.checked" (change)="checkAgePreferences($event.checked , age_preference.value)"> {{age_preference.viewValue}}</mat-checkbox>
+                </div>
+            </div>
+        </mat-card>
+
+        <mat-card class="main-profile-card">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="fill" required>
+                        <mat-label>What date are they expected to start work?</mat-label>
+                        <input matInput [matDatepicker]="starting_date" placeholder="Start Date (format) dd/MM/YYYY" name="starting_date" [(ngModel)]="client.recruitment_details.starting_date" (dateChange)="onChangeExpiryDate($event)" required>
+                        <mat-datepicker-toggle matSuffix [for]="starting_date">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #starting_date></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card>
+
+        <mat-card class="main-profile-card">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <mat-form-field appearance="fill" class="full-width body-text">
+                        <mat-label>Additional notes - please fill in any specific requirements you have that we might have missed.</mat-label>
+                        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="" [(ngModel)]="client.notes" name="contact_physical_address" #notes="ngModel"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card>
+
+
+        <div class="btn-holder d-flex justify-content-end">
+            <button mat-flat-button [disabled]="!f.valid" class="save-btn button-text" (click)="updateClient(client)">Update</button>
+        </div>
+        <br />
+        <br />
+    </form>
+</div>

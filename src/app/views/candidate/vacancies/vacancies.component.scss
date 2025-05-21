@@ -1,0 +1,59 @@
+.vacancies-holder {
+    padding-top: 40px;
+}
+
+.vacancies-holder .row {
+    display: flex;
+    justify-content: center;
+}
+
+.left-job-title {
+    color: #3395d0;
+    display: flex;
+    justify-content: space-between;
+    height: 26px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.vacancies-holder .row .card {
+    padding: 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 0;
+    border: 0;
+}
+
+.vacancies-holder .row .card .content {
+    background-color: #eceff1;
+    border-radius: 0;
+    padding: 20px;
+    margin: 10px 10px 0 10px;
+}
+
+.vacancies-holder .row .card .content:hover {
+    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.material-icons {
+    color: #566573;
+    font-size: 20px;
+}
+
+.vacancy-text-holder {
+    margin-bottom: 15px;
+}
+
+.active {
+    color: #27AE60 !important;
+}
+
+.footer {
+    height: 8px;
+    background-color: #2492D1;
+    border-radius: 0 0 5px 5px;
+    bottom: 0;
+    margin: 0 10px;
+}

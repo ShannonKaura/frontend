@@ -1,0 +1,58 @@
+<div class="top">
+    <div class="top-button">
+        <button class="button-text" mat-button matCountrytip="" (click)="openNewIndustryDialog()">New
+        Industry</button>
+    </div>
+</div>
+
+<div class="body-holder">
+    <div class="mat-spinner-holder" *ngIf="loading">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+
+    <div class="searched-data" *ngIf="!industriesList">
+        <div class="search-img">
+            <img src="./../../../../../assets/img/no-results.png" width="100px" alt="no results">
+        </div>
+        <div class="img-text">
+            <mat-label>No Results Found...</mat-label>
+        </div>
+    </div>
+</div>
+
+<div class="body-holder">
+
+    <div class="datatable-container overflow-auto">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0" *ngIf="IndustryData.length !== 0">
+
+            <!-- Industry Category Column -->
+            <ng-container matColumnDef="industry_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.industry_name}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+                    <div>Actions</div>
+                </th>
+                <td class="body-text" mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <mat-icon class="edit-icon" (click)="openEditIndustry(element)">edit_square
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialog(i, element)">delete
+                        </mat-icon>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" #industry_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="IndustryData.length !== 0"></mat-paginator>
+</div>

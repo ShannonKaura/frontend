@@ -1,0 +1,128 @@
+<div class="top">
+    <span class="main-header">Vacancy Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<div class="vacancy-holder">
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            Category
+        </div>
+        <div class="col-md-6 body-text">
+            {{vacancy.category}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            Job title
+        </div>
+        <div class="col-md-6 body-text">
+            {{vacancy.name}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            Expiry date
+        </div>
+        <div class="col-md-6 body-text">
+            {{vacancy.expiry_date | date}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            Payment Range
+        </div>
+        <div class="col-md-6 body-text">
+            $ {{vacancy.salary_range.from}}.00 - $ {{vacancy.salary_range.to}}.00
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            Job type
+        </div>
+        <div class="col-md-6 body-text">
+            {{vacancy.vacancy_type}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            City
+        </div>
+        <div class="col-md-6 body-text">
+            {{vacancy.city}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 topic-header">
+            Country
+        </div>
+        <div class="col-md-6 body-text">
+            {{vacancy.country}}
+        </div>
+    </div>
+
+    <div class="section-devider"></div>
+
+    <div class="topic-header">
+        summary
+    </div>
+    <div class="row">
+        <div class="full-width">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50" [(ngModel)]="vacancy.summary" name="summary"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="section-devider"></div>
+
+    <div class="topic-header">
+        Qualifications
+    </div>
+    <div class="row">
+        <div class="full-width">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50" [(ngModel)]="vacancy.qualifications" name="summary"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="section-devider"></div>
+
+    <div class="topic-header">
+        Duties and Responsibilities
+    </div>
+    <div class="row">
+        <div class="full-width">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50" [(ngModel)]="vacancy.responsibilities" name="summary"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="section-devider"></div>
+
+    <div class="topic-header">
+        How to apply
+    </div>
+
+    <div class="row">
+        <div class="full-width">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50" [(ngModel)]="vacancy.apply_process" name="summary"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

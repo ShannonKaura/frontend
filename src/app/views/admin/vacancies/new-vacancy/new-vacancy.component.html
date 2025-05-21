@@ -1,0 +1,144 @@
+<div class="top">
+    <span class="main-header">Create Vacancy</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<form class="needs-validation" #f="ngForm">
+    <div class="row">
+        <div class="col-md-6" *ngIf="vacancy_categories">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select class="body-text" matInput placeholder="Vacancy Category" name="vacancy_category" [(ngModel)]="vacancy.category" required>
+                    <mat-option class="body-text" value="">Select Category</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of vacancy_categories" value="{{c.industry_name}}">
+                        {{c.industry_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6" *ngIf="job_titles">
+            <mat-form-field class="full-width body-text" appearance="outline" required>
+                <mat-label>Job Title</mat-label>
+                <mat-select class="body-text" matInput placeholder="Job Title" name="name" [(ngModel)]="vacancy.name" required>
+                    <mat-option class="body-text" value="">Select Job Title</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of job_titles" value="{{c.job_name}}">
+                        {{c.job_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Payment Starting From</mat-label>
+                <input matInput placeholder="Payment From" class="example-right-align" [(ngModel)]="vacancy.salary_range.from" name="salary">
+                <span class="body-text" matPrefix>$&nbsp;</span>
+                <span class="body-text" matSuffix>.00&nbsp;</span>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Payment To</mat-label>
+                <input matInput placeholder="Payment To" class="example-right-align" [(ngModel)]="vacancy.salary_range.to" name="salary">
+                <span class="body-text" matPrefix>$&nbsp;</span>
+                <span class="body-text" matSuffix>.00&nbsp;</span>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Job Type</mat-label>
+                <mat-select class="body-text" matInput placeholder="Job Type" name="vacancy_type" [(ngModel)]="vacancy.vacancy_type" required>
+                    <mat-option class="body-text" value="">Select Job Type</mat-option>
+                    <mat-option class="body-text" value="Full Time">Full Time</mat-option>
+                    <mat-option class="body-text" value="Part Time">Part Time</mat-option>
+                    <mat-option class="body-text" value="Contract">Contract</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline" required>
+                <mat-label>Expiry Date</mat-label>
+                <input matInput [matDatepicker]="expiry_date" placeholder="Start Date (format) dd/MM/YYYY" name="expiry_date" [(ngModel)]="vacancy.expiry_date" (dateChange)="onChangeExpiryDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="expiry_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #expiry_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City" [(ngModel)]="vacancy.city" name="city">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Country</mat-label>
+                <mat-select class="body-text" matInput placeholder="Country" [(ngModel)]="vacancy.country" name="country" required #country="ngModel">
+                    <mat-option class="body-text" value="">Select Country</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of countries" value="{{c.country_name}}">
+                        {{c.country_name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!country.valid || (!country.pristine) || country_empty">
+                    {{getCountryMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="quill-editor-row">
+                <br />
+                <mat-label class="body-text">Summary</mat-label><br /><br />
+                <quill-editor [modules]="modules" name="summary" [(ngModel)]="vacancy.summary"></quill-editor>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="quill-editor-row">
+                <br />
+                <mat-label class="body-text">Requirements</mat-label><br /><br />
+                <quill-editor [modules]="modules" name="content" [(ngModel)]="vacancy.qualifications"></quill-editor>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="quill-editor-row">
+                <br />
+                <mat-label class="body-text">Responsibilities</mat-label><br /><br />
+                <quill-editor [modules]="modules" name="content" [(ngModel)]="vacancy.responsibilities"></quill-editor>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn_primary_large button-text d-flex align-items-center" type="submit" aria-label="Sign in" (click)="addVacancy(vacancy)" [disabled]="!f.valid">Save</button>
+    </div>
+</form>

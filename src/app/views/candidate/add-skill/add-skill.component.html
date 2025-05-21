@@ -1,0 +1,82 @@
+<div class="top">
+    <div class="main-header">Skill</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<form class="student_center" #f="ngForm" *ngIf="candidatedatainfo.candidate_type !== 'developer'">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Skill Name</mat-label>
+                <input matInput placeholder="Skill Name" [(ngModel)]="skill.skill_name" name="skill_name" required
+                    #skill_name="ngModel">
+                <mat-error *ngIf="!skill_name.valid || (!skill_name.pristine)">
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="bottom-btn">
+        <button class="btn_primary_large button-text" [disabled]="!f.valid" type="submit" aria-label="Sign in"
+            (click)="AddSkill(skill)">Save</button>
+    </div>
+</form>
+
+
+
+
+<div class="table-holder" *ngIf="candidatedatainfo.candidate_type === 'developer'">
+  
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    
+    <table class="skills-table" formArrayName="technicalSkills">
+      <tr>
+          <th>
+             Skill
+          </th>
+           <th>
+             Years of Experience
+          </th>
+           <th>
+             Competency
+          </th>
+      </tr>
+      <tr *ngFor="let quantity of technicalSkills().controls; let i=index" [formGroupName]="i">
+        <td>
+            <input type="text" formControlName="skillName" class="form-control">
+        </td>
+        <td>
+            <input type="text" formControlName="yearsOfExperience" class="form-control">
+        </td>
+        <td>
+            <input type="text" formControlName="competency" class="form-control">
+            <!-- <select id="cars" name="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select> -->
+        </td>
+        <td>
+            <mat-icon (click)="removeQuantity(i)">remove_circle</mat-icon>
+        </td>
+      </tr>
+
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><mat-icon (click)="addQuantity()">add_circle_outline</mat-icon></td>
+      </tr>
+    </table>
+   
+    <button type="submit" class="btn_primary_large button-text">Save</button>
+    
+  </form>
+
+</div>

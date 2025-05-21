@@ -1,0 +1,26 @@
+<div class="top">
+    <div class="main-header">Edit Intro</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="current-employment">
+            <mat-checkbox name="available" [(ngModel)]="candidate.available"
+                (change)="CurrentAvailabilityStatus($event)">
+            </mat-checkbox> &nbsp;&nbsp;&nbsp;
+
+            <mat-label class="body-text">I'm looking for a new job</mat-label>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-btn">
+    <button class="btn_primary_large button-text" type="submit" aria-label="Sign in"
+        (click)="UpdateAvailabilty(candidate)">Update</button>
+</div>

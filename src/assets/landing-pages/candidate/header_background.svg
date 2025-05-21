@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="725.375" viewBox="0 0 1400 725.375">
+  <g id="Group_67" data-name="Group 67" transform="translate(130 475)">
+    <rect id="Rectangle_288" data-name="Rectangle 288" width="1400" height="725" transform="translate(-130 -475)" fill="#fff"/>
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-130 -475)">
+      <g id="_Layer_" data-name="&lt;Layer&gt;">
+        <path id="Path_84" data-name="Path 84" d="M1216.261,1703.9H830.34c12.8-95.147,94.3-168.508,192.95-168.508S1203.466,1608.751,1216.261,1703.9Z" transform="translate(-529.186 -978.523)" fill="rgba(36,146,209,0.06)"/>
+        <path id="Path_85" data-name="Path 85" d="M2378.611,0c-20.466,85.616-97.49,149.264-189.377,149.264S2020.326,85.616,1999.86,0Z" transform="translate(-1274.536)" fill="rgba(36,146,209,0.06)"/>
+        <path id="Path_86" data-name="Path 86" d="M190.36,558.9A140.286,140.286,0,0,1,0,689.859V427.951A140.286,140.286,0,0,1,190.36,558.9Z" transform="translate(0 -266.849)" fill="rgba(36,146,209,0.06)"/>
+        <circle id="Ellipse_4" data-name="Ellipse 4" cx="70.097" cy="70.097" r="70.097" transform="translate(411.469 37.629)" fill="rgba(36,146,209,0.06)"/>
+        <circle id="Ellipse_5" data-name="Ellipse 5" cx="15.577" cy="15.577" r="15.577" transform="translate(549.5 221.957)" fill="#f8f8ff"/>
+        <circle id="Ellipse_6" data-name="Ellipse 6" cx="15.577" cy="15.577" r="15.577" transform="matrix(0.233, -0.973, 0.973, 0.233, 80.718, 508.645)" fill="#f8f8ff"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,238 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.top .container-header {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3395d0;
+}
+
+.header-topic {
+    background-color: #3395d0;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.candidate-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: #515A5A;
+}
+
+.candidate-detail {
+    color: #515A5A;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.section-devider {
+    height: 1px;
+    background-color: #EAECEE;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.inside-devider {
+    height: 1px;
+    background-color: #EAECEE;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.topic {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+}
+
+.close-btn mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.client-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: #515A5A;
+}
+
+.interview-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: #515A5A;
+    margin: 10px 0 25px 0;
+}
+
+.client-detail {
+    color: #515A5A;
+}
+
+.skill-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.skill-tab {
+    color: #fff;
+}
+
+.skill-info mat-chip {
+    background-color: #3395d0 !important;
+    font-size: 13px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.edit {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.role-head {
+    // width: 30%;
+    margin-right: 10px;
+}
+
+.edit-role {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.edit-role mat-icon {
+    font-size: 22px;
+}
+
+.edit mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-header {
+    width: 500px;
+}
+
+.sub-header {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.title-header {
+    display: flex;
+    width: 100%;
+}
+
+.side-right {
+    padding: 15px 15px 0 15px;
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+}
+
+.audio-player {
+    margin-top: 30px;
+}
+
+.document {
+    margin: 30px 0 30px 0;
+}
+
+.document .btn_primary {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.bottom-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_primary_large {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.audio-btn a {
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: #3395d0;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.divider {
+    border-top: #EAECEE 1px solid;
+    margin: 25px 0 60px 0;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+
+.section-role {
+    display: flex;
+}

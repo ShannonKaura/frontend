@@ -1,0 +1,115 @@
+<!-- <mat-dialog-content> -->
+<div class="top">
+    <span class="main-header">Lead Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Contact Person
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.companyDetails.contact_person}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Company
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.companyDetails.name_of_business}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Phone
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.basicDetails.phone}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Email
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.basicDetails.email}}
+    </div>
+</div>
+
+<div class="row" *ngIf="lead.basicDetails.website">
+    <div class="col-md-6 topic-header">
+        Website
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.basicDetails.website}}
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<div class="row" *ngIf="lead.companyDetails.seedOrVentureCapitalFunded">
+    <div class="col-md-6 topic-header">
+        Is company a seed or venture capital funded
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.companyDetails.seedOrVentureCapitalFunded}}
+    </div>
+</div>
+
+<div class="row" *ngIf="lead.companyDetails.publiclyListedOrPostIPOCompany">
+    <div class="col-md-6 topic-header">
+        Is company publicly listed or post IPO
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.companyDetails.publiclyListedOrPostIPOCompany}}
+    </div>
+</div>
+
+<div class="row" *ngIf="lead.companyDetails.currentEmployees">
+    <div class="col-md-6 topic-header">
+        Current employees
+    </div>
+    <div class="col-md-6 body-text">
+        {{lead.companyDetails.currentEmployees}}
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<div class="row" *ngIf="lead.talent.length">
+    <div class="col-md-6 topic-header">
+        Talent required
+    </div>
+    <div class="col-md-6 body-text">
+        <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+            <mat-chip selected *ngFor="let item of lead.talent; index as i">{{item.talent_name}}
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+</div>
+
+<br /> <br />
+<!-- <div class="row" *ngIf="lead.developerSkills.length">
+    <div class="col-md-6 topic-header">
+        Developer skills required
+    </div>
+    <div class="col-md-6 body-text">
+         <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+            <mat-chip selected *ngFor="let item of lead.developerSkills; index as i">{{item}}
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+</div> -->
+
+
+<!-- </mat-dialog-content> -->

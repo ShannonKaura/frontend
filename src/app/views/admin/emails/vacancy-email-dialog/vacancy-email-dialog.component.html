@@ -1,0 +1,109 @@
+<div class="top">
+    <span class="main-header">Job Offer Email</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 1</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph1" name="paragraph1"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 2</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph2" name="paragraph2"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 3</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph3" name="paragraph3"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 4</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph4" name="paragraph4"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 5</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph5" name="paragraph5"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 6</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph6" name="paragraph6"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 7</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph7" name="paragraph7"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 8</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph8" name="paragraph8"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 9</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph9" name="paragraph9"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Paragraph 10</mat-label>
+  <textarea matInput [(ngModel)]="email.email_text.paragraph10" name="paragraph10"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="100"></textarea>
+</mat-form-field>
+
+ <div class="button_holder">
+   <!-- <button class="btn_primary_large body-text" type="submit" aria-label="Sign in">Update</button> -->
+   <button class="btn_dark_large body-text" type="submit" aria-label="Sign in" (click)="UpdateAndSendEmail(email)"><span *ngIf="!sending" [mat-dialog-close]="sent_msg" cdkFocusInitial>Send</span> <span *ngIf="sending">Sending...</span>  <mat-spinner [diameter]="20" *ngIf="sending"></mat-spinner></button>
+</div>
+
+<!-- <div class="button_holder">
+   <button class="btn_primary_large body-text" (click)="SaveEmail()" type="submit" aria-label="Sign in">Save</button>
+</div> -->

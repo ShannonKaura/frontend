@@ -1,0 +1,116 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+// for quill editors
+::ng-deep ul {
+    margin-top: 10px !important;
+    list-style-type: square !important;
+}
+
+::ng-deep ul li {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 15px
+}
+
+::ng-deep p {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 15px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.btn_primary_large {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.btn_primary_large:disabled {
+    background-color: #D5D8DC;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+}
+
+.close-btn mat-icon {
+    color: #3395d0 !important;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.top .container-header {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3395d0;
+    margin-top: 3px;
+}
+
+.close-btn {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+}
+
+.close-btn mat-icon {
+    color: #808B96;
+    cursor: pointer;
+}
+
+.section-devider {
+    height: 2px;
+    background-color: #D5D8DC;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 11px;
+    margin-top: -12px;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+.quill-editor-row {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <section>
+            <header class="main-header">
+                <nav>
+                    <div class="navbar">
+                        <div class="logo">
+                            <a><img src="../../../../assets/landing-pages/candidate/logo.svg"
+                                    alt="youpro contact logo" /></a>
+                        </div>
+
+                        <div class="buttons">
+                            <a (click)="SignUP()" class="candidate-btn" *ngIf="!isLoggedIn">Join Now</a>
+
+                            <a (click)="Login()" class="client-btn" *ngIf="!isLoggedIn">Sign In</a>
+
+                            <a (click)="MyAccount()" class="client-btn" *ngIf="isLoggedIn">My Account</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </section>
+
+    </body>
+</html>

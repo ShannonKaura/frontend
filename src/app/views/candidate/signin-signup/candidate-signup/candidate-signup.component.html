@@ -1,0 +1,74 @@
+<div id="app_container">
+    <header>
+        <div class="nav_base"></div>
+    </header>
+    <main class="app_content" *ngIf="candidate_form">
+        <!--Input Email and Password View-->
+        <div class="app_content_wrapper">
+            <div class="email_password_view" *ngIf="email_password_view">
+                <div class="header_logo">
+                    <img src="assets/img/logoCleanAJH.svg">
+                </div>
+
+                <form class="login_form" #f1="ngForm">
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" name="email" [(ngModel)]="candidate.email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" (ngModelChange)="checkEmailExist()">
+                        <mat-error *ngIf="!email.valid || (!email.pristine)">{{getEmailErrorMessage()}}</mat-error>
+                        <small *ngIf="email_exists" class="text-danger"> this email already exists </small>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="candidate.password" required validateEqual="confirm_password" reverse="true" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="!password.valid || (!password.pristine)">Must contain at least one Number and one Uppercase and lowercase letter, and at least 8 Characters</mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="confirm_password" [(ngModel)]="confirm.confirm_password" required validateEqual="password" reverse="false" #confirm_password="ngModel">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="!confirm_password.valid || (!confirm_password.pristine)">Password mismatch
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <div class="privacy-policy-holder">
+                        <mat-checkbox class="login-subheader" name="agree-checkbox" [(ngModel)]="checked" (change)="AgreeCheck($event)"></mat-checkbox>
+
+                        <div class="header_content_subheading login-subheader">
+                            By clicking checkbox, you agree to the YouPro Contact <a class="agreement" routerLink="/user-agreement" routerLinkActive="active" target="_blank">User
+                            Agreement
+                            </a>, and <a class="agreement" routerLink="/privacy-policy" routerLinkActive="active" target="_blank">Privacy Policy</a>. Updates will be sent via your registered email.</div>
+
+                    </div>
+
+
+
+                    <div class="btn-container">
+                        <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="AgreeAndJoin()" [disabled]="!checked || disabled"> <span *ngIf="!disabled">Agree & Join</span>  <span *ngIf="disabled"><mat-spinner [diameter]="20"></mat-spinner> &nbsp; Creating Account...</span></button>
+                    </div>
+
+
+                    <div class="footer-app-content-actions">
+                        <div>
+                            <span class="login-subheader">Already on YouPro Contact?</span> &nbsp;
+                            <a class="body-text" [routerLink]="['/login']" [routerLinkActive]="['is-active']">Sign
+                                In</a>
+                        </div>
+                        <div class="">
+                            <a class="body-text" href="/" [routerLinkActive]="['is-active']">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+</div>

@@ -1,0 +1,494 @@
+<div class="row">
+    <div class="col-md-6">
+        <form class="needs-validation" #f="ngForm">
+            <div class="row">
+                <div class="col-md-6" *ngIf="vacancy_categories">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Vacancy Category</mat-label>
+                        <mat-select class="body-text" matInput placeholder="Vacancy Category" name="vacancy_category" [(ngModel)]="vacancy.category">
+                            <mat-option class="body-text" value="">Select Vacancy Category</mat-option>
+                            <mat-option class="body-text" *ngFor="let c of vacancy_categories" value="{{c.industry_name}}">
+                                {{c.industry_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6" *ngIf="job_titles">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Job Title</mat-label>
+                        <mat-select class="body-text" matInput placeholder="Job Title" name="name" [(ngModel)]="vacancy.name">
+                            <mat-option class="body-text" value="">Select Job Title</mat-option>
+                            <mat-option class="body-text" *ngFor="let c of job_titles" value="{{c.job_name}}">
+                                {{c.job_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Payment From</mat-label>
+                        <input matInput placeholder="Payment From" class="example-right-align" [(ngModel)]="vacancy.salary_range.from" name="salary_from">
+                        <span class="body-text" matPrefix>$&nbsp;</span>
+                        <span class="body-text" matSuffix>.00&nbsp;</span>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Payment To</mat-label>
+                        <input matInput placeholder="Payment To" class="example-right-align" [(ngModel)]="vacancy.salary_range.to" name="salary_to">
+                        <span class="body-text" matPrefix>$&nbsp;</span>
+                        <span class="body-text" matSuffix>.00&nbsp;</span>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Job Type</mat-label>
+                        <mat-select class="body-text" matInput placeholder="Job Type" name="vacancy_type" [(ngModel)]="vacancy.vacancy_type">
+                            <mat-option class="body-text" value="">Select Job Type</mat-option>
+                            <mat-option class="body-text" value="Full Time">Full Time</mat-option>
+                            <mat-option class="body-text" value="Part Time">Part Time</mat-option>
+                            <mat-option class="body-text" value="Contract">Contract</mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Expiry Date</mat-label>
+                        <input matInput [matDatepicker]="expiry_date" placeholder="Start Date (format) dd/MM/YYYY" name="expiry_date" [(ngModel)]="vacancy.expiry_date" (dateChange)="onChangeExpiryDate($event)" required>
+                        <mat-datepicker-toggle matSuffix [for]="expiry_date">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #expiry_date></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="City" [(ngModel)]="vacancy.city" name="city">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <mat-select class="body-text" matInput placeholder="Country" [(ngModel)]="vacancy.country" name="country" required #country="ngModel">
+                            <mat-option class="body-text" value="">Select Country</mat-option>
+                            <mat-option class="body-text" *ngFor="let c of countries" value="{{c.country_name}}">
+                                {{c.country_name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!country.valid || (!country.pristine) || country_empty">
+                            {{getCountryMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="quill-editor-row">
+                        <br />
+                        <mat-label class="body-text">Summary</mat-label><br /><br />
+                        <quill-editor [modules]="modules" name="summary" [(ngModel)]="vacancy.summary"></quill-editor>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="quill-editor-row">
+                        <br />
+                        <mat-label class="body-text">Requirements</mat-label><br /><br />
+                        <quill-editor [modules]="modules" name="content" [(ngModel)]="vacancy.qualifications"></quill-editor>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="quill-editor-row">
+                        <br />
+                        <mat-label class="body-text">Responsibilities</mat-label><br /><br />
+                        <quill-editor [modules]="modules" name="content" [(ngModel)]="vacancy.responsibilities"></quill-editor>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="updateVacancy(vacancy)">Update
+                    Vacancy</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="side-right candidate-table col-md-6">
+        <div class="candidates-title-header-holder">
+            <div class="title-header candidate-header blue" (click)="onClickBeforeInterview()" *ngIf="before_interview_candidates">
+                Candidates Before Interview
+            </div>
+
+            <div class="title-header candidate-header" (click)="onClickBeforeInterview()" *ngIf="!before_interview_candidates">
+                Candidates Before Interview
+            </div>
+
+            <div class="title-header candidate-header blue" (click)="onClickAfterInterview()" *ngIf="after_interview_candidates">
+                Candidates After Interview
+            </div>
+
+            <div class="title-header candidate-header" (click)="onClickAfterInterview()" *ngIf="!after_interview_candidates">
+                Candidates After Interview
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="sub-headers" *ngIf="before_interview">
+            <div class="sub-header" (click)="ViewInterestedCandidates()" *ngIf="!view_interested_candidates">
+                Interested
+            </div>
+
+            <div class="selected sub-header" (click)="ViewInterestedCandidates()" *ngIf="view_interested_candidates">
+                Interested
+            </div>
+
+            <div class="sub-header" (click)="ViewShortlistedCandidates()" *ngIf="!view_shortlisted_candidates">
+                Shortlisted
+            </div>
+
+            <div class="selected sub-header" (click)="ViewShortlistedCandidates()" *ngIf="view_shortlisted_candidates">
+                Shortlisted
+            </div>
+
+            <div class="sub-header" (click)="ViewRejectedCandidates()" *ngIf="!view_rejected_candidates">
+                Rejected
+            </div>
+
+            <div class="selected sub-header" (click)="ViewRejectedCandidates()" *ngIf="view_rejected_candidates">
+                Rejected
+            </div>
+
+            <div class="sub-header" (click)="ViewUnderReviewCandidates()" *ngIf="!view_under_review_candidates">
+                Under Review
+            </div>
+
+            <div class="selected sub-header" (click)="ViewUnderReviewCandidates()" *ngIf="view_under_review_candidates">
+                Under Review
+            </div>
+        </div>
+
+        <div class="sub-headers" *ngIf="!before_interview">
+
+            <div class="sub-header" (click)="ViewInTrainingCandidates()" *ngIf="!view_intraining_candidates">
+                In Training
+            </div>
+
+            <div class="selected sub-header" (click)="ViewInTrainingCandidates()" *ngIf="view_intraining_candidates">
+                In Training
+            </div>
+
+            <div class="sub-header" (click)="ViewAcceptedCandidates()" *ngIf="!view_accepted_candidates">
+                Accepted
+            </div>
+
+            <div class="selected sub-header" (click)="ViewAcceptedCandidates()" *ngIf="view_accepted_candidates">
+                Accepted
+            </div>
+
+            <div class="sub-header" (click)="ViewRejectedAfterInterviewCandidates()" *ngIf="!view_rejected_after_interview_candidates">
+                Rejected
+            </div>
+
+            <div class="selected sub-header" (click)="ViewRejectedAfterInterviewCandidates()" *ngIf="view_rejected_after_interview_candidates">
+                Rejected
+            </div>
+
+            <div class="sub-header" (click)="ViewUnderReviewAfterInterviewCandidates()" *ngIf="!view_under_review_after_interview_candidates">
+                Under Review
+            </div>
+
+            <div class="selected sub-header" (click)="ViewUnderReviewAfterInterviewCandidates()" *ngIf="view_under_review_after_interview_candidates">
+                Under Review
+            </div>
+        </div>
+
+
+
+        <div class="divider"></div>
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="interested_candidates.length > 0 && view_interested_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <!-- Applied Candidates Start-->
+        <table *ngIf="interested_candidates.length > 0 && view_interested_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Applied Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let interested_candidate of interested_candidates | searchFilter : searchText">
+                <td>{{interested_candidate.first_name}} {{interested_candidate.middle_name}} {{interested_candidate.last_name}} {{interested_candidate.name}} </td>
+                <td>{{interested_candidate.application_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(interested_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+        <div *ngIf="interested_candidates.length > 0 && view_interested_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{interested_candidates.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Applied Candidates End-->
+
+
+        <!-- Shortlisted Candidates Start-->
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="shortlisted_candidates.length > 0 && view_shortlisted_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="shortlisted_candidates.length > 0 && view_shortlisted_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Shortlisted Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let shortlisted_candidate of shortlisted_candidates | searchFilter : searchText">
+                <td>{{shortlisted_candidate.first_name}} {{shortlisted_candidate.middle_name}} {{shortlisted_candidate.last_name}} {{shortlisted_candidate.name}} </td>
+                <td>{{shortlisted_candidate.shortlisted_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(shortlisted_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+
+        <div *ngIf="shortlisted_candidates.length > 0 && view_shortlisted_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{shortlisted_candidates.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Shortlisted Candidates End-->
+
+
+        <!-- Rejected Candidates Start -->
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="rejected_candidates.length > 0 && view_rejected_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="rejected_candidates.length > 0 && view_rejected_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Rejected Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let rejected_candidate of rejected_candidates | searchFilter : searchText">
+                <td>{{rejected_candidate.first_name}} {{rejected_candidate.middle_name}} {{rejected_candidate.last_name}} {{rejected_candidate.name}}</td>
+                <td>{{rejected_candidate.rejected_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(rejected_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+
+        <div *ngIf="rejected_candidates.length > 0 && view_rejected_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{rejected_candidates.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Rejected Candidates End -->
+
+
+        <!-- Under Review Candidate Start -->
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="under_review.length > 0 && view_under_review_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="under_review.length > 0 && view_under_review_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Under Review Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let under_review_candidate of under_review | searchFilter : searchText">
+                <td>{{under_review_candidate.first_name}} {{under_review_candidate.middle_name}} {{under_review_candidate.last_name}} {{under_review_candidate.name}}</td>
+                <td>{{under_review_candidate.under_review_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(under_review_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+        <div *ngIf="under_review.length > 0 && view_under_review_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{under_review.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Under Review Candidate End -->
+
+
+        <!-- Accepeted Candidates Start -->
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="show_accepted_candidates.length > 0 && view_accepted_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="show_accepted_candidates.length > 0 && view_accepted_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Accepted Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let accepted_candidate of show_accepted_candidates | searchFilter : searchText">
+                <td>{{accepted_candidate.first_name}} {{accepted_candidate.middle_name}} {{accepted_candidate.last_name}}</td>
+                <td>{{accepted_candidate.accepted_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(accepted_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+        <div *ngIf="show_accepted_candidates.length > 0 && view_accepted_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{show_accepted_candidates.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Accepeted Candidates End -->
+
+        <!-- Intraining Candidate -->
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="show_intraining_candidates.length > 0 && view_intraining_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="show_intraining_candidates.length > 0 && view_intraining_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Accepted Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let intraining_candidate of show_intraining_candidates | searchFilter : searchText">
+                <td>{{intraining_candidate.first_name}} {{intraining_candidate.middle_name}} {{intraining_candidate.last_name}}</td>
+                <td>{{intraining_candidate.accepted_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(intraining_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+        <div *ngIf="show_intraining_candidates.length > 0 && view_intraining_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{show_intraining_candidates.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- End Intraing Candidate -->
+
+        <!-- Rejected Candidates After Interview Start -->
+
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="rejected_after_interview.length > 0 && view_rejected_after_interview_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="rejected_after_interview.length > 0 && view_rejected_after_interview_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Rejected Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let rejected_candidate of rejected_after_interview | searchFilter : searchText">
+                <td>{{rejected_candidate.first_name}} {{rejected_candidate.middle_name}} {{rejected_candidate.last_name}}</td>
+                <td>{{rejected_candidate.rejected_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(rejected_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+        <div *ngIf="rejected_after_interview.length > 0 && view_rejected_after_interview_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{rejected_after_interview.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Rejected Candidates After Interview End -->
+
+
+        <!-- Under Review Candidates Start -->
+        <mat-form-field class="full-width body-text" appearance="outline" *ngIf="under_review_after_interview.length > 0 && view_under_review_after_interview_candidates">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText" placeholder="Search Candidate">
+        </mat-form-field>
+
+        <table *ngIf="under_review_after_interview.length > 0 && view_under_review_after_interview_candidates">
+            <tr class="table-header-text">
+                <th>Name</th>
+                <th>Rejected Date</th>
+                <th></th>
+            </tr>
+
+            <tr class="body-text" *ngFor="let under_review_candidate of under_review_after_interview | searchFilter : searchText">
+                <td>{{under_review_candidate.first_name}} {{under_review_candidate.middle_name}} {{under_review_candidate.last_name}}</td>
+                <td>{{under_review_candidate.under_review_date * 1000 | date: 'MMMM d, y, h:mm a'}}</td>
+                <td>
+                    <mat-icon (click)="openViewCandidate(under_review_candidate)">visibility
+                    </mat-icon>
+                </td>
+            </tr>
+        </table>
+
+        <div *ngIf="under_review_after_interview.length > 0 && view_under_review_after_interview_candidates">
+            <div class="divider"></div>
+
+            <div class="candidates_number">
+                <h1>{{under_review_after_interview.length}} Candidates</h1>
+            </div>
+        </div>
+        <!-- Under Review Candidates End -->
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="top">
+    <span class="main-header" *ngIf="basic_details">Basic Details</span>
+    <span class="main-header" *ngIf="company_details">Company Details</span>
+    <span class="main-header" *ngIf="contact_details">Contact Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+
+<div class="section-devider"></div>
+
+<!-- Basic Details -->
+<form class="needs-validation" #form1="ngForm" *ngIf="basic_details">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" [(ngModel)]="user.main_user_info.first_name" name="first_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Middle Name</mat-label>
+                <input matInput placeholder="Middle Name" [(ngModel)]="user.main_user_info.middle_name" name="middle_name">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" [(ngModel)]="user.main_user_info.last_name" name="last_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" [(ngModel)]="user.contact_info.email_address" name="email_address" (ngModelChange)="inputEmail()" #email="ngModel" required>
+                <small *ngIf="email_exists" class="text-danger"> this email already exists </small>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select class="body-text" matInput placeholder="Status" [(ngModel)]="user.status" name="status">
+                    <mat-option class="body-text" value="">Select Status</mat-option>
+                    <mat-option class="body-text" value="Active">Active</mat-option>
+                    <mat-option class="body-text" value="InActive">InActive</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Access Level</mat-label>
+                <mat-select class="body-text" matInput placeholder="Access Level" [(ngModel)]="user.access_level" name="access_level" required>
+                    <mat-option class="body-text" value="">Select Level</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of access_levels" [value]="c">
+                        {{c.role_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!--Password Information-->
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="user.password" required validateEqual="confirm_password" reverse="true" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="!password.valid || (!password.pristine)">Must contain at least one Number and one Uppercase and lowercase letter, and at least 8 Characters</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name="confirm_password" [(ngModel)]="confirm.confirm_password" required validateEqual="password" reverse="false" #confirm_password="ngModel">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="!confirm_password.valid || (!confirm_password.pristine)">Password mismatch
+                </mat-error>
+
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="group-button">
+
+        <div>
+            <button class="save button-text" mat-button (click)="addUser(user)">Save</button>
+        </div>
+    </div>
+</form>

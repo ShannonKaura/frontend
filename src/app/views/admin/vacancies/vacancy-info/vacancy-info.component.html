@@ -1,0 +1,87 @@
+<div class="top">
+    <div class="filter-holder" *ngIf="VacancyData.length !== 0">
+        <div class="search-container">
+            <button type="submit"><mat-icon>search</mat-icon></button>
+            <input type="text" (keyup)="applyFilter($event)" placeholder="Search Vacancy" name="search">
+        </div>
+    </div>
+
+
+    <div class="top-button">
+        <button class="button-text" mat-button matTooltip="" (click)="openNewVacancyDialog()">Create Vacancy</button>
+    </div>
+</div>
+
+<div class="body-holder">
+
+    <div class="mat-spinner-holder" *ngIf="loading">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+
+    <div class="searched-data" *ngIf="!loading && empty_vacancies">
+        <div class="search-img">
+            <img src="./../../../../../assets/img/no-results.png" width="100px" alt="no results">
+        </div>
+        <div class="img-text">
+            <mat-label>No Results Found...</mat-label>
+        </div>
+    </div>
+
+    <div class="datatable-container overflow-auto">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0" *ngIf="VacancyData.length !== 0 && dataSource.filteredData.length > 0">
+
+            <!-- Vacancy Name -->
+            <ng-container matColumnDef="category">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Category </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.category}}
+                </td>
+            </ng-container>
+
+            <!-- Industry -->
+            <ng-container matColumnDef="name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Vacancy Title </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Company Name -->
+            <ng-container matColumnDef="vacancy_type">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Vacancy Type </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.vacancy_type}} </td>
+            </ng-container>
+
+            <!-- Company Industry -->
+            <ng-container matColumnDef="expiry_date">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Expiry Date </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.expiry_date | date}} </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+                    <div>Actions</div>
+                </th>
+                <td class="body-text" mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <!-- <mat-icon (click)="openViewVacancy(element)">visibility
+                </mat-icon> -->
+
+                        <mat-icon class="edit-icon" (click)="editVacancy(element)">edit_square
+                        </mat-icon>
+
+
+
+                        <mat-icon class="delete-icon" (click)="confirmDialog(i, element)">delete
+                        </mat-icon>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" #vacancy_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="VacancyData.length !== 0 && dataSource.filteredData.length > 0"></mat-paginator>
+</div>

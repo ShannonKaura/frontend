@@ -1,0 +1,125 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+mat-dialog-actions button {
+    border-radius: 0;
+}
+
+.header {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.header-topic {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+
+.mat-form-field {
+    margin-top: 16px;
+}
+
+.group-button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.group-button .next,
+.save {
+    border-radius: 0;
+    background-color: #3395d0;
+    color: #ffffff;
+}
+
+.group-button .back {
+    border-radius: 0;
+    background-color: #808B96;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.top .container-header {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3395d0;
+    margin-top: 3px;
+}
+
+.close-btn {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+}
+
+.close-btn mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.section-devider {
+    height: 3px;
+    background-color: #3395d0;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.gender-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.gender-radio-button {
+    margin: 5px;
+}
+
+#radio-group-label {
+    font-size: 14px !important;
+}
+
+.save-staff-btn {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}

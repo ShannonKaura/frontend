@@ -1,0 +1,857 @@
+<html>
+
+<body>
+    <section>
+        <header class="main-header">
+            <nav>
+                <div class="navbar">
+                    <div class="logo">
+                        <a [routerLink]="['/clients']" [routerLinkActive]="['is-active']"><img src="../../../../assets/landing-pages/candidate/logo.svg" alt="youpro contact logo" /></a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </section>
+
+    <!-- Software Developement Skills -->
+    <div class="skills-holder">
+        <div class="skills-container" *ngIf="skills_container">
+            <div class="top-section-skills-holder">
+                <div class="skills-wraper">
+                    <section class="headers">
+                        <h1 class="section-header-top">Add required skills on each selected talent.</h1>
+                    </section>
+                </div>
+                <button class="btn_primary_skip button-text" aria-label="Sign in" (click)="ContinueToFillDetails()">Skip</button>
+            </div>
+
+
+            <div class="skills-wraper" *ngIf="software_developement_select_skills">
+                <section class="headers">
+                    <div>
+                        <h1 class="section-header">Software Engineering/Programming</h1>
+                    </div>
+                    <div>
+                        <h2 class="section-sub-header">Select at least one skill</h2>
+                    </div>
+                </section>
+
+                <mat-card class="skills-holder-card" *ngIf="software_developement_selected">
+                    <mat-card-content>
+                        <section>
+                            <div class="skills">
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': not_sure_color}" (click)="RevertPosition()">
+                                    <img mat-card-image src="./../../../../assets/img/not-sure.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Not Sure </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': react_color}" (click)="RevertReact()">
+                                    <img mat-card-image src="./../../../../assets/img/react.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> React </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': node_color}" (click)="RevertNode()">
+                                    <img mat-card-image src="./../../../../assets/img/node.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Node.js </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': python_color}" (click)="RevertPython()">
+                                    <img mat-card-image src="./../../../../assets/img/python.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Python </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': angular_color}" (click)="RevertAngular()">
+                                    <img mat-card-image src="./../../../../assets/img/angular.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Angular </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': react_native_color}" (click)="RevertReactNative()">
+                                    <img mat-card-image src="./../../../../assets/img/react.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> React Native </h3>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+
+                            <div class="skills">
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': android_color}" (click)="RevertAndroid()">
+                                    <img mat-card-image src="./../../../../assets/img/android.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Android </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': java_color}" (click)="RevertJava()">
+                                    <img mat-card-image src="./../../../../assets/img/java.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Java </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': go_color}" (click)="RevertGo()">
+                                    <img mat-card-image src="./../../../../assets/img/Go.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Go </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': vue_color}" (click)="RevertVue()">
+                                    <img mat-card-image src="./../../../../assets/img/vue.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Vue.js </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': php_color}" (click)="RevertPhp()">
+                                    <img mat-card-image src="./../../../../assets/img/PHP.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Php </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': typescript_color}" (click)="RevertTypescript()">
+                                    <img mat-card-image src="./../../../../assets/img/typescript.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Typescript </h3>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <!-- for mobile -->
+                            <div class="skills-mobile">
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': not_sure_color}" (click)="RevertPosition()">
+                                    <img mat-card-image src="./../../../../assets/img/not-sure.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Not Sure </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': react_color}" (click)="RevertReact()">
+                                    <img mat-card-image src="./../../../../assets/img/react.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> React </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': node_color}" (click)="RevertNode()">
+                                    <img mat-card-image src="./../../../../assets/img/node.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Node.js </h3>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <div class="skills-mobile">
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': python_color}" (click)="RevertPython()">
+                                    <img mat-card-image src="./../../../../assets/img/python.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Python </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': angular_color}" (click)="RevertAngular()">
+                                    <img mat-card-image src="./../../../../assets/img/angular.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Angular </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': react_native_color}" (click)="RevertReactNative()">
+                                    <img mat-card-image src="./../../../../assets/img/react.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> React Native </h3>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+
+                            <div class="skills-mobile">
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': android_color}" (click)="RevertAndroid()">
+                                    <img mat-card-image src="./../../../../assets/img/android.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Android </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': java_color}" (click)="RevertJava()">
+                                    <img mat-card-image src="./../../../../assets/img/java.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Java </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': go_color}" (click)="RevertGo()">
+                                    <img mat-card-image src="./../../../../assets/img/Go.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Go </h3>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <div class="skills-mobile">
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': vue_color}" (click)="RevertVue()">
+                                    <img mat-card-image src="./../../../../assets/img/vue.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Vue.js </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': php_color}" (click)="RevertPhp()">
+                                    <img mat-card-image src="./../../../../assets/img/PHP.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Php </h3>
+                                    </mat-card-content>
+                                </mat-card>
+
+                                <mat-card class="skill-card" [ngClass]="{'skill-card-border': typescript_color}" (click)="RevertTypescript()">
+                                    <img mat-card-image src="./../../../../assets/img/typescript.png" alt="Photo of a Shiba Inu">
+                                    <mat-card-content>
+                                        <h3> Typescript </h3>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Other Software Skills</mat-label>
+                                        <input matInput [(ngModel)]="skill.name" name="skill_name" #skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveSelectedSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+
+            <!-- Cyber Security Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="cyber_security_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Cyber Security</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="cyber_security_skill.name" name="cyber_security_skill_name" #cyber_security_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddCyberSecuritySkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of cyber_security_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveSelectedCyberSecuritySkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <!-- Digital Marketing Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="digital_marketing_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Digital Marketing</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="digital_marketing_skill.name" name="digital_marketing_skill_name" #digital_marketing_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddDigitalMarketingSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of digital_marketing_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveDigitalMarketingSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <!-- Social Media Management Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="social_media_management_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Social Media Management</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="social_media_skill.name" name="social_media_skill_name" #social_media_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddSocialMediaSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of social_media_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveSocialMediaSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+            <!-- Graphic Design Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="graphic_design_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Graphic Design</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="graphic_design_skill.name" name="graphic_design_skill_name" #graphic_design_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddGraphicDesignSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of graphic_design_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveGraphicDesignSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+
+            <!-- It Support Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="it_support_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">It Support</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="it_support_skill.name" name="it_support_skill_name" #it_support_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddItSupportSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of it_support_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveItSupportSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+            <!-- Ui Ux Skills -->
+            <mat-card class="skills-holder-card" *ngIf="ui_ux_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Ui Ux Design</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="ui_ux_skill.name" name="ui_ux_skill_name" #ui_ux_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddUiUxSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of ui_ux_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveUiUxSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+
+            <!-- Admin Skills -->
+            <mat-card class="skills-holder-card" *ngIf="admin_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Admin</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="admin_skill.name" name="admin_skill_name" #admin_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddAdminSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of admin_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveAdminSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+            <!-- Accounting Skills -->
+            <mat-card class="skills-holder-card" *ngIf="accounting_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Accounting/Bookkeeping</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="accounting_skill.name" name="accounting_skill_name" #accounting_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddAccountingSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of accounting_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveAccountingSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <!-- Sales Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="sales_security_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Sales</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="sales_skill.name" name="sales_skill_name" #sales_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddSalesSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of sales_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveSalesSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+
+            <!-- Inbound Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="inbound_outbound_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Inbound/Outbound Calls</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="inbound_outbound_skill.name" name="inbound_outbound_skill_name" #inbound_outbound_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddInboundOutboundSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of inbount_outbound_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveInboundOutboundSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+
+            <!-- Lead Generation Skills -->
+
+            <mat-card class="skills-holder-card" *ngIf="lead_generation_select_skills">
+                <mat-card-content>
+                    <div class="skills-wraper">
+                        <section class="headers">
+                            <div>
+                                <h1 class="section-header">Lead Generation</h1>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row skill-input-holder">
+                                <div class="col-md-12">
+                                    <mat-form-field class="add-skill-input body-text" appearance="outline">
+                                        <mat-label>Add Required Skill</mat-label>
+                                        <input matInput [(ngModel)]="lead_generation_skill.name" name="lead_generation_skill_name" #lead_generation_skill_name="ngModel">
+                                    </mat-form-field>
+
+                                    <mat-icon (click)="AddLeadGenerationSkill()">add_circle</mat-icon>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                                        <mat-chip selected *ngFor="let item of lead_generation_skills; index as i"> {{item}} &nbsp;
+                                            <mat-icon (click)="RemoveLeadGenerationSkill(item)">cancel</mat-icon>
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+
+            <div class="skills-wraper">
+                <div class="row skill-input-holder">
+                    <div class="col-md-12">
+                        <button class="btn_primary_back button-text" aria-label="Sign in" (click)="BackToHome()">Back</button> &nbsp;
+                        <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="ContinueToFillDetails()">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form class="" #f="ngForm">
+        <div class="details-holder" *ngIf="client_details">
+            <div class="details body-text">
+                <div class="top-section-skills-holder">
+                    <section class="headers">
+                        <h1 class="section-header-top">Company Details</h1>
+                    </section>
+                </div>
+
+                <div class="selection-questions-holder">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Name of Business</mat-label>
+                        <input matInput [(ngModel)]="lead.companyDetails.name_of_business" name="name_of_business" #name_of_business="ngModel">
+                    </mat-form-field>
+                </div>
+
+                <div class="selection-questions-holder">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Contact Person</mat-label>
+                        <input matInput [(ngModel)]="lead.companyDetails.contact_person" name="contact_person" #contact_person="ngModel">
+                    </mat-form-field>
+                </div>
+
+                <div class="selection-questions-holder">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Are you Seed or Venture Capital funded?</mat-label>
+                        <mat-select class="full-width body-text" [(ngModel)]="lead.companyDetails.seedOrVentureCapitalFunded" name="seed" #seed="ngModel">
+                            <mat-option>--</mat-option>
+                            <mat-option class="body-text" *ngFor="let seed of seedOrVentureCapital" [value]="seed.option">
+                                {{seed.option}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!seed.valid || (!seed.pristine)">{{getSeedOrVentureErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="selection-questions-holder">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Are you a publicly listed/post IPO company?</mat-label>
+                        <mat-select class="full-width body-text" [(ngModel)]="lead.companyDetails.publiclyListedOrPostIPOCompany" name="listedoption" #listedoption="ngModel">
+                            <mat-option>--</mat-option>
+                            <mat-option class="body-text" *ngFor="let listedoption of companyListed" [value]="listedoption.option">
+                                {{listedoption.option}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!seed.valid || (!seed.pristine)">{{getCompanyErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="selection-options-holder">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Current employees in your company</mat-label>
+                        <mat-select class="full-width body-text" [(ngModel)]="lead.companyDetails.currentEmployees" name="employees" #employees="ngModel">
+                            <mat-option>--</mat-option>
+                            <mat-option class="body-text" *ngFor="let employees of currentEmployees" [value]="employees.option">
+                                {{employees.option}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!employees.valid || (!employees.pristine)">{{getEmployessErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="client-inputs-holder">
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Your name</mat-label>
+                        <input matInput [(ngModel)]="lead.basicDetails.client_name" name="client_name" #client_name="ngModel" required>
+                        <mat-error *ngIf="!client_name.valid || (!client_name.pristine)">{{getNameErrorMessage()}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Phone number</mat-label>
+                        <input matInput [(ngModel)]="lead.basicDetails.phone" name="phone" #phone="ngModel" required>
+                        <mat-error *ngIf="!phone.valid || (!phone.pristine)">{{getPhoneErrorMessage()}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Company website (optional)</mat-label>
+                        <input matInput [(ngModel)]="lead.basicDetails.website" name="website" #client_name="ngModel">
+                    </mat-form-field>
+                </div>
+
+                <div class="selection-questions-holder">
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Additional notes - please fill in any specific requirements you have that we might have missed.</mat-label>
+                        <textarea [(ngModel)]="lead.notes" name="notes" #notes="ngModel" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="500"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn_primary_back button-text" aria-label="Sign in" (click)="BackToSkills()">Back</button> &nbsp;
+                        <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="ContinueToBook()" [disabled]="!f.valid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Below Information has been skipped for now -->
+    <form class="" #f="ngForm">
+        <div class="details-holder" *ngIf="detailed_client_details">
+            <div class="details body-text">
+
+                <div class="client-inputs-holder">
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Name of Business</mat-label>
+                        <input matInput [(ngModel)]="lead.companyDetails.name_of_business" name="name_of_business" #name_of_business="ngModel">
+                    </mat-form-field>
+
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Contact Person</mat-label>
+                        <input matInput [(ngModel)]="lead.companyDetails.contact_person" name="contact_person" #contact_person="ngModel">
+                    </mat-form-field>
+
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Please give an overview of your business and the department you are hiring for.</mat-label>
+                        <textarea [(ngModel)]="lead.companyDetails.business_overview" name="business_overview" #business_overview="ngModel" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="500"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>What skills do you expect the candidate to have?</mat-label>
+                        <mat-select class="body-text" [formControl]="qualifications" multiple>
+                            <mat-option class="body-text" *ngFor="let qualification of qualificationList" [value]="qualification">{{qualification}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>How many years of experience should the candidate have?</mat-label>
+                        <mat-select class="body-text" [formControl]="yearsOfExperiences" multiple>
+                            <mat-option class="body-text" *ngFor="let yearsOfExperience of yearsOfExperienceList" [value]="yearsOfExperience">{{yearsOfExperience}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Job Type</mat-label>
+                        <mat-select class="body-text" [formControl]="jobTypes" multiple>
+                            <mat-option class="body-text" *ngFor="let jobType of jobTypeList" [value]="jobType">{{jobType}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width body-text" appearance="outline">
+                        <mat-label>Age preference for the candidate?</mat-label>
+                        <mat-select class="body-text" [formControl]="agePreferences" multiple>
+                            <mat-option class="body-text" *ngFor="let agePreference of agePreferenceList" [value]="agePreference">{{agePreference}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>Additional notes - please fill in any specific requirements you have that we might have missed.</mat-label>
+                        <textarea [(ngModel)]="lead.notes" name="notes" #notes="ngModel" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="500"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field class="client-input body-text" appearance="outline">
+                        <mat-label>What date are they expected to start work? </mat-label>
+                        <input matInput [matDatepicker]="expected_start_date" [(ngModel)]="lead.expected_start_date" name="expected_start_date" (click)="expected_start_date.open()">
+                        <mat-datepicker-toggle matSuffix [for]="expected_start_date"></mat-datepicker-toggle>
+                        <mat-datepicker #expected_start_date></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn_primary_back button-text" type="submit" aria-label="Sign in" (click)="BackToDetails()" [disabled]="!f.valid">Back</button> &nbsp;
+                        <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="ContinueToBook()" [disabled]="!f.valid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div *ngIf="client_booking">
+        <iframe src="https://youprocontact.co.uk/booking-calendar.html" title="youpro contact booking calendar"></iframe>
+    </div>
+
+</body>
+
+</html>

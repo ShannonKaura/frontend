@@ -1,0 +1,31 @@
+<div id="app_container">
+    <header>
+        <div class="nav_base"></div>
+    </header>
+    <main class="app_content">
+        <div class="header_logo">
+            <img src="assets/img/logoCleanAJH.svg">
+        </div>
+        <div class="header_content">
+            <h1 class="login-header">We sent a code to your email</h1>
+            <p class="header_content_subheading body-text">Enter the 6-digit verification code sent to your email</p>
+        </div>
+        <form class="login_form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <mat-form-field appearance="outline" class="full-width body-text">
+                <mat-label>6 Digit Code</mat-label>
+                <input matInput name="code" [(ngModel)]="form.code" maxlength="6">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+
+            <div class="btn-container">
+                <button class="btn_primary_large button-text" type="submit" aria-label="Sign in">Submit</button>
+            </div>
+
+            <div class="footer-app-content-actions">
+                <div class="header_content_subheading body-text">
+                    If you don't see the email in your inbox, check your spam folder.
+                </div>
+            </div>
+        </form>
+    </main>
+</div>

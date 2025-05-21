@@ -1,0 +1,74 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="'navigation'" [mode]="'side'" opened>
+        <mat-toolbar color="">
+
+            <!-- logo -->
+            <div class="navbar-brand">
+                <img src="assets/img/logo-white.svg">
+            </div>
+            <!-- Menu -->
+
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['/candidates']" [routerLinkActive]="['is-active']"><span
+                    class="material-icons">
+                    account_circle
+                </span> &nbsp; Candidates</a>
+            <a mat-list-item [routerLink]="['/staff']" [routerLinkActive]="['is-active']"><span
+                    class="material-icons">
+                     group
+                </span> &nbsp; Employees</a>
+            <a mat-list-item [routerLink]="['/leads']" [routerLinkActive]="['is-active']"><span
+                class="material-icons">
+                leaderboard
+            </span> &nbsp; Leads</a>
+            <a mat-list-item [routerLink]="['/clients']" [routerLinkActive]="['is-active']"><span
+                class="material-icons">
+                groups
+            </span> &nbsp; Clients</a>
+            <a mat-list-item [routerLink]="['/vacancies']" [routerLinkActive]="['is-active']"><span
+                    class="material-icons">
+                    work
+                </span> &nbsp; Vacancies</a>
+            <a mat-list-item [routerLink]="['/blog']" [routerLinkActive]="['is-active']"><span class="material-icons">
+                    forum
+                </span> &nbsp; Blog</a>
+            <a mat-list-item [routerLink]="['/admin']" [routerLinkActive]="['is-active']"><span class="material-icons">
+                    manage_accounts
+                </span> &nbsp; Admin</a>
+            <a mat-list-item [routerLink]="['/settings']" [routerLinkActive]="['is-active']"><span
+                    class="material-icons">
+                    settings
+                </span> &nbsp; Settings</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <mat-toolbar-row>
+                <span class="spacer"></span>
+                <div class="nav-links">
+                    <div class="inside">
+                        <div (click)="AdminUser()">
+                            <span class="icon-text">
+                                {{user.main_user_info.first_name}}
+                                {{user.main_user_info.middle_name}}
+                                {{user.main_user_info.last_name}}
+                            </span>
+                            <span class="icon">
+                                <mat-icon>arrow_drop_down</mat-icon>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+        <div class="body">
+            <div class="body-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,18 @@
+<mat-tab-group #tabGroup (selectedTabChange)="0">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Blogs
+            </span>
+        </ng-template>
+        <app-blog-info></app-blog-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Categories
+            </span>
+        </ng-template>
+        <app-blog-category-info></app-blog-category-info>
+    </mat-tab>
+</mat-tab-group>

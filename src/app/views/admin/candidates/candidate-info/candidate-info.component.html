@@ -1,0 +1,348 @@
+<div class="top">
+    <div class="filter-holder">
+        <div class="search-container" *ngIf="profileCandidate">
+            <button type="submit"><mat-icon>search</mat-icon></button>
+            <input type="text" (keyup)="applyFilterProfileCandidates($event)" placeholder="Search Candidate" name="search">
+        </div>
+
+        <div class="search-container" *ngIf="intrainingCandidate">
+            <button type="submit"><mat-icon>search</mat-icon></button>
+            <input type="text" (keyup)="applyFilterCandidatesInTraining($event)" placeholder="Search Candidate" name="search">
+        </div>
+
+        <div class="search-container" *ngIf="acceptedCandidate">
+            <button type="submit"><mat-icon>search</mat-icon></button>
+            <input type="text" (keyup)="applyFilterAcceptedCandidates($event)" placeholder="Search Candidate" name="search">
+        </div>
+    </div>
+
+
+    <div class="top-button">
+        <button class="button-text" mat-button matTooltip="" (click)="openNewCandidateDialog()">Create Candidate</button>
+    </div>
+</div>
+
+<div class="body-holder">
+
+    <div class="mat-spinner-holder d-flex justify-content-center align-items-center" *ngIf="loading">
+        <mat-spinner [diameter]="50"></mat-spinner>
+    </div>
+
+    <div class="searched-data" *ngIf="candidates_empty && !loading">
+        <div class="search-img">
+            <img src="./../../../../../assets/img/no-results.png" width="100px" alt="no results">
+        </div>
+        <div class="img-text">
+            <mat-label>No Results Found...</mat-label>
+        </div>
+    </div>
+
+    <!-- Table for tab 1 -->
+    <div class="datatable-container overflow-auto" *ngIf="profileCandidate && profileSourceCandidates.filteredData.length > 0">
+        <table mat-table [dataSource]="profileSourceCandidates" class="mat-elevation-z0" *ngIf="!candidates_empty">
+
+            <!-- Industry Category Column -->
+            <ng-container matColumnDef="candidate_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.first_name}} {{element.middle_name}} {{element.last_name}}
+                </td>
+            </ng-container>
+
+            <!--  Location Column -->
+            <ng-container matColumnDef="location">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Location </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.country}} {{element.city}}</td>
+            </ng-container>
+
+            <!--  Email Column -->
+            <ng-container matColumnDef="email">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Email </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.email}}</td>
+            </ng-container>
+
+            <!--  Profile Completion -->
+            <ng-container matColumnDef="profile_status">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Profile Completion </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span *ngIf="element.profile_completion < 100"> {{element.profile_completion}} % </span>
+
+                    <span class="complete-status" *ngIf="element.profile_completion === 100"> complete </span>
+                </td>
+            </ng-container>
+
+            <!--  Created Date -->
+            <ng-container matColumnDef="applied_date">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Created </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span> {{element.created_date * 1000 | date}}</span>
+                </td>
+            </ng-container>
+
+            <!--  Is User Member -->
+            <ng-container matColumnDef="is_staff">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Is Employee ? </th>
+                <td class="body-text" mat-cell *matCellDef="let element">
+                    <mat-checkbox class="body-text" [(ngModel)]="element.staff" (change)="toggleUser($event, element)"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+
+                </th>
+                <td mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <!-- <mat-icon (click)="openViewCandidate(element)">visibility
+                    </mat-icon> -->
+
+                        <mat-icon class="edit-icon" (click)="editCandidate(element)">edit_square
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialogProfile(i, element)">delete
+                        </mat-icon>
+                    </div>
+
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="profileDisplayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: profileDisplayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator class="paginator" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" #profile_candidate_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="CandidateData.length !== 0 && profileCandidate && profileSourceCandidates.filteredData.length > 0"></mat-paginator>
+
+
+
+    <!-- Table for tab 1 -->
+    <div class="datatable-container overflow-auto" *ngIf="completeProfileCandidate && completeProfileSourceCandidates.filteredData.length > 0">
+        <table mat-table [dataSource]="completeProfileSourceCandidates" class="mat-elevation-z0" *ngIf="!candidates_empty">
+
+            <!-- Industry Category Column -->
+            <ng-container matColumnDef="candidate_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.first_name}} {{element.middle_name}} {{element.last_name}}
+                </td>
+            </ng-container>
+
+            <!--  Location Column -->
+            <ng-container matColumnDef="location">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Location </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.country}} {{element.city}}</td>
+            </ng-container>
+
+            <!--  Email Column -->
+            <ng-container matColumnDef="email">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Email </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.email}}</td>
+            </ng-container>
+
+            <!--  Profile Completion -->
+            <ng-container matColumnDef="profile_status">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Profile Completion </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span *ngIf="element.profile_completion < 100"> {{element.profile_completion}} % </span>
+
+                    <span class="complete-status" *ngIf="element.profile_completion === 100"> complete </span>
+                </td>
+            </ng-container>
+
+            <!--  Created Date -->
+            <ng-container matColumnDef="applied_date">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Created </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span> {{element.created_date * 1000 | date}}</span>
+                </td>
+            </ng-container>
+
+            <!--  Is User Member -->
+            <ng-container matColumnDef="is_staff">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Is Employee ? </th>
+                <td class="body-text" mat-cell *matCellDef="let element">
+                    <mat-checkbox class="body-text" [(ngModel)]="element.staff" (change)="toggleUser($event, element)"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+
+                </th>
+                <td mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <!-- <mat-icon (click)="openViewCandidate(element)">visibility
+                    </mat-icon> -->
+
+                        <mat-icon class="edit-icon" (click)="editCandidate(element)">edit_square
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialogCompleteProfile(i, element)">delete
+                        </mat-icon>
+                    </div>
+
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="completeProfileDisplayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: completeProfileDisplayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator class="paginator" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" #complete_profile_candidate_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="CandidateData.length !== 0 && completeProfileCandidate && completeProfileSourceCandidates.filteredData.length > 0"></mat-paginator>
+
+
+    <!-- Table for tab 2 -->
+    <div class="datatable-container overflow-auto" *ngIf="incompleteProfileCandidate && incompleteProfileSourceCandidates.filteredData.length> 0">
+        <table mat-table [dataSource]="incompleteProfileSourceCandidates" class="mat-elevation-z0" *ngIf="!candidates_empty">
+
+            <!-- Industry Category Column -->
+            <ng-container matColumnDef="candidate_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.first_name}} {{element.middle_name}} {{element.last_name}}
+                </td>
+            </ng-container>
+
+            <!--  Location Column -->
+            <ng-container matColumnDef="location">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Location </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.country}} {{element.city}}</td>
+            </ng-container>
+
+            <!--  Email Column -->
+            <ng-container matColumnDef="email">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Email </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.email}}</td>
+            </ng-container>
+
+            <!--  Profile Completion -->
+            <ng-container matColumnDef="profile_status">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Profile Completion </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span *ngIf="element.profile_completion < 100"> {{element.profile_completion}} % </span>
+
+                    <span class="complete-status" *ngIf="element.profile_completion === 100"> complete </span>
+                </td>
+            </ng-container>
+
+            <!--  Created Date -->
+            <ng-container matColumnDef="applied_date">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Created </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span> {{element.created_date * 1000 | date}}</span>
+                </td>
+            </ng-container>
+
+            <!--  Is User Member -->
+            <ng-container matColumnDef="is_staff">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Is Employee ? </th>
+                <td class="body-text" mat-cell *matCellDef="let element">
+                    <mat-checkbox class="body-text" [(ngModel)]="element.staff" (change)="toggleUser($event, element)"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+
+                </th>
+                <td mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <!-- <mat-icon (click)="openViewCandidate(element)">visibility
+                    </mat-icon> -->
+
+                        <mat-icon class="edit-icon" (click)="editCandidate(element)">visibility
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialogCompleteProfile(i, element)">delete
+                        </mat-icon>
+                    </div>
+
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="completeProfileDisplayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: completeProfileDisplayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator class="paginator" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" #incomplete_profile_candidate_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="CandidateData.length !== 0 && incompleteProfileCandidate && incompleteProfileSourceCandidates.filteredData.length> 0"></mat-paginator>
+
+
+    <!-- Table for tab 3 -->
+    <div class="datatable-container overflow-auto" *ngIf="acceptedCandidate && accepetedCandidatesSource.filteredData.length > 0">
+        <table mat-table [dataSource]="accepetedCandidatesSource" class="mat-elevation-z0" *ngIf="!candidates_empty">
+
+            <!-- Industry Category Column -->
+            <ng-container matColumnDef="candidate_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.first_name}} {{element.middle_name}} {{element.last_name}}
+                </td>
+            </ng-container>
+
+            <!--  Location Column -->
+            <ng-container matColumnDef="location">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Location </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.country}} {{element.city}}</td>
+            </ng-container>
+
+            <!--  Email Column -->
+            <ng-container matColumnDef="email">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Email </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.email}}</td>
+            </ng-container>
+
+            <!--  Profile Completion -->
+            <ng-container matColumnDef="profile_status">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Profile Completion </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span *ngIf="element.profile_completion < 100"> {{element.profile_completion}} % </span>
+
+                    <span class="complete-status" *ngIf="element.profile_completion === 100"> complete </span>
+                </td>
+            </ng-container>
+
+            <!--  Created Date -->
+            <ng-container matColumnDef="applied_date">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Created </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> <span> {{element.created_date * 1000 | date}}</span>
+                </td>
+            </ng-container>
+
+            <!--  Is User Member -->
+            <ng-container matColumnDef="is_staff">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Is Employee ? </th>
+                <td class="body-text" mat-cell *matCellDef="let element">
+                    <mat-checkbox class="body-text" [(ngModel)]="element.staff" (change)="toggleUser($event, element)"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+
+                </th>
+                <td mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <!-- <mat-icon (click)="openViewCandidate(element)">visibility
+                    </mat-icon> -->
+
+                        <mat-icon class="edit-icon" (click)="editCandidate(element)">edit_square
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialogCompleteProfile(i, element)">delete
+                        </mat-icon>
+                    </div>
+
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="acceptedCandidateDisplayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: acceptedCandidateDisplayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator class="paginator" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" #accepted_candidate_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="CandidateData.length !== 0 && acceptedCandidate && accepetedCandidatesSource.filteredData.length > 0"></mat-paginator>
+
+</div>

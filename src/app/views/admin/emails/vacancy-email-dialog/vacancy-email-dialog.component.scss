@@ -1,0 +1,55 @@
+
+.top-section-devider {
+    height: 1px;
+    background-color: #3395d0;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.full-width {
+     width: 100%;
+}
+
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.top .container-header {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3395d0;
+    margin-top: 3px;
+}
+
+.mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+
+.btn_primary_large {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.btn_dark_large {
+    background-color: #304973;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    display: flex;
+}
+
+.button_holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_holder ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: #ffffff;
+    }

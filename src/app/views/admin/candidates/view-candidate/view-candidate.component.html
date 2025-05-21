@@ -1,0 +1,211 @@
+<div class="top">
+    <span class="main-header">Candidate Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 section-header">
+        Basic Details
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 title-header">
+        Name
+    </div>
+    <div class="col-md-6 body-text">
+        {{candidate.first_name}} {{candidate.middle_name}} {{candidate.last_name}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 title-header">
+        Location
+    </div>
+    <div class="col-md-6 body-text">
+        {{candidate.city}}, {{candidate.country}}
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-6 title-header">
+        Availability
+    </div>
+    <div class="col-md-6 body-text">
+        <div class="candidate-availability">
+            <span *ngIf="candidate.available">Available</span>
+            <span *ngIf="!candidate.available">Not Available</span>
+        </div>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-md-6 title-header">
+        Phone
+    </div>
+    <div class="col-md-6 body-text">
+        {{candidate.country_code}} {{candidate.phone}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 title-header">
+        Email
+    </div>
+    <div class="col-md-6 body-text">
+        {{candidate.email}}
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 section-header">
+        Professional Summary
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 body-text">
+        {{candidate.summary}}
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<div class="row" *ngIf="candidate.experience.length > 0">
+    <div class="col-md-6 section-header">
+        Experience
+    </div>
+</div>
+
+<div class="row" *ngIf="candidate.experience.length > 0">
+    <div class="col-md-12 body-text">
+        <div class="experience-info" *ngFor="let item of candidate.experience; index as i">
+            <div class="holder">
+                <span class="sub-title">
+                    {{item.title}}
+                </span> <br />
+            </div>
+
+
+            <span>
+                {{item.company}} . {{item.employment_type}}
+            </span> <br />
+
+            <span>
+                {{item.start_date | date}}
+            </span> -
+
+            <span *ngIf="item.end_date">
+                {{item.end_date | date}}
+            </span>
+
+            <span *ngIf="item.currently_working === true">
+                current
+            </span> <br />
+
+            <span>
+                {{item.location.city}}, {{item.location.country}}
+            </span>
+
+            <div class="inside-devider" *ngIf="candidate.experience.length - i !== 1"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 section-header">
+        Education
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 body-text">
+        <div class="education-info" *ngFor="let item of candidate.education; index as i">
+
+            <div class="holder">
+                <span class="sub-title">
+                    {{item.school}}
+                </span> <br />
+            </div>
+
+            <span>
+                {{item.degree}} . {{item.field_of_study}}
+            </span> <br />
+
+            <span>
+                {{item.start_date | date}} - {{item.end_date | date}}
+            </span>
+
+            <div class="inside-devider" *ngIf="candidate.education.length - i !== 1"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section-devider" *ngIf="candidate.skills.length > 0"></div>
+
+<div class="row" *ngIf="candidate.skills.length > 0">
+    <div class="col-md-6 section-header">
+        Skills
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <td class="skill-set">
+                    <mat-chip-list class="skill-info body-text" aria-label="Fish selection">
+                        <mat-chip selected *ngFor="let item of candidate.skills; index as i">{{item.skill_name}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="section-devider" *ngIf="!empty_audio"></div>
+
+<div class="row" *ngIf="!empty_audio">
+    <div class="col-md-6 section-header">
+        Audio
+    </div>
+</div>
+
+<div class="">
+    <div class="audio-player" *ngIf="!empty_audio">
+        <ngx-audio-player [playlist]="audiopPlaylist" [displayTitle]="audiopDisplayTitle" [autoPlay]="false" muted="muted" [displayPlaylist]="audiopDisplayPlayList" (trackEnded)="onEnded($event)" [displayVolumeControls]="audiopDisplayVolumeControls" [displayRepeatControls]="audiopDisplayRepeatControls"
+            [disablePositionSlider]="audiopDisablePositionSlider" [displayArtist]="audiopDisplayArtist" [displayDuration]="audiopDisplayDuration" [expanded]="true"></ngx-audio-player>
+    </div>
+
+</div>
+
+
+<div class="section-devider" *ngIf="!empty_document"></div>
+
+<div class="row" *ngIf="!empty_document">
+    <div class="col-md-6 section-header">
+        Document
+    </div>
+</div>
+
+<div class="">
+    <div class="document" *ngIf="!empty_document">
+        <div class="document-btn">
+            <a class="btn_primary button-text" [href]="documetSelectedFileBLOB" target="_blank" rel="noopener noreferrer">
+                View Resume
+            </a>
+        </div>
+    </div>
+</div>

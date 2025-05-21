@@ -1,0 +1,124 @@
+<div class="top">
+    <div class="main-header">Experience</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<form class="experience_center_inside" #f4="ngForm">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Job Title</mat-label>
+                <input matInput placeholder="Job Title" [(ngModel)]="candidate.experience[index].title" name="title"
+                    required #title="ngModel">
+                <mat-error *ngIf="!title.valid || (!title.pristine)">{{getTitleMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Employment Type</mat-label>
+                <input matInput placeholder="Employment Type" [(ngModel)]="candidate.experience[index].employment_type"
+                    name="employment_type">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Company</mat-label>
+                <input matInput placeholder="Company" [(ngModel)]="candidate.experience[index].company" name="company"
+                    required #company="ngModel">
+                <mat-error *ngIf="!company.valid || (!company.pristine)">{{getCompanyMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Country</mat-label>
+                <mat-select class="body-text" matInput placeholder="Country"
+                    [(ngModel)]="candidate.experience[index].location.country" name="experience_country" required
+                    #country="ngModel">
+                    <mat-option class="body-text" *ngFor="let c of countries" value="{{c.country_name}}">
+                        {{c.country_name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!country.valid || (!country.pristine)">{{getExperienceLocationCountryMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City" [(ngModel)]="candidate.experience[index].location.city"
+                    name="experience_city" required #experience_city="ngModel">
+                <mat-error *ngIf="!experience_city.valid || (!experience_city.pristine)">
+                    {{getExperienceLocationCityMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="current-employment">
+                <mat-checkbox name="currently_working" [(ngModel)]="candidate.experience[index].currently_working"
+                    (change)="CurrentWorkStatus($event)">
+                </mat-checkbox> &nbsp;&nbsp;&nbsp;
+
+                <mat-label class="sub-header">Candidate currently working</mat-label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="experience_start_date" placeholder="Event Date (format) dd/MM/YYYY"
+                    name="experience_start_date" [(ngModel)]="candidate.experience[index].start_date"
+                    (dateChange)="onChangeStartDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="experience_start_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #experience_start_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6" *ngIf="!candidate.experience[index].currently_working">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="experience_end_date" placeholder="Event Date (format) dd/MM/YYYY"
+                    name="experience_end_date" [(ngModel)]="candidate.experience[index].end_date"
+                    (dateChange)="onChangeEndDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="experience_end_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #experience_end_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description ..." [(ngModel)]="candidate.experience[index].description"
+                    name="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="login_form_action_container login_form_action_container_multiple-actions">
+        <button class="btn_primary_large from_button_floating button-text" type="submit" aria-label="Sign in"
+            [disabled]="!f4.valid" (click)="UpdateExperience(candidate)">Update</button>
+    </div>
+</form>

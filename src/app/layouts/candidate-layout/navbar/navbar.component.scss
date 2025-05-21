@@ -1,0 +1,183 @@
+//   Raleway Font End
+mat-toolbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 110px;
+    background-color: #ffffff;
+    padding: 20px 0 0 0;
+}
+
+.menu-holder {
+    display: none;
+}
+
+.menu-holder mat-icon {
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.navbar-brand img {
+    width: 80px;
+}
+
+.search-bar button {
+    background: #ddd;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.top-nav {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    width: 70%;
+    height: 80px;
+}
+
+.search-bar {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    margin-top: 12px;
+}
+
+.search-bar input {
+    border: 1px #3395d0 solid;
+    border-right: none;
+    font-size: 14px;
+    padding-left: 10px;
+    width: 100%;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.search-bar .seach-icon {
+    border: 1px #3395d0 solid;
+    display: flex;
+    justify-items: center;
+    padding: 9px 20px;
+    border-left: none;
+}
+
+.icon mat-icon {
+    font-size: 20px;
+    color: #7a7979;
+    cursor: pointer;
+}
+
+.search-holder {
+    display: flex;
+    height: 100%;
+    width: 35%;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.inside {
+    display: flex;
+    justify-items: center;
+    height: 40px;
+    margin-top: 22px;
+}
+
+.inside>div {
+    display: flex;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.icon-dropdown {
+    margin-left: 3px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    color: #7a7979;
+}
+
+.icon {
+    margin-left: 35px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.icon-text {
+    font-size: 13px;
+    color: #7a7979;
+    font-family: 'Raleway-Regular';
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.active .icon-text {
+    color: #3395d0;
+}
+
+.active mat-icon {
+    color: #3395d0;
+}
+
+@media screen and (max-width: 600px) {
+    .top-nav {
+        width: 100%;
+    }
+    .nav-links {
+        display: none;
+    }
+    .menu-holder {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        flex-direction: column;
+        color: #3395d0;
+    }
+    .mobile-nav .nav-links-mobile .nav-link {
+        cursor: pointer;
+        border-top: 1px solid #f6f1f1;
+        display: flex;
+    }
+    .mobile-nav {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        display: block;
+        background-color: #ffffff;
+    }
+    mat-toolbar {
+        display: block;
+    }
+    .icon {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 601px) {
+    .top-nav {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .top-nav {
+        width: 100%;
+    }
+}

@@ -1,0 +1,219 @@
+<!-- Basic Details -->
+<form class="needs-validation" #form1="ngForm">
+    <div class="row">
+        <label class="sub-header">Basic Details</label>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" [(ngModel)]="staff.personal_details.staff_name" name="staff_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input class="body-text" matInput [matDatepicker]="date_of_birth" placeholder="Date (format) dd/MM/YYYY" name="date_of_birth" [(ngModel)]="staff.personal_details.date_of_birth" (dateChange)="onChangeDOBDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="date_of_birth">
+                </mat-datepicker-toggle>
+                <mat-datepicker #date_of_birth></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" [(ngModel)]="staff.personal_details.email" name="email">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="Phone" [(ngModel)]="staff.personal_details.phone" name="phone">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>National Identity Number</mat-label>
+                <input matInput placeholder="National Identity Number" [(ngModel)]="staff.personal_details.national_identity_number" name="national_identity_number">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Passport Number</mat-label>
+                <input matInput placeholder="Passport Number" [(ngModel)]="staff.personal_details.passport_number" name="passport_number">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="sub-header" id="radio-group-label">Select Gender</label>
+        <mat-radio-group aria-labelledby="gender-radio-group-label" class="gender-radio-group" name="gender" [(ngModel)]="staff.personal_details.gender">
+            <mat-radio-button class="gender-radio-button" *ngFor="let gen of gender" [value]="gen">
+                {{gen}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <br />
+    <br />
+    <!-- Job Details -->
+    <div class="row">
+        <label class="sub-header">Job Details</label>
+    </div>
+    <div class="row">
+        <div class="col-md-6" *ngIf="jobs">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Job title</mat-label>
+                <mat-select class="body-text" matInput placeholder="Job title" [(ngModel)]="staff.job_details.job_title" name="job_title" required>
+                    <mat-option class="body-text" value="">Select Job title</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of jobs" value="{{c.job_name}}">
+                        {{c.job_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6" *ngIf="departments">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Department</mat-label>
+                <mat-select class="body-text" matInput placeholder="Job title" [(ngModel)]="staff.job_details.department" name="department" required>
+                    <mat-option class="body-text" value="">Select Company Department</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of departments" value="{{c.department_name}}">
+                        {{c.department_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" *ngIf="industries">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Industry Category</mat-label>
+                <mat-select class="body-text" matInput placeholder="Job title" [(ngModel)]="staff.job_details.industry_category" name="industry_category" required>
+                    <mat-option class="body-text" value="">Select Industry Category</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of industries" value="{{c.industry_name}}">
+                        {{c.industry_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Employement Status</mat-label>
+                <mat-select class="body-text" matInput placeholder="Employement Status" [(ngModel)]="staff.job_details.employement_status" name="employement_status" required>
+                    <mat-option class="body-text" value="">Select Employement Status</mat-option>
+                    <mat-option class="body-text" value="employee">Employee</mat-option>
+                    <mat-option class="body-text" value="ex employee">Ex-Employee</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input class="body-text" matInput [matDatepicker]="start_date" placeholder="Date (format) dd/MM/YYYY" name="start_date" [(ngModel)]="staff.job_details.start_date" (dateChange)="onChangeStartDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="start_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #start_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6" *ngIf="staff.job_details.employement_status === 'ex employee'">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input class="body-text" matInput [matDatepicker]="end_date" placeholder="Date (format) dd/MM/YYYY" name="end_date" [(ngModel)]="staff.job_details.end_date" (dateChange)="onChangeEndDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="end_date">
+                </mat-datepicker-toggle>
+                <mat-datepicker #end_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Address Details -->
+    <br />
+    <br />
+    <div class="row">
+        <label class="sub-header">Address Details</label>
+    </div>
+    <div class="row">
+        <div class="col-md-6" *ngIf="countries">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Country</mat-label>
+                <mat-select class="body-text" matInput placeholder="Country" [(ngModel)]="staff.address_details.country" name="country" required>
+                    <mat-option class="body-text" value="">Select Country</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of countries" value="{{c.country_name}}">
+                        {{c.country_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City" [(ngModel)]="staff.address_details.city" name="city">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address" [(ngModel)]="staff.address_details.home_address" name="address">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Next of kin details -->
+    <br />
+    <br />
+    <div class="row">
+        <label class="sub-header">Next of Kin Details</label>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Kin Name</mat-label>
+                <input matInput placeholder="Next of kin name" [(ngModel)]="staff.next_of_kin_details.next_of_kin_name" name="next_of_kin_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Kin phone number</mat-label>
+                <input matInput placeholder="Next of kin phone number" [(ngModel)]="staff.next_of_kin_details.next_of_kin_phone_number" name="next_of_kin_phone_number">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Kin relationship</mat-label>
+                <input matInput placeholder="Next of kin relationship" [(ngModel)]="staff.next_of_kin_details.next_of_kin_relationship" name="next_of_kin_relationship">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <br /><br />
+    <div class="row">
+        <div class="col-md-12">
+            <button class="save-staff-btn button-text" type="submit" aria-label="Sign in" (click)="updateStaff(staff)"> <span>Save</span> 
+        </button>
+        </div>
+    </div>
+</form>

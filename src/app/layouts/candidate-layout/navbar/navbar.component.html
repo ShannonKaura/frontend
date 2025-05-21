@@ -1,0 +1,149 @@
+<mat-toolbar>
+    <div class="top-nav">
+        <!-- logo -->
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <img src="assets/img/logoCleanAJH.svg">
+            </a>
+        </div>
+
+        <div class="menu-holder" (click)="Menu()">
+            <mat-icon>menu</mat-icon>
+        </div>
+
+        <div class="nav-links">
+            <div class="inside">
+                <div (click)="Home()">
+                    <div aria-label="icon-button icon" class="icon">
+                        <mat-icon>home</mat-icon>
+                    </div>
+                    <div class="icon-text">Home</div>
+                </div>
+
+                <div class="icons-holder" (click)="ViewProfile()" *ngIf="isLoggedIn && !profile_active">
+                    <div aria-label="icon-button  heart icon" class="icon">
+                        <mat-icon>account_circle</mat-icon>
+                    </div>
+                    <div class="icon-text">Profile</div>
+                </div>
+
+                <div class="icons-holder active" (click)="ViewProfile()" *ngIf="isLoggedIn && profile_active">
+                    <div aria-label="icon-button  heart icon" class="icon">
+                        <mat-icon>account_circle</mat-icon>
+                    </div>
+                    <div class="icon-text">Profile</div>
+                </div>
+
+                <div class="vacancies-tab" (click)="ViewJobs()" *ngIf="!jobs_active">
+                    <div aria-label="icon-button icon" class="icon">
+                        <mat-icon>work</mat-icon>
+                    </div>
+                    <div class="icon-text">Jobs</div>
+                </div>
+
+                <div class="vacancies-tab active" (click)="ViewJobs()" *ngIf="jobs_active">
+                    <div aria-label="icon-button icon" class="icon">
+                        <mat-icon>work</mat-icon>
+                    </div>
+                    <div class="icon-text">Jobs</div>
+                </div>
+
+                <div class="vacancies-tab active" (click)="ViewNotificatons()" *ngIf="notifications_active">
+                    <div aria-label="icon-button icon" class="icon">
+                        <mat-icon>notifications</mat-icon>
+                    </div>
+                    <div class="icon-text">Notifications</div>
+                </div>
+
+                <div (click)="CandidateUser()" *ngIf="isLoggedIn">
+                    <div aria-label="icon-button " class="icon">
+                        <mat-icon>account_box</mat-icon>
+                    </div>
+                    <div class="icon-text">{{candidate.email}}
+                    </div>
+                    <div aria-label="icon-button icon" class="icon-dropdown">
+                        <mat-icon>arrow_drop_down</mat-icon>
+                    </div>
+                </div>
+
+                <div (click)="Login()" *ngIf="!isLoggedIn">
+                    <div aria-label="icon-button icon" class="icon">
+                        <mat-icon>login</mat-icon>
+                    </div>
+                    <div class="icon-text">SignIn</div>
+                </div>
+
+                <div (click)="SignUp()" *ngIf="!isLoggedIn">
+                    <div aria-label="icon-button icon" class="icon">
+                        <mat-icon>open_in_browser</mat-icon>
+                    </div>
+                    <div class="icon-text">SignUp</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+
+<div class="mobile-nav" *ngIf="show_menu">
+    <div class="nav-links-mobile">
+        <div class="nav-link" (click)="Home()">
+            <div aria-label="icon-button icon" class="icon">
+                <mat-icon>home</mat-icon>
+            </div>
+            <div class="icon-text">Home</div>
+        </div>
+
+        <div class="icons-holder nav-link" (click)="ViewProfile()" *ngIf="isLoggedIn && !profile_active">
+            <div aria-label="icon-button  heart icon" class="icon">
+                <mat-icon>account_circle</mat-icon>
+            </div>
+            <div class="icon-text">Profile</div>
+        </div>
+
+        <div class="icons-holder nav-link active" (click)="ViewProfile()" *ngIf="isLoggedIn && profile_active">
+            <div aria-label="icon-button  heart icon" class="icon">
+                <mat-icon>account_circle</mat-icon>
+            </div>
+            <div class="icon-text">Profile</div>
+        </div>
+
+        <div class="vacancies-tab nav-link" (click)="ViewJobs()" *ngIf="!jobs_active">
+            <div aria-label="icon-button icon" class="icon">
+                <mat-icon>work</mat-icon>
+            </div>
+            <div class="icon-text">Jobs</div>
+        </div>
+
+        <div class="vacancies-tab nav-link active" (click)="ViewJobs()" *ngIf="jobs_active">
+            <div aria-label="icon-button icon" class="icon">
+                <mat-icon>work</mat-icon>
+            </div>
+            <div class="icon-text">Jobs</div>
+        </div>
+
+        <div class="nav-link" (click)="CandidateUser()" *ngIf="isLoggedIn">
+            <div aria-label="icon-button " class="icon">
+                <mat-icon>account_box</mat-icon>
+            </div>
+            <div class="icon-text">{{candidate.first_name}} {{candidate.middle_name}} {{candidate.last_name}}
+            </div>
+            <div aria-label="icon-button icon" class="icon-dropdown">
+                <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+        </div>
+
+        <div class="nav-link" (click)="Login()" *ngIf="!isLoggedIn">
+            <div aria-label="icon-button icon" class="icon">
+                <mat-icon>login</mat-icon>
+            </div>
+            <div class="icon-text">SignIn</div>
+        </div>
+
+        <div class="nav-link" (click)="SignUp()" *ngIf="!isLoggedIn">
+            <div aria-label="icon-button icon" class="icon">
+                <mat-icon>open_in_browser</mat-icon>
+            </div>
+            <div class="icon-text">SignUp</div>
+        </div>
+    </div>
+</div>

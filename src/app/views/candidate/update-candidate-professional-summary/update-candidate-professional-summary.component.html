@@ -1,0 +1,28 @@
+<div class="top">
+    <div class="main-header">Professional Summary</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<form #f="ngForm">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Professional Summary</mat-label>
+                <textarea matInput placeholder="Professional Summary ..." cdkTextareaAutosize [(ngModel)]="candidate.summary" name="summary"
+                    required #summary="ngModel"></textarea>
+                <mat-error *ngIf="!summary.valid || (!summary.pristine)">{{getSummaryMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="bottom-btn">
+        <button class="btn_primary_large button-text" [disabled]="!f.valid" type="submit" aria-label="Sign in"
+            (click)="UpdateCandidateProfessionalSummary(candidate)">Update</button>
+    </div>
+</form>

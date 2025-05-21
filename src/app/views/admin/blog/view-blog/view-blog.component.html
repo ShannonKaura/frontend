@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="preview">
+        <img [src]="imageSelectedFileBLOB" class="blog-image" width="100%">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1> {{title}}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 d-flex">
+        <div class="author d-flex body-text">
+            <div>
+                <mat-icon aria-hidden="false" aria-label="home">person_outline</mat-icon>
+            </div>
+            <div>
+                {{author}} &nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="posted_date d-flex body-text">
+            <div>
+                <mat-icon aria-hidden="false" aria-label="home">schedule_outline</mat-icon>
+            </div>
+            <div>
+                {{posted_date * 1000 | date}} &nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-12">
+        <mat-form-field class="full-width body-text" appearance="outline">
+            <mat-label>Caption</mat-label>
+            <textarea matInput placeholder="Caption" [(ngModel)]="blog.caption" name="caption" cdkTextareaAutosize></textarea>
+        </mat-form-field>
+    </div>
+</div> -->
+
+<div class="row caption-holder">
+    <div class="col-md-12">
+        <p class="full-width body-text">{{blog.caption}}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <quill-view [content]="content"></quill-view>
+    </div>
+</div>

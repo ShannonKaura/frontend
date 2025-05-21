@@ -1,0 +1,43 @@
+<div class="vacancies-holder" *ngIf="all_vacancies?.length > 0">
+    <div class="container">
+        <div class="row col-lg-12">
+            <div class="card col-lg-4 col-md-6 col-sm-12" *ngFor="let item of all_vacancies; index as i" (click)="selectedVacancy(item)">
+                <div class="content">
+                    <div class="left-job-title title-header"> {{item.name}} <span class="material-icons visibility" *ngIf="visibility"> visibility </span>
+                    </div>
+
+                    <div class="vacancy-text-holder d-flex">
+                        <div class="material-icons">
+                            location_on
+                        </div> &nbsp;
+                        <div class="text-inside body-text">
+                            {{item.city}} . {{item.country}}
+                        </div>
+                    </div>
+
+                    <div class="vacancy-text-holder d-flex">
+                        <div class="material-icons">
+                            work
+                        </div> &nbsp;
+                        <div class="text-inside body-text">{{item.vacancy_type}}</div>
+                    </div>
+
+                    <div class="vacancy-text-holder  d-flex">
+                        <div class="material-icons">
+                            article
+                        </div> &nbsp;
+                        <div class="text-inside body-text">{{item.category}}</div>
+                    </div>
+
+                    <div class="vacancy-text-holder  d-flex">
+                        <div class="material-icons active">
+                            wifi_tethering
+                        </div> &nbsp;
+                        <div class="text-inside body-text">Recruiting In Progress</div>
+                    </div>
+                </div>
+                <div class="footer"></div>
+            </div>
+        </div>
+    </div>
+</div>

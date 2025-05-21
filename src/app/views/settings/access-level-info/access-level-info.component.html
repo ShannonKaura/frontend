@@ -1,0 +1,71 @@
+<div class="top">
+    <div class="top-button">
+        <button class="button-text" mat-button matCountrytip="" (click)="openNewAccessLevelDialog()">New
+        AccessLevel</button>
+    </div>
+</div>
+
+<div class="body-holder">
+    <div class="mat-spinner-holder" *ngIf="loading">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+
+    <div class="searched-data" *ngIf="!accessLevelsList">
+        <div class="search-img">
+            <img src="./../../../../../assets/img/no-results.png" width="100px" alt="no results">
+        </div>
+        <div class="img-text">
+            <mat-label>No Results Found...</mat-label>
+        </div>
+    </div>
+</div>
+
+<div class="body-holder">
+
+    <div class="datatable-container overflow-auto">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0" *ngIf="AccessLevelData.length !== 0">
+
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+                    </mat-checkbox>
+                </th>
+                <td class="body-text" mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+
+            <!-- Industry Category Column -->
+            <ng-container matColumnDef="role_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.role_name}}
+                </td>
+            </ng-container>
+
+            <!-- View Column -->
+
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+                    <div>Actions</div>
+                </th>
+                <td class="body-text" mat-cell *matCellDef="let element; let i = index;">
+                    <div class="actions action-icons d-flex">
+                        <mat-icon class="edit-icon" (click)="openEditAccessLevel(element)">edit_square
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialog(i, element)">delete
+                        </mat-icon>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" #access_level_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="AccessLevelData.length !== 0"></mat-paginator>
+</div>

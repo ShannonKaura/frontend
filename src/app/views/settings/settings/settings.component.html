@@ -1,0 +1,42 @@
+<mat-tab-group #tabGroup (selectedTabChange)="0">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Countries
+            </span>
+        </ng-template>
+        <app-country-info></app-country-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Industry Categories
+            </span>
+        </ng-template>
+        <app-industry-info></app-industry-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Job Titles
+            </span>
+        </ng-template>
+        <app-job-info></app-job-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Company Departments
+            </span>
+        </ng-template>
+        <app-company-department-info></app-company-department-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Access Levels
+            </span>
+        </ng-template>
+        <app-access-level-info></app-access-level-info>
+    </mat-tab>
+</mat-tab-group>

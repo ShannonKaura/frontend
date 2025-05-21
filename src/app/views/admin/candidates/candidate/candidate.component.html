@@ -1,0 +1,28 @@
+<mat-tab-group #tabGroup [selectedIndex]="getSelectedIndex()" (selectedTabChange)="onTabChange($event)">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Candidates
+            </span>
+        </ng-template>
+        <app-candidate-info [profileCandidate]="profileCandidate"></app-candidate-info>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Candidates In Training
+            </span>
+        </ng-template>
+        <app-candidate-info [intrainingCandidate]="intrainingCandidate"></app-candidate-info>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-header">
+                Accepted Candidates
+            </span>
+        </ng-template>
+        <app-candidate-info [acceptedCandidate]="acceptedCandidate"></app-candidate-info>
+    </mat-tab>
+</mat-tab-group>

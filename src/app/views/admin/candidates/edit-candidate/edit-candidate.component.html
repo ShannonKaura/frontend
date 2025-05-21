@@ -1,0 +1,375 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 section-header">
+                Basic Details
+            </div>
+            <div class="col-md-6">
+                <div class="edit">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditCandidateBio(candidate)">
+                        edit
+                    </mat-icon>
+                </div>
+            </div>
+        </div><br />
+
+        <div class="row">
+            <div class="col-md-6 title-header">
+                Name
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.first_name}} {{candidate.middle_name}} {{candidate.last_name}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 title-header">
+                Location
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.city}}, {{candidate.country}}
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-6 title-header">
+                Availability
+            </div>
+            <div class="col-md-6 body-text">
+                <div class="candidate-availability">
+                    <span *ngIf="candidate.available">Available</span>
+                    <span *ngIf="!candidate.available">Not Available</span>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-6 title-header">
+                Phone
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.country_code}} {{candidate.phone}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 title-header">
+                Email
+            </div>
+            <div class="col-md-6 body-text">
+                {{candidate.email}}
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="row">
+            <div class="col-md-6 section-header">
+                Professional Summary
+            </div>
+
+            <div class="col-md-6">
+                <div class="edit">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditProfessionalSummary(candidate)">edit
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-text">
+                {{candidate.summary}}
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="">
+            <div class="holder">
+                <span class="section-header">
+                    Experience
+                </span>
+
+                <div class="edit">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openAddExperience(candidate)">
+                        add</mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-text">
+                <div class="experience-info" *ngFor="let item of candidate.experience; index as i">
+                    <div class="holder">
+                        <span class="sub-title">
+                            {{item.title}}
+                        </span> <br />
+
+                        <div class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditExperience(candidate, i)">edit
+                            </mat-icon>
+                        </div>
+                    </div>
+
+
+                    <span>
+                        {{item.company}} . {{item.employment_type}}
+                    </span> <br />
+
+                    <span>
+                        {{item.start_date | date}}
+                    </span> -
+
+                    <span *ngIf="item.end_date">
+                        {{item.end_date | date}}
+                    </span>
+
+                    <span *ngIf="item.currently_working === true">
+                        current
+                    </span> <br />
+
+                    <span>
+                        {{item.location.city}}, {{item.location.country}}
+                    </span>
+
+                    <div class="inside-devider" *ngIf="candidate.experience.length - i !== 1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="">
+            <div class="holder">
+                <span class="section-header">
+                    Education
+                </span>
+
+                <div class="edit">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openAddEducation(candidate)">
+                        add</mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 body-text">
+                <div class="education-info" *ngFor="let item of candidate.education; index as i">
+
+                    <div class="holder">
+                        <span class="sub-title">
+                            {{item.school}}
+                        </span> <br />
+
+                        <div class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditEducation(candidate, i)">edit
+                            </mat-icon>
+                        </div>
+                    </div>
+
+                    <span>
+                        {{item.degree}} . {{item.field_of_study}}
+                    </span> <br />
+
+                    <span>
+                        {{item.start_date | date}} - {{item.end_date | date}}
+                    </span>
+
+                    <div class="inside-devider" *ngIf="candidate.education.length - i !== 1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="holder">
+                    <div class="section-header">
+                        Skills <span class="sub-header">(Click on skill to edit)</span>
+                    </div>
+
+                    <div class="edit">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openAddSkill(candidate)">
+                            add
+                        </mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table>
+                    <tr>
+                        <td class="skill-set" class="body-text" *ngIf="candidate.skills.length === 0">
+                            Update your skills
+                        </td>
+
+                        <td class="skill-set">
+                            <mat-chip-list class="skill-info" aria-label="Fish selection">
+                                <mat-chip selected *ngFor="let item of candidate.skills; index as i" (click)="openEditSkill(candidate, i)">
+                                    {{item.skill_name}}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="">
+            <div class="holder">
+                <div class="section-header">
+                    Media <span class="sub-header" *ngIf="empty_audio">(Upload Audio)</span>
+                </div>
+
+                <div class="edit">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openMedia(candidate)" *ngIf="empty_audio">add
+                    </mat-icon>
+
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditMedia(candidate)" *ngIf="!empty_audio">edit
+                    </mat-icon>
+                </div>
+            </div>
+
+            <div class="audio-player" *ngIf="!empty_audio">
+                <ngx-audio-player [playlist]="audiopPlaylist" [displayTitle]="audiopDisplayTitle" [autoPlay]="false" muted="muted" [displayPlaylist]="audiopDisplayPlayList" (trackEnded)="onEnded($event)" [displayVolumeControls]="audiopDisplayVolumeControls" [displayRepeatControls]="audiopDisplayRepeatControls"
+                    [disablePositionSlider]="audiopDisablePositionSlider" [displayArtist]="audiopDisplayArtist" [displayDuration]="audiopDisplayDuration" [expanded]="true"></ngx-audio-player>
+            </div>
+
+        </div>
+
+        <div class="section-devider"></div>
+
+        <div class="">
+            <div class="holder">
+                <div class="section-header">
+                    Document <span class="sub-header" *ngIf="empty_document">(Upload Resume)</span>
+                </div>
+
+                <div class="edit">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openDocument(candidate)" *ngIf="empty_document">
+                        add
+                    </mat-icon>
+
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openEditDocument(candidate)" *ngIf="!empty_document">
+                        edit
+                    </mat-icon>
+                </div>
+            </div>
+
+            <div class="document" *ngIf="!empty_document && !unfinished_upload">
+                <div class="document-btn">
+                    <a class="btn_primary button-text" [href]="documetSelectedFileBLOB" target="_blank" rel="noopener noreferrer">
+                        View Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-right col-md-6">
+        <div class="section-header">
+            Interview Information
+        </div><br />
+
+        <div class="row" *ngIf="interviews.length > 0">
+            <div class="col-md-12">
+                <mat-form-field class="full-width body-text" appearance="outline">
+                    <mat-label>Select Candidate Applied Vacancy</mat-label>
+                    <mat-select class="body-text" matInput placeholder="Select Candidate Applied Vacancy" name="interviews_info" (selectionChange)="changeVacancy($event)">
+                        <mat-option class="body-text" *ngFor="let c of interviews, index as i" value="{{i}}">
+                            {{c.vacancy_name}} ({{c.vacancy_created_date * 1000 | date}})
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="" *ngIf="show_interview_page">
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Notes</mat-label>
+                        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="35" placeholder="" name="interview_notes" [(ngModel)]="interview_notes"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field appearance="outline" class="full-width body-text">
+                        <mat-label>Score (out of 5)</mat-label>
+                        <input matInput placeholder="e.g 3.8" type="number" name="interview_score" max="5" min="1" [(ngModel)]="interview_score" #score="ngModel">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="bottom-btn">
+                <button class="btn_primary_large button-text" type="submit" aria-label="Sign in" (click)="UpdateInterview(candidate)">Update</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="col-md-12 section-header">
+                    Decision After Interview
+                </div>
+            </div>
+
+            <div class="body-text">
+                <span *ngIf="decision_made === 'Accepted'">Candidate has been Accepted</span>
+                <span *ngIf="decision_made === 'Rejected'">Candidate has been Rejected</span>
+                <span *ngIf="decision_made === 'Under Review'">Candidate has been put Under Review</span>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="interviews.length === 0">
+            <div class="col-md-12">
+                <div class="body-text">
+                    This candidate has not applied for any vacancy
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            User Details
+        </div><br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <mat-checkbox class="body-text" [(ngModel)]="candidate.staff" (change)="toggleStaff($event)">Is Staff </mat-checkbox>
+            </div>
+        </div>
+
+        <br /> <br />
+        <div class="section-header section-role" *ngIf="candidate.staff">
+
+            <span class="role-head">User Role</span>
+            <span class="edit-role">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="editSelectRole()">
+                    edit
+                </mat-icon>
+            </span>
+        </div><br />
+
+        <div class="row">
+            <div class="col-md-12" *ngIf="candidate.staff && role_text_field">
+                <mat-form-field class="full-width body-text" appearance="outline">
+                    <mat-label>Select Candidate Role</mat-label>
+                    <mat-select class="body-text" matInput placeholder="Select Candidate Role" name="candidate_role" [(ngModel)]="candidate.job_role.job_name" (selectionChange)="RoleChange($event)">
+                        <mat-option class="body-text" *ngFor="let role of roles, index as i" [value]="role">
+                            {{role.name}} ({{role.category}})
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 body-text" *ngIf="candidate.job_role.job_name || role_text_selected">
+                Candidate Role {{candidate.job_role.job_name}}
+            </div>
+        </div>
+    </div>
+</div>

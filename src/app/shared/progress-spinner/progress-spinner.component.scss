@@ -1,0 +1,8 @@
+.progress-spinner {
+    margin: 0 10px;
+}
+
+::ng-deep.mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: rgb(177, 168, 157) !important;
+}

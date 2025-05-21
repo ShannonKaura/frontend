@@ -1,0 +1,405 @@
+<html>
+
+<body>
+
+    <section>
+        <header class="main-header">
+            <nav>
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="/"><img src="../../../../../assets/landing-pages/candidate/logo.svg" alt="youpro contact logo" width="160px" height="120px" /></a>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="candidate-btn" (click)="JoinNow()" *ngIf="!isLoggedIn">Join Now</button>
+
+                        <button class="client-btn" (click)="SignIn()" *ngIf="!isLoggedIn">Sign In</button>
+
+                        <button class="client-btn" (click)="MyAccount()" *ngIf="isLoggedIn">My Account</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </section>
+
+
+    <!-- Banner Starts Here -->
+    <section>
+        <div class="Modern-Slider-Baggage">
+            <!-- Item -->
+            <div class="item item-1">
+                <div class="img-fill">
+                    <div class="text-content">
+                        <div class="left">
+                            <div class="text-holder">
+                                <div class="text-header">
+                                    <h1>Join us at any stage of your career path.</h1>
+                                </div>
+
+                                <div class="section-text">
+                                    <p>Apply for cutting edge international roles through Southern Africa's fastest growing outsourcing business with clients in the UK, USA, Australia and Canada.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+        </div>
+    </section>
+
+    <!-- Banner Ends Here -->
+
+    <!-- Available Jobs cards starts -->
+
+    <section>
+        <div class="section-header" *ngIf="all_vacancies.length > 0">
+            Expore Available Jobs
+        </div>
+
+        <div class="job-card-holder">
+            <div class="cards" *ngIf="all_vacancies.length > 0">
+                <mat-card class="job-card" *ngFor="let item of all_vacancies; index as i" (click)="selectedVacancy(item)">
+                    <mat-card-header>
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="vacancy-text-holder">
+                            <div class="material-icons">
+                                location_on
+                            </div> &nbsp;
+                            <div class="text-inside body-text">
+                                {{item.city}} . {{item.country}}
+                            </div>
+                        </div>
+
+                        <div class="vacancy-text-holder">
+                            <div class="material-icons">
+                                work
+                            </div> &nbsp;
+                            <div class="text-inside body-text">{{item.vacancy_type}}</div>
+                        </div>
+
+                        <div class="vacancy-text-holder">
+                            <div class="material-icons">
+                                article
+                            </div> &nbsp;
+                            <div class="text-inside body-text">{{item.category}}</div>
+                        </div>
+
+                        <div class="vacancy-text-holder">
+                            <div class="material-icons active">
+                                wifi_tethering
+
+                            </div> &nbsp;
+                            <div class="text-inside body-text">Recruiting In Progress</div>
+                        </div>
+                    </mat-card-content>
+
+                    <mat-card-content>
+                        <div class="industries-holder">
+                            <div class="industry-icon">
+                                <mat-icon *ngIf="item.location">domain</mat-icon>
+                            </div>
+                            <div class="industry-name"> {{item.location}}</div>
+
+                            <div class="spacer">
+
+                            </div>
+                        </div>
+                    </mat-card-content>
+
+                    <mat-divider inset></mat-divider>
+
+                    <mat-card-footer>
+                    </mat-card-footer>
+                </mat-card>
+
+                <mat-card class="job-card browse-holder">
+                    <mat-card-content>
+                        <div class="remote-section-header">Looking for a Job ?</div>
+
+                        <div class="buttons">
+                            <a href="/jobs" class="candidate-btn">Browse latest jobs</a>
+                        </div>
+                    </mat-card-content>
+
+                    <mat-divider inset></mat-divider>
+
+                    <mat-card-footer>
+                    </mat-card-footer>
+                </mat-card>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="join-youpro-holder">
+            <div class="section-header">
+                Why Join Youpro Contact?
+            </div>
+
+            <div class="join-tabs-wrapper">
+                <div class="join-tabs-holder">
+                    <div class="join-tab">
+                        <div class="tab-img">
+                            <img src="../../../../../assets/landing-pages/candidate/uk_jobs.svg" alt="uk jobs" width="100%" height="300px" />
+                        </div>
+
+                        <div class="tab-header">
+                            International Roles
+                        </div>
+                    </div>
+
+                    <div class="join-tab">
+                        <div class="tab-img">
+                            <img src="../../../../../assets/landing-pages/candidate/growth.svg" alt="growth" width="100%" height="300px" />
+                        </div>
+
+                        <div class="tab-header">
+                            Performance-based Progression
+                        </div>
+                    </div>
+
+                    <div class="join-tab">
+                        <div class="tab-img">
+                            <img src="../../../../../assets/landing-pages/candidate/work_culture.svg" alt="work culture" width="100%" height="300px" />
+                        </div>
+
+                        <div class="tab-header">
+                            Awesome Work Culture
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Choose Youpro Ends here -->
+
+    <!-- Job categories -->
+
+    <section>
+        <div class="category-holder">
+            <div class="left">
+                <img src="../../../../../assets/landing-pages/candidate/guaranteed_job.svg" alt="guaranteed job" width="100%" height="500px" />
+            </div>
+
+            <div class="right">
+                <div class="info-holder">
+                    <div class="header">
+                        Continuous development and the creation of new jobs mean that you can join us at every stage of your career path.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-holder" id="it-support">
+            <div class="left">
+                <div class="info-holder">
+                    <div class="header">
+                        IT, Support, & Helpdesk
+                    </div>
+
+                    <div class="section-text">
+                        Every company needs an ‘IT Guy'. If you have the credentials, join our cool kids table and get to work with notable names in different industries across the globe.
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <img src="../../../../../assets/landing-pages/candidate/it_support.svg" alt="IT Support" width="100%" height="500px" />
+            </div>
+        </div>
+
+        <div class="category-holder" id="managed-assistants">
+            <div class="left">
+                <img src="../../../../../assets/landing-pages/candidate/managed_assistants.svg" alt="managed assistants" width="100%" height="500px" />
+            </div>
+
+            <div class="right">
+                <div class="info-holder">
+                    <div class="header">
+                        Managed Assistants
+                    </div>
+
+                    <div class="section-text">
+                        In a busy business world, someone has to make sure that every task has been handled. Join our team of assistants in helping global businesses stay organised and on top of their game.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-holder" id="digital-marketing">
+            <div class="right">
+                <div class="info-holder">
+                    <div class="header">
+                        Digital Marketing & Social Media
+                    </div>
+
+                    <div class="section-text">
+                        Are you tech savvy, love being social, and get goosebumps from helping brands establish their online footprint? If yes, then you will be a #ValuableAddition to our #DigitalFam.
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <img src="../../../../../assets/landing-pages/candidate/digital_marketing.svg" alt="digital marketing" width="100%" height="500px" />
+            </div>
+        </div>
+
+        <div class="category-holder" id=graphic>
+            <div class="left">
+                <img src="../../../../../assets/landing-pages/candidate/graphic_web.svg" alt="graphic web" width="100%" height="500px" />
+            </div>
+
+            <div class="right">
+                <div class="info-holder">
+                    <div class="header">
+                        Graphic & Web Design/Development
+                    </div>
+
+                    <div class="section-text">
+                        <p>Be part of this and awesome team of individuals who make even the wildest ideas tangible. If your thinking can't be boxed ,you have fun drawing stuff, and you have a hard time not opening a thousand tabs at the same time, then
+                            you're a perfect fit.</p>
+
+                        <p>P.S. well need to know your relationship with comic sans</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-holder" id="inbound-oubound-calling">
+            <div class="left">
+                <div class="info-holder">
+                    <div class="header">
+                        Inbound & Outbound Calling
+                    </div>
+
+                    <div class="section-text">
+                        If you love talking on the phone and interacting with customers on a daily basis, join our contact center's group of vibrant, and friendly individuals in helping clients attend to their customers.
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <img src="../../../../../assets/landing-pages/candidate/inbound_outbound.svg" alt="inbound outbound" width="100%" height="500px" />
+            </div>
+        </div>
+
+        <div class="category-holder" id="sales">
+            <div class="left">
+                <img src="../../../../../assets/landing-pages/candidate/sales.svg" alt="sales" width="100%" height="500px" />
+            </div>
+
+            <div class="right">
+                <div class="info-holder">
+                    <div class="header">
+                        Sales
+                    </div>
+
+                    <div class="section-text">
+                        Are you SOLD on the idea of convincing people to buy a product and earning an attractive commission while at it? Our sales team will definitely feel like home to you.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-holder" id="bookkeeping">
+            <div class="left">
+                <div class="info-holder">
+                    <div class="header">
+                        Bookkeeping & Accounting
+                    </div>
+
+                    <div class="section-text">
+                        Does crunching numbers and figures sound like your kind of career? Earn your place on our accounts team and work with businesses in the UK and other parts of the world in keeping their finances on track.
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <img src="../../../../../assets/landing-pages/candidate/accounting2.svg" alt="accounting" width="100%" height="500px" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Job categories ends here -->
+
+    <!--Looking for a job-->
+    <section>
+        <div class="job-hunt">
+            <div class="header">
+                Looking for a job?
+            </div>
+
+            <div class="button">
+                <button (click)="ApplyNow()" class="candidate-btn">APPLY NOW</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Starts Here -->
+    <footer>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-item">
+                    <h2>Quick Links</h2>
+
+                    <ul class="menu-list">
+                        <li><a href="#inbound-oubound-calling">Inbound/Outbound Calling</a></li>
+                        <li><a href="#it-support">IT & Support</a></li>
+                        <li><a href="#managed-assistants">Managed Assistants</a></li>
+                        <li><a href="#digital-marketing">Digital Marketing & Social Media</a></li>
+                        <li><a href="#graphic">Graphic & Web Design/Development</a></li>
+                        <li><a href="#sales">Sales</a></li>
+                        <li><a href="#bookkeeping">Bookkeeping & Accounting</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-item">
+                    <h2>Contact Us</h2>
+
+                    <ul class="menu-list">
+                        <li><img src="../../../../../assets/landing-pages/candidate/phone.svg" alt="express cargo phonenumber" width="30px" height="30px" /> &nbsp; &nbsp; +263 784 644 277 <br /> <span class="add-ext">0203 924 3444</span> <br />
+
+                            <li><img src="../../../../../assets/landing-pages/candidate/email.svg" alt="express cargo email" width="30px" height="30px" /> &nbsp; &nbsp;info@youprocontact.co.uk
+                            </li>
+                            <li><img src="../../../../../assets/landing-pages/candidate/location.svg" alt="express cargo address" width="30px" height="30px" /> &nbsp; &nbsp; 71-75 Sheldon Street <br />
+                                <span class="add-ext">London UK</span> <br /><br /><br />
+                                <span class="add-ext"> Eastgate, 5th Floor</span> <br />
+                                <span class="add-ext">Harare Zimbabwe </span> <br />
+                            </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-item last-item">
+                    <h2>Follow Us</h2>
+
+                    <ul class="social-icons">
+                        <li>
+                            <a rel="nofollow" href="https://www.facebook.com/youprocontact" target="_blank"><img src="../../../../../assets/landing-pages/candidate/facebook.svg" alt="facebook" width="30px" height="30px" /></a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com/youprocontact/" target="_blank"><img src="../../../../../assets/landing-pages/candidate/instagram.svg" alt="instagram" width="30px" height="30px" /></a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.linkedin.com/company/youpro-contact/mycompany/" target="_blank"><img src="../../../../../assets/landing-pages/candidate/linkedin.svg" alt="linkinin" width="30px" height="30px" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Copyright &copy; 2022 All rights reserved | Designed & developed by YouPro Contact
+        </div>
+    </footer>
+    <!-- Footer Ends Here -->
+</body>
+
+</html>

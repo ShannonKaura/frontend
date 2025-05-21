@@ -1,0 +1,108 @@
+<!-- <mat-dialog-content> -->
+<div class="top">
+    <span class="main-header">Client Details</span>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+
+<div class="top-section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Name
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.name}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Country
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.country}}
+    </div>
+</div>
+
+<div class="section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Company Name
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.company_name}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Industry Category
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.industry_category}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Business Entity
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.business_entity}}
+    </div>
+</div>
+
+<div class="row" *ngIf="client.business_overview">
+    <div class="col-md-6 topic-header">
+        Description
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.business_overview}}
+    </div>
+</div>
+
+<div class="row" *ngIf="client.website">
+    <div class="col-md-6 topic-header">
+        Website
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.website}}
+    </div>
+</div>
+
+
+<div class="section-devider"></div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Email
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.email_address}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Primary Phone
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.phone_number}}
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 topic-header">
+        Physical Address
+    </div>
+    <div class="col-md-6 body-text">
+        {{client.contact_physical_address}}
+    </div>
+</div>
+<!-- </mat-dialog-content> -->

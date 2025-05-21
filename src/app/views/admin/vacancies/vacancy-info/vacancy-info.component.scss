@@ -1,0 +1,58 @@
+th,
+td {
+    width: 25%;
+}
+
+mat-paginator {
+    color: #3395d0;
+}
+
+.prompt-blue {
+    background-color: #3395d0;
+    color: #ffffff;
+    width: 70%;
+    text-align: center;
+}
+
+.prompt-gray {
+    background-color: #CCD1D1;
+    color: #ffffff;
+    width: 70%;
+    text-align: center;
+}
+
+.prompt-green {
+    background-color: #2ECC71;
+    color: #ffffff;
+    width: 70%;
+    text-align: center;
+}
+
+.prompt-dark {
+    background-color: #616A6B;
+    color: #ffffff;
+    width: 70%;
+    text-align: center;
+}
+
+.mat-spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-spinner-holder mat-spinner {
+    margin-top: 100px;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #3395d0!important;
+}
+
+td.mat-cell {
+    border-bottom-style: none;
+}
+
+th.mat-header-cell {
+    border-bottom-style: none;
+}

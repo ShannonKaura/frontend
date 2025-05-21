@@ -1,0 +1,67 @@
+.preview {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.row mat-icon {
+    font-size: 20px;
+    color: #68A4C4;
+}
+
+.row h1 {
+    font-family: 'Montserrat-Medium';
+    font-size: 30px;
+    color: #2492D1;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.caption-holder {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.body-text {
+    font-size: 16px;
+}
+
+::ng-deep .ql-editor {
+    height: auto;
+}
+
+::ng-deep p {
+    font-family: 'Raleway-Regular' !important;
+    font-size: 16px;
+}
+
+::ng-deep h1 {
+    font-family: 'Montserrat-Medium';
+    font-size: 36px;
+    color: #2492D1 !important;
+}
+
+::ng-deep h2 {
+    font-family: 'Montserrat-Medium';
+    font-size: 32px;
+    color: #2492D1 !important;
+}
+
+::ng-deep h3 {
+    font-family: 'Montserrat-Medium';
+    font-size: 28px;
+    color: #2492D1 !important;
+}
+
+::ng-deep h4 {
+    font-family: 'Montserrat-Medium';
+    font-size: 24px;
+    color: #2492D1 !important;
+}
+
+::ng-deep h5 {
+    font-family: 'Montserrat-Medium';
+    font-size: 20px;
+    color: #2492D1 !important;
+}

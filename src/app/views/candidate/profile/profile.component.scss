@@ -1,0 +1,357 @@
+.profile-holder mat-card {
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+}
+
+.profile-holder {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.main-profile-card {
+    width: 70%;
+}
+
+.profile-header-image {
+    background-image: url('../../../../assets/img/user.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.profile-header-image2 {
+    width: 150px;
+    height: 150px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.profile-header-image2 img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+
+.header-context {
+    width: 100%;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.candidate-name {
+    margin-bottom: 9px;
+    color: #424C55;
+}
+
+.job-title {
+    margin-bottom: 8px;
+    color: #424C55;
+}
+
+.holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location {
+    margin-bottom: 17px;
+    color: #424C55;
+}
+
+.btn__primary--large {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.send-applicarion-btn {
+    background-color: #27AE60;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.send-applicarion-btn mat-icon {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.send-applicarion-btn span {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.devider {
+    height: 1px;
+    background-color: #EAECEE;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error-message {
+    color: #E74C3C;
+}
+
+.inside-devider {
+    height: 1px;
+    background-color: #EAECEE;
+    margin-top: 12px;
+    margin-bottom: 2px;
+}
+
+.title-header {
+    color: #424C55;
+    margin-bottom: 5px;
+}
+
+.card-holder {
+    width: 70%;
+    display: flex;
+}
+
+.prof-summary textarea {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    text-align: justify;
+}
+
+.prof-summary textarea:focus {
+    outline: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0px !important;
+}
+
+.side-mat-card-holder {
+    width: 35%;
+}
+
+.main-mat-card-holder {
+    width: 65%;
+}
+
+.side-profile-card {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.content-profile-card {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.splitter {
+    width: 1%;
+}
+
+.experience-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #424C55;
+}
+
+.education-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #424C55;
+}
+
+.skill-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.skill-tab {
+    color: #fff;
+}
+
+.skill-info mat-chip {
+    background-color: #3395d0 !important;
+    cursor: pointer;
+}
+
+mat-icon {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sub-title {
+    color: #424C55;
+    margin-bottom: 4px;
+}
+
+.skill-set {
+    width: 100%;
+}
+
+.icon-chip {
+    color: #ffffff;
+}
+
+.message {
+    font-size: 13px;
+}
+
+.spinner-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.document {
+    margin: 30px 0 30px 0;
+}
+
+.document .btn_primary {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.audio-btn a {
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: #3395d0;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.chart-info-holder {
+    display: flex;
+}
+
+.chart-info-holder #chart {
+    padding: 0;
+    max-width: 250px;
+    margin: auto 0;
+}
+
+.chart-info-holder .complete-list {
+    width: calc(100% - 310px);
+}
+
+.chart-info-holder .task-holder {
+    display: flex;
+}
+
+.status .success {
+    color: #27AE60;
+}
+
+.status .success mat-icon {
+    font-size: 20px;
+    color: #27AE60;
+}
+
+.status .inprogress mat-icon {
+    font-size: 20px;
+    color: #E74C3C;
+}
+
+.chart-info-holder .task-holder .task {
+    padding: 0px;
+    font-size: 15px;
+}
+
+.completion-error {
+    width: 100%;
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    color: #E74C3C;
+}
+
+.icon-sign {
+    display: flex;
+    justify-content: flex-start;
+    justify-items: center;
+}
+
+.icon-sign mat-icon {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    color: #eed202;
+    font-size: 20px;
+}
+
+.icon-sign span {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-holder .main-profile-card {
+        width: 100%;
+    }
+    .profile-holder .chart-info-holder .complete-list {
+        width: 100%;
+    }
+    .profile-holder .main-profile-card .header-context {
+        width: 100%;
+        margin: 0;
+    }
+    .profile-holder .card-holder {
+        width: 100%;
+        display: block;
+    }
+    .side-mat-card-holder {
+        width: 100%;
+    }
+    .main-mat-card-holder {
+        width: 100%;
+    }
+    .profile-holder .card-holder .side-profile-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .profile-holder .card-holder .content-profile-card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 601px) {
+    .profile-holder .main-profile-card {
+        width: 100%;
+    }
+    .profile-holder .chart-info-holder .complete-list {
+        width: 100%;
+    }
+    .profile-holder .main-profile-card .header-context {
+        width: 100%;
+    }
+    .profile-holder .card-holder {
+        width: 100%;
+    }
+}

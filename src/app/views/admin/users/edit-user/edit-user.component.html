@@ -1,0 +1,66 @@
+<!-- Basic Details -->
+<form class="needs-validation" #form1="ngForm">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" [(ngModel)]="user.main_user_info.first_name" name="first_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Middle Name</mat-label>
+                <input matInput placeholder="Middle Name" [(ngModel)]="user.main_user_info.middle_name" name="middle_name">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" [(ngModel)]="user.main_user_info.last_name" name="last_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>User</mat-label>
+                <input matInput placeholder="Email" [(ngModel)]="user.contact_info.email_address" name="email_address">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select class="body-text" matInput placeholder="Status" [(ngModel)]="user.status" name="status">
+                    <mat-option class="body-text" value="">Select Status</mat-option>
+                    <mat-option class="body-text" value="Active">Active</mat-option>
+                    <mat-option class="body-text" value="InActive">InActive</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Access Level</mat-label>
+                <mat-select class="body-text" matInput placeholder="Access Level" [(ngModel)]="user.access_level" name="access_level" required>
+                    <mat-option class="body-text" value="">Select Level</mat-option>
+                    <mat-option class="body-text" *ngFor="let c of access_levels" [value]="c">
+                        {{c.role_name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="group-button">
+        <div>
+            <button mat-button (click)="updateUser(user)" class="save button-text">Update</button>
+        </div>
+    </div>
+</form>

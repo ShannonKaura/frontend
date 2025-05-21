@@ -1,0 +1,23 @@
+<div class="message body-text" *ngIf="incomplete_profile_details">
+    Update your profile to complete your application..
+</div>
+
+<div class="message body-text" *ngIf="incomplete_professional_summary">
+    Please update professional summary on your profile ..
+</div>
+
+<div class="message body-text" *ngIf="incomplete_education">
+    Please update education details on your profile ..
+</div>
+
+<div class="message body-text" *ngIf="incomplete_skills">
+    Please update skills on your profile ..
+</div>
+
+<div class="message body-text" *ngIf="incomplete_resume">
+    Please upload your resume on your profile ..
+</div>
+
+<div class="button body-text">
+    <button class="btn" (click)="close()">Ok</button>
+</div>

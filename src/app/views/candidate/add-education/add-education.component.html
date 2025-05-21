@@ -1,0 +1,112 @@
+<div class="top">
+    <div class="main-header">Education</div>
+
+    <div class="close-btn">
+        <mat-icon (click)="close()">cancel
+        </mat-icon>
+    </div>
+</div>
+<div class="divider"></div>
+
+<form class="student_center" #f="ngForm">
+
+    <div class="row">
+         <div class="col-md-12">
+             <mat-form-field class="full-width body-text" appearance="outline">
+                    <mat-label>Academic Level</mat-label>
+                    <mat-select class="body-text" matInput placeholder="Select Academic Level"
+                        name="academic_level" (selectionChange)="changeVacancy($event)" [(ngModel)]="education.academic_level">
+                        <mat-option class="body-text" *ngFor="let c of academic_levels, index as i" value="{{c.name}}">
+                            {{c.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+         </div>
+    </div>
+    
+
+    <div class="row" *ngIf="certificate || diploma || associate || bachelors_degree || masters_degree || secondary">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>School Name</mat-label>
+                <input matInput placeholder="School Name" [(ngModel)]="education.school" name="school" required
+                    #school="ngModel">
+                <mat-error *ngIf="!school.valid || (!school.pristine)">{{getShcoolMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="certificate">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Certificate Name</mat-label>
+                <input matInput placeholder="Certificate Name" [(ngModel)]="education.degree" name="degree">
+            </mat-form-field>
+        </div>
+    </div>
+
+      <div class="row" *ngIf="diploma">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Diploma Name</mat-label>
+                <input matInput placeholder="Diploma Name" [(ngModel)]="education.degree" name="degree">
+            </mat-form-field>
+        </div>
+    </div>
+
+      <div class="row" *ngIf="associate">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Associate Name</mat-label>
+                <input matInput placeholder="Associate Name" [(ngModel)]="education.degree" name="degree">
+            </mat-form-field>
+        </div>
+    </div>
+
+     <div class="row" *ngIf="bachelors_degree">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Bachelors Degree Name</mat-label>
+                <input matInput placeholder="Bachelors Degree" [(ngModel)]="education.degree" name="degree">
+            </mat-form-field>
+        </div>
+    </div>
+
+     <div class="row" *ngIf="masters_degree">
+        <div class="col-md-12">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Masters Degree Name</mat-label>
+                <input matInput placeholder="Masters Degree Name" [(ngModel)]="education.degree" name="degree">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="certificate || diploma || associate || bachelors_degree || masters_degree || secondary">
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="school_start_date" placeholder="Event Date (format) dd/MM/YYYY"
+                    name="school_start_date" [(ngModel)]="education.start_date" (dateChange)="onChangeStartDate($event)"
+                    required>
+                <mat-datepicker-toggle matSuffix [for]="school_start_date"></mat-datepicker-toggle>
+                <mat-datepicker #school_start_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="full-width body-text" appearance="outline">
+                <mat-label>End Date (Expected End Date)</mat-label>
+                <input matInput [matDatepicker]="school_end_date" placeholder="Event Date (format) dd/MM/YYYY"
+                    name="school_end_date" [(ngModel)]="education.end_date" (dateChange)="onChangeEndDate($event)" required>
+                <mat-datepicker-toggle matSuffix [for]="school_end_date"></mat-datepicker-toggle>
+                <mat-datepicker #school_end_date></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="bottom-btn">
+        <button class="btn_primary_large button-text" [disabled]="!f.valid" type="submit" aria-label="Sign in"
+            (click)="AddEducation(education)">Save</button>
+    </div>
+</form>

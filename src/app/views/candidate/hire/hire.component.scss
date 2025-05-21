@@ -1,0 +1,395 @@
+/**************************************
+Main header start
+**************************************/
+
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+::ng-deep .mat-form-field {}
+
+
+/* Navbar */
+
+.main-header nav {
+    // position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    background: transparent;
+    z-index: 99;
+}
+
+.main-header nav .navbar {
+    height: 100%;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.main-header .navbar .logo {
+    display: block;
+    width: 160px;
+}
+
+.main-header .navbar .logo img {
+    width: 160px;
+}
+
+.main-header .navbar .buttons {
+    display: flex;
+}
+
+.main-header .navbar .buttons a {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Montserrat-Medium';
+    padding: 12px 44px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s;
+    border: none;
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-header .navbar .buttons a.candidate-btn {
+    background-color: #2492D1;
+}
+
+.main-header .navbar .buttons a.client-btn {
+    background-color: #304973;
+}
+
+.headers .section-header {
+    color: #2492D1;
+    font-size: 18px;
+    font-family: 'Raleway-Medium';
+    text-decoration: none;
+}
+
+.headers .section-header-top {
+    color: #304973;
+    font-size: 22px;
+    font-family: 'Raleway-Medium';
+    text-decoration: none;
+}
+
+.headers .section-sub-header {
+    font-size: 14px;
+    font-family: 'Raleway-Medium';
+    text-decoration: none;
+}
+
+.headers h1 {
+    margin: 0 !important;
+}
+
+.skills {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.skill-card {
+    width: 120px;
+    margin-right: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    cursor: pointer;
+}
+
+.skills-holder-card {
+    width: 100%;
+    // margin-right: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.skill-card-border {
+    border: 1px solid #58D68D;
+}
+
+.skill-card h3 {
+    font-size: 12px;
+    font-family: 'Raleway-Regular';
+}
+
+.skill-card img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.example-chip-list {
+    width: 100%;
+}
+
+.example-button-container>button {
+    margin: 0 12px;
+}
+
+.btn_primary_large {
+    background-color: #304973;
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.btn_primary_back {
+    background-color: #2492D1;
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.btn_primary_skip {
+    background-color: #2492D1;
+    border: none;
+    color: #fff;
+    padding: 0px 20px;
+    height: 40px;
+}
+
+.skill-input-holder .btn_primary_large {
+    margin: 5px;
+    padding: 8px 20px;
+}
+
+.skills-holder .skills-container .skills {
+    display: flex;
+    justify-content: center;
+}
+
+.skills-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.add-skill-input {
+    width: 50%;
+}
+
+.skill-input-holder {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.skill-input-holder mat-icon {
+    color: #2492D1;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.skill-info mat-chip {
+    background-color: #3395d0 !important;
+    cursor: pointer;
+}
+
+.details-holder {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.details-holder .details {
+    width: 50%;
+    padding: 10px;
+    box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 5px 0px 25px 0px rgba(0, 0, 0, 0.05);
+}
+
+.details-holder .details .selection-questions-holder {
+    display: flex;
+    justify-content: space-between;
+    //    margin-bottom: 20px;
+}
+
+.details-holder .details .selection-questions-holder .question {
+    padding-top: 7px;
+}
+
+.details-holder .details .selection-options-holder {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.client-inputs-holder .client-input {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.demo-inline-calendar-card {
+    width: 300px;
+}
+
+.booking-details-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.booking-details {
+    width: 80%;
+    text-align: center;
+    justify-items: center;
+}
+
+.booking-details h1 {
+    font-size: 18px;
+    font-family: 'Raleway-SemiBold';
+}
+
+.booking-details h3 {
+    font-size: 14px;
+    font-family: 'Raleway-Regular';
+}
+
+iframe {
+    width: 100%;
+    height: 100vh;
+    border: none
+}
+
+.other_talent_skills {
+    display: flex;
+    justify-content: center;
+}
+
+.skills-container {
+    width: 50%;
+}
+
+.seperator-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.seperator {
+    height: 1px;
+    border-top: #D5D8DC;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.optional {
+    color: #2492D1;
+    font-size: 14px;
+}
+
+.skills-wraper {
+    width: 100%;
+}
+
+.top-section-skills-holder {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.skills-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .main-header .navbar .logo {
+        display: block;
+        width: 100px;
+    }
+    .main-header .navbar .logo img {
+        width: 100px;
+    }
+    .main-header .navbar .buttons a {
+        font-size: 12px;
+        padding: 8px 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-header nav .navbar {
+        height: 100%;
+        width: 85%;
+        display: block;
+    }
+    .main-header .navbar .logo {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .main-header .navbar .logo img {
+        width: 100px;
+    }
+    .main-header .navbar .buttons {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+    }
+    .main-header .navbar .buttons a {
+        font-size: 12px;
+        padding: 8px 28px;
+    }
+    .details-holder .details {
+        width: 98%;
+    }
+    .skills-container {
+        width: 98%;
+    }
+    .add-skill-input {
+        width: 85%;
+    }
+    .skills-holder-card .skills {
+        display: none !important;
+    }
+    .skills-mobile {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    .headers .section-header-top {
+        font-size: 17px;
+    }
+}
+
+.btn_primary_large:disabled {
+    background-color: #EAECEE !important;
+}
+
+
+/**************************************
+Main header end
+**************************************/

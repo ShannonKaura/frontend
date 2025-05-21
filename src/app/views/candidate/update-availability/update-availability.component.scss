@@ -1,0 +1,79 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.close-btn mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.top .header {
+    font-size: 20px;
+    font-weight: 400;
+    color: #3395d0;
+}
+
+.divider {
+    height: px;
+    background-color: #3395d0;
+    margin-bottom: 40px;
+}
+
+.bottom-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_primary_large {
+    background-color: #3395d0;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+@media screen and (min-width: 1201px) {
+    .row {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+    .row {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 769px) and (min-width: 481px) {
+    .row {
+        width: 480px;
+    }
+}

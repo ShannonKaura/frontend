@@ -1,0 +1,60 @@
+.full-width {
+    width: 100%;
+}
+
+.close-btn mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.top .header {
+    font-size: 20px;
+    font-weight: 400;
+    color: #3395d0;
+}
+
+.divider {
+    height: 1.5px;
+    background-color: #D5D8DC;
+    margin-bottom: 40px;
+}
+
+.bottom-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn__primary--large {
+    background-color: #27AE60;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+button:disabled {
+    background-color: #EAECEE;
+}
+
+@media screen and (min-width: 1201px) {
+    .row {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+    .row {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 769px) and (min-width: 481px) {
+    .row {
+        width: 480px;
+    }
+}

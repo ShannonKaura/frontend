@@ -1,0 +1,88 @@
+<div class="top">
+    <div class="filter-holder" *ngIf="ClientData.length > 0">
+        <div class="search-container">
+            <button type="submit"><mat-icon>search</mat-icon></button>
+            <input type="text" (keyup)="applyFilter($event)" placeholder="Search Client" name="search">
+        </div>
+    </div>
+
+
+    <div class="top-button">
+        <button class="button-text" mat-button matTooltip="" (click)="openNewClientDialog()">New Client</button>
+    </div>
+</div>
+
+<div class="body-holder">
+    <div class="mat-spinner-holder" *ngIf="loading">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+
+    <div class="searched-data" *ngIf="!clientsList">
+        <div class="search-img">
+            <img src="./../../../../../assets/img/no-results.png" width="100px" alt="no results">
+        </div>
+        <div class="img-text">
+            <mat-label>No Results Found...</mat-label>
+        </div>
+    </div>
+</div>
+
+<div class="body-holder">
+    <div class="datatable-container overflow-auto">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0" *ngIf="ClientData.length > 0">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="body-text" mat-cell *matCellDef="let element">{{element.name}}
+                </td>
+            </ng-container>
+
+            <!-- Company Column -->
+            <ng-container matColumnDef="company_name">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Company </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.company_name}} </td>
+            </ng-container>
+
+            <!-- Industry Column -->
+            <ng-container matColumnDef="country">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Country </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.country}} </td>
+            </ng-container>
+
+            <!-- Website Column -->
+            <ng-container matColumnDef="website">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Website </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.website}} </td>
+            </ng-container>
+
+            <!-- Phone Column -->
+            <ng-container matColumnDef="phone">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef> Phone </th>
+                <td class="body-text" mat-cell *matCellDef="let element"> {{element.phone_number}} </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th class="table-header-text" mat-header-cell *matHeaderCellDef>
+                    <div>Actions</div>
+                </th>
+                <td class="body-text" class="actions" mat-cell *matCellDef="let element; let i = index;">
+
+                    <div class="actions action-icons d-flex">
+                        <mat-icon class="edit-icon" (click)="editClient(element)">edit_square
+                        </mat-icon>
+
+                        <mat-icon class="delete-icon" (click)="confirmDialog(i, element)">delete
+                        </mat-icon>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" #client_paginator="matPaginator" showFirstLastButtons (page)="pageEvent = $event" *ngIf="ClientData.length !== 0"></mat-paginator>
+</div>

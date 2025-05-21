@@ -1,0 +1,126 @@
+/**************************************
+Fonts end
+**************************************/
+
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #EAECEE!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3395d0!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    // color: $mainColor!important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.close-btn mat-icon {
+    color: #3395d0;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.top .header {
+    font-size: 20px;
+    font-weight: 400;
+    color: #3395d0;
+}
+
+.divider {
+    height: 1.5px;
+    background-color: #D5D8DC;
+    margin-bottom: 40px;
+}
+
+.bottom-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_primary_large {
+    background-color: #27AE60;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+button:disabled {
+    background-color: #EAECEE;
+}
+
+.table-holder .skills-table td,
+th {
+    width: calc(100% / 3);
+    padding: 10px;
+}
+
+.table-holder table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.table-holder .skills-table th {
+    font-family: 'Raleway-Medium';
+    font-size: 14px;
+    color: #3395d0;
+}
+
+mat-icon {
+    cursor: pointer;
+    color: #3395d0;
+}
+
+.table-holder .skills-table tr {
+    margin-bottom: 10px;
+}
+
+.add-icon {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+select {
+    width: 100%;
+    padding: 8px 16px;
+    border-color: 1px solid #EAECEE;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1201px) {
+    .row {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+    .row {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 769px) and (min-width: 481px) {
+    .row {
+        width: 480px;
+    }
+}

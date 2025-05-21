@@ -1,0 +1,40 @@
+<div class="top">
+    <div class="holder">
+        <div class="section-header">
+            {{logged_user.first_name}} {{logged_user.middle_name}} {{logged_user.last_name}}
+        </div>
+
+        <div class="title-header">
+            {{logged_user.email}}
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="links">
+    <div (click)="ViewProfile()" class="user-link">
+        <span class="material-icons">
+            account_circle
+        </span> &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <span class="body-text">View Profile</span>
+    </div>
+
+    <div (click)="UpdatePassword()" class="user-link">
+        <span class="material-icons">
+            password
+        </span> &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <span class="body-text">Update Password</span>
+    </div>
+
+    <div (click)="Logout()" class="user-link">
+        <span class="material-icons">
+            logout
+        </span> &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <span class="body-text">Sign Out</span>
+    </div>
+
+</div>

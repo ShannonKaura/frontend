@@ -1,0 +1,16 @@
+// mat tabs
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color: #ffffff;
+    background-color: #3395d0;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels {
+    color: #3395d0;
+    background-color: transparent;
+    border-top: #EAECEE 1px solid;
+    border-bottom: none;
+}
+
+.mat-tab-header {
+    border: none;
+}

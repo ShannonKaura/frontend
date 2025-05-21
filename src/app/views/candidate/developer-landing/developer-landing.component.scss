@@ -1,0 +1,104 @@
+/**************************************
+Main header start
+**************************************/
+
+
+/* Navbar */
+
+.main-header nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    background: transparent;
+    z-index: 99;
+}
+
+.main-header nav .navbar {
+    height: 100%;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.main-header .navbar .logo {
+    display: block;
+    width: 160px;
+}
+
+.main-header .navbar .logo img {
+    width: 160px;
+}
+
+.main-header .navbar .buttons {
+    display: flex;
+}
+
+.main-header .navbar .buttons a {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Montserrat-Medium';
+    padding: 12px 44px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s;
+    border: none;
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-header .navbar .buttons a.candidate-btn {
+    background-color: #2492D1;
+}
+
+.main-header .navbar .buttons a.client-btn {
+    background-color: #304973;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .main-header .navbar .logo {
+        display: block;
+        width: 100px;
+    }
+    .main-header .navbar .logo img {
+        width: 100px;
+    }
+    .main-header .navbar .buttons a {
+        font-size: 12px;
+        padding: 8px 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-header nav .navbar {
+        height: 100%;
+        width: 85%;
+        display: block;
+    }
+    .main-header .navbar .logo {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .main-header .navbar .logo img {
+        width: 100px;
+    }
+    .main-header .navbar .buttons {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+    }
+    .main-header .navbar .buttons a {
+        font-size: 12px;
+        padding: 8px 28px;
+    }
+}
+
+
+/**************************************
+Main header end
+**************************************/
